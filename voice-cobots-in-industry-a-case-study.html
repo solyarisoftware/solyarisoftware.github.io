@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Voice-cobots in industry. A case study — ConvComp.it</title>
+<meta name="description" content="A voice assistant application in the shipping container industry" />
+<link rel="canonical" href="https://convcomp.it/voice-cobots-in-industry-a-case-study.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Voice-cobots in industry. A case study — ConvComp.it" />
+<meta property="og:description" content="A voice assistant application in the shipping container industry" />
+<meta property="og:url" content="https://convcomp.it/voice-cobots-in-industry-a-case-study.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Voice-cobots in industry. A case study</h1>
+    <p class="post-subtitle">A voice assistant application in the shipping container industry</p>
+    <p class="post-meta"><time datetime="2021-01-18">January 18, 2021</time></p>
+  </header>
+  <div class="post-body">
+<figure><img src="images/1_P-fWyaX5C-4TjuCK9rHMOw.jpg" loading="lazy" decoding="async" width="1654" height="1132" alt=""><figcaption>A reachstacker vehicle moving a shipping container, in an intermodal terminal (<a href="https://port.today/contargo-successfully-tests-liebherr-reachstacker-lrs-545-%E2%80%A8/">source</a>).</figcaption></figure>
+<blockquote>Update: I participated at the <a href="http://www.lingofest2021.com">www.lingofest2021.com</a> event, 2021, March 26th, presenting my talk: <strong>Enterprise Voice Cobots</strong>, where this case study is deepened. Slides and video links available at the end of the article.</blockquote>
+<p><span>V</span>oice assistants, for consumers at home, are nowadays taken for granted, but there is a huge space of applications of voice virtual assistants also in enterprise verticals.</p>
+<p>I want to introduce my current R&amp;D project, involving an innovative voice assistant application in the logistics shipping container operations.</p>
+<p>In a sentence,<strong> the <em>voice-cobot</em> I conceived helps forklift vehicle drivers to load and unload shipping containers from/to yard spots from/to container trailers.</strong></p>
+<figure><img src="images/1_DvUnKEA_n50QQm3LvpmCYg.jpg" loading="lazy" decoding="async" width="595" height="446" alt=""><figcaption>A reach stacker (kind of forklift vehicle) loads a container on a trailer (<a href="https://www.driverknowledgetests.com/resources/whats-a-side-loader-trailer/">source</a>)</figcaption></figure>
+<p>Let me share, before all, the general concept of a <em>voice-cobot</em>, as a possible application of a conversational <em>assistive-reality computing</em>. Afterward I will show the solution I found for the specific industrial scenario.</p>
+<h4>What’s a cobot?</h4>
+<p>On Wikipedia you get this <a href="https://en.wikipedia.org/wiki/Cobot">definition</a>:</p>
+<p><strong><em>“Cobots</em></strong><em>, or </em><strong><em>collaborative robots</em></strong><em>, are robots intended for direct human robot interaction within a shared space, or where humans and robots are in close proximity.”</em></p>
+<p>Well, the above definition refers to industrial robots<strong>, </strong>hardware machines — capable of carrying out a complex series of actions automatically — guided by a human being, using an external control device or whit a control embedded within. Robots may be constructed on the lines of human form, but most robots are machines designed to perform a task with no regard to their aesthetics.</p>
+<p>So in general we refer to cobots meaning industrial robots (the common case is an articulated electro-mechanical robots) that helps automate unergonomic tasks such as helping people moving heavy parts, or machine feeding or assembly operations. But that’s not what I want to talk to you about!</p>
+<h4>So what’s a Voice-Cobot?</h4>
+<blockquote>For <strong>voice-cobot</strong> I mean a voice-interfaced digital assistant that, through a real-time spoken conversation, helps a human operator to accomplish a specific working task.</blockquote>
+<p>Now forget the usual virtual assistant scenario that, as end-users, we experiencing with Amazon Alexa or Google Assistant at home, through smartspeakers or smartdisplay devices. Instead I want to talk here about the special case of <strong>private virtual assistants for industry enterprises</strong>.</p>
+<p>The disruption of a voice assistant in enterprise spaces refers to the concept of an assistive-reality computing automation made by a private, company-owned virtual assistant that collaborates with human operators (employees, skilled workers, professional technicians) to accomplish working tasks, literally having <strong>real-time conversational interactions</strong> (by voice, text, other UI).</p>
+<blockquote>Voice is an essential requirement, but the voice interface itself is not the game-changer, instead the collaborative enterprise-assistant computing is!</blockquote>
+<p>There is a common misconception where the novelty is just about the fact that you “talk to machine”, using speech (instead of chatting or using a graphical user interface), but that misses the most important point.</p>
+<p>A <em>voicefirst</em> interface and maybe a <em>voiceonly</em> interface are — in many cases — the best way to interact with computer, in situations where the human is working “hands-on” as in the case of a vehicle driver, a machine operator, a doctor, etc.<br> <br>Nevertheless, the best human-machine interface must be evaluated case-by-case and it can be made with different strategies, by example in input it could be voice, text, a camera scene, any IoT sensors, where in output it could be voice, earcons, text, graphics, light-signal devices, etc. All this could also work in parallel in a multimodal strategy.</p>
+<p>The real innovation is not just the voice interface, but the virtual assistant collaborative logics, meaning that</p>
+<blockquote><strong>enterprise processes are controlled by a single conversational-AI assisted-reality computing that interacts with human operators</strong>,</blockquote>
+<p>collaborating with them to accomplish workflows, and leading to time and costs savings and possibly to a better (and fun) user experience.</p>
+<h4>The case study: empty shipping containers handling</h4>
+<p>As a software engineer, consultant and researcher, I was initially asked by <a href="http://www.diten.unige.it/">DITEN</a> — Università di Genova- Dipartimento di Ingegneria Navale, Elettrica, Elettronica e delle Telecomunicazioni — to solve an apparently standard computer vision text detection/recognition problem.</p>
+<p>The topic was to automatically recognize the shipping container <a href="https://en.wikipedia.org/wiki/ISO_6346">marking code</a>s, during the containers loading/unloading tasks made by an operator driving an empty container handler machine.</p>
+<figure><img src="images/1_sWekriogWRqViU6D3ZVRQQ.jpg" loading="lazy" decoding="async" width="1200" height="900" alt=""><figcaption>A shipping container identified by the ISO 6346 marking MTBU 213401 9 22G1 (<a href="https://www.nzbox.kiwi.nz/wp-content/uploads/2020/11/20ft-container-front-doors.jpg">source</a>).</figcaption></figure>
+<p>After some fun (I’m ironic) with text recognition from images algorithms I implemented, I soon realized how difficult is to detect texts in real-life motion scenes. It’s hard to achieve a detection system with an accuracy near to 100%. And what to do in case of the no detection/erroneous cases?</p>
+<p>That’s why I got a trivial idea:</p>
+<p><em>What if the operator dictated the code to a voice assistant? Just talking!.</em></p>
+<p>My friend and account manager at DITEN University replied:</p>
+<p><em>Let’s deepen, Giorgio, maybe it’s not crazy as it seems</em>.</p>
+<p>So Forklift-cobot born! <br>The concept was to supply to forklift vehicle operator, specifically <a href="https://www.google.com/search?q=empty%20container%20handlers">empty container handler</a> and <a href="https://en.wikipedia.org/wiki/Reach_stacker">reach stacker</a>, a simple voice assistant <em>command-and-control</em> software, running on common tablet/mobile device fixed on the vehicle cabin.</p>
+<p>The foreseen operator’s user experience concept is really simple: he gives voice commands (<em>pull mode</em>) to insert data, as the task name, the handled container code, the container-truck vehicle plate, yard spot name, etc.</p>
+<p>The voice assistant checks dictated/spelled data, does search in the company backend database and stores transactions on task completion. Avoiding any stop of the operator just to insert data on a web GUI app (as currently happens).</p>
+<p>I made two short video demonstrations of the proof-of-concept desktop-prototype I implemented, where I show the functionalities and the voice interaction activation on a mobile device.</p>
+<p>I’m Italian and the the video are realized in Italian language, but you can enable Youtube subtitles in English.</p>
+<p class="embed embed--video"><span class="embed-label">Video</span> <a href="https://www.youtube.com/watch?v=pn6ZlG5IyRQ">Container Handler Operator Cobot Demo — Part 1 (voice assistant general functionalities)</a></p>
+<p class="embed embed--video"><span class="embed-label">Video</span> <a href="https://www.youtube.com/watch?v=NTSZ1Zp5TkI">Container Handler Operator Cobot Demo — Part 2 (usage on a mobile device)</a></p>
+<h4>Research &amp; Development open points</h4>
+<p>The implemented prototype is now in the on-field test phase, where the proposed system has to be evaluated by expert senior machine operators.</p>
+<p>Besides, there are many technical open points, mainly related to the voice recognition/audio subsystems and the on-cabin user interface ergonomics. Let me introduce some.</p>
+<p><strong>Speech recognition issues</strong><br>Noise is a common industrial environment problem and an urgent related topic is the availability of a <strong>on-premise noise-proof ASR</strong> avoiding any cloud-enabled service. For security reasons, a key requirement is <strong>data-privacy</strong>: all business processes data transactions must not exit outside the enterprise intranet.</p>
+<blockquote>You need local and private (on-premise), multi-lingual, noise-proof robust speech recognition engine (ASR).</blockquote>
+<p><strong>Voice activation UI, human-machine HW interfaces</strong><br>A not-trivial aspect is related to find the suitable hardware interfaces with the cobot, case-by-case.</p>
+<p>The current speech activation solution is done with multiple concurrent (working in parallel) <em>push-to-talk</em> solutions, as touchscreen, foot-switch activation, or physical push-button on the vehicle dashboard (see figure here below).</p>
+<figure><img src="images/1_xT17bxwPQhZMxuJfQx3mMg.png" loading="lazy" decoding="async" width="1920" height="1080" alt=""><figcaption>Inside the cabin of an heavy forklift, a dashboard details (<a href="https://www.youtube.com/watch?v=mLo2eVywhkY">source</a>)</figcaption></figure>
+<p>Also the mic/headphones subsystem has challenges solvable with many audio options: headset, open-air mic/loudspeakers, etc.</p>
+<figure><img src="images/1_OeH-MI76RtqAa8C0yMTDIw.jpg" loading="lazy" decoding="async" width="965" height="443" alt=""><figcaption>An operator dressing an industrial-avionic headset (<a href="https://www.soneticscorp.com/wp-content/uploads/2015/12/penner-nash_3.jpg">source</a>)</figcaption></figure>
+<p><strong>The webapp-based architecture</strong><br>As shown in the videos, the prototype has been implemented with a client-server web architecture. Having implemented the client as an application running on a standard web browser on top of any mobile device, has many pros.</p>
+<p>All the audio message exchange is realized with the Web Audio API and currently any web app (on a mobile device) can access also any internal devices (even the video camera streaming), the GPS geolocation coordinates and accelerometers (helping to localize the vehicle movement), even USB interfaced external devices (e.g. a RFID long-range reader), last but not least some Bluetooth interfaced peripherals (audio I/O, custom buttons), etc.</p>
+<p><strong>To wearable or not to wearable?<br></strong>Another advantage of having the client running on a (web app) mobile device, is just the fact the “terminal” of the cobot run on a very cheap portable handset. You can use pretty any mobile phone or tablet, to be mounted inside a cabin and/or to be used outside the cabin, by an operator walking with the handset, for different tasks, as container positions control in the yard area, etc.</p>
+<p>That said, the mobile device web client is just an option among many others. A “fixed” client could run on a more powerful edge-computer, or even a micro-controller.</p>
+<p>Another alternative to mobile tablet/phones is a smartglasses wearable. Apparently that’s the definitive solution, but with a lot of issues like high costs, lack of standard API interfaces, unergonomic for an operator inside a cabin.</p>
+<figure><img src="images/1_InWLD6r0l4L-aT1Srgrd9g.png" loading="lazy" decoding="async" width="823" height="449" alt=""><figcaption>An operator using a famous voice-controlled smart-glasses headset (<a href="https://idnet-us.com/uploads/media/2019/10/20191025041813.pdf">source</a>)</figcaption></figure>
+<p><strong>Conversational design</strong><br>On the (software) user interface side there are interesting <em>conversational design</em> research topics. The current UI implementation uses a tablet/mobile device. The client-side software runs on a web browser and exploit some <em>multimodal paradigms</em> using voice, texts and, last but not least, usual graphical interface capabilities of a browser.</p>
+<p>By example, in the prototype, the screen background color has been used to visually explicit the status of conversation turns between the user and the machine. Synthetic voice (TTS) short answers and prompts are accompanied by longer explanations written on the display, added by suggestions of the next steps the user could have to do, etc.</p>
+<p>The <em>command-and-control</em> approach is less simple than what appears, especially if the conversation between user and the machine has to be at the same time short but nice and even engaging.</p>
+<p>Maybe there is a challenge if you want to integrate the task-completion essential features (minimal requirements), with a domain-specific or open-domain question-answering query system, or you want to manage any user-defined alerts and reminds, an inter-operators intercom subsystem, etc.</p>
+<p><strong>Conversational AI backend computing</strong><br>Here’s where it gets tricky. Consider the voice-cobot not just as yet another vertical application to solve a specific enterprise task.</p>
+<p>Instead the cobot become the “enterprise’s computer” able to talk with the single user with possibly a user-defined <em>botpersona</em>, adapted to that user needs and preferences, and at the same time serving users for many requirements, as a single “company voice”.</p>
+<p>The company cobot bot-persona appears to users as different (user-defined) bot-persona while being a single business logic intelligence.</p>
+<p>Last but not least, the kernel component is the dialog manager / conversational AI intelligence.</p>
+<p>For the prototype, because of the pretty “simple” scenario, I used my own dialog engine <a href="https://github.com/solyarisoftware/naifjs">NaifJs</a> — that I opensourced in 2020 — where dialog tracking is based on a state-machine approach.</p>
+<p>For more complex scenarios, with many concurrent tasks and <em>push mode</em>/mixed-initiative where the assistant start a conversation, maybe to assign tasks, etc. the current implementation could be enhanced with an high-level rule-based language. This is an open research topic.</p>
+<p>Another applied research/engineering topic is about how to “standardize” the company knowledge-base/database integration.</p>
+<p>The problem could be solved trivially with APIs and database queries but the real challenge is to define a standard common ground company private knowledge base, to be queried and used for inferences made by the conversational AI.</p>
+<figure><img src="images/1_R8ND1o1QYR97bQtqfbZUaQ.jpg" loading="lazy" decoding="async" width="554" height="834" alt=""><figcaption>An empty container handler operator in action (<a href="https://www.pinterest.com.au/pin/359443613986224962/">source</a>)</figcaption></figure>
+<h4>Temporary conclusion</h4>
+<p>The described case study describe a very specific shipping industry scenario where a voice-cobot helps the working tasks of a container handler vehicle operator, reducing times and costs.</p>
+<p>The described assistive-reality system is applied to a specific industrial operation, but it could be applied to many other factory tasks and different operator roles. By example, in the shipping container depots/repairs industry, the voice cobot could assists many other kind of human operator activities: truck gates automation, container inspection reporting, safety/emergency alerting, truck drivers “help desk”, operators tutoring, etc. etc.</p>
+<p>Is all not just about another voice-interface application in industry. It’s instead about the rethinking of all business processes, where an assistive enterprise computing could collaborates with many/all humans. <br>Isn’t this just Industry 5.0?</p>
+<blockquote>2021, March 26th I participated at the <a href="http://www.lingofest2021.com">www.lingofest2021.com</a> event, presenting my talk: <strong>Enterprise Voice Cobots</strong>, where this case study is deepened.</blockquote>
+<p>Slides @ #lingofest2021:<br><a href="https://docs.google.com/presentation/d/1ieZnAdREzEGXkcO4C_XPIbS9YAnE76mB0wpP2k-yOlQ/edit#slide=id.g4412d4946c_0_0">https://docs.google.com/presentation/d/1ieZnAdREzEGXkcO4C_XPIbS9YAnE76mB0wpP2k-yOlQ/edit#slide=id.g4412d4946c_0_0</a></p>
+<p>Video @ #lingofest2021:</p>
+<p class="embed embed--video"><span class="embed-label">Video</span> <a href="https://www.youtube.com/watch?v=Hm85vr6N1CA">My “Enterprise Voice Cobots” presentation at www.lingofest2021.com event, 2021, March 26th</a></p>
+<h4>Contact</h4>
+<p>If you are an enterprise company, maybe in the shipping / supply-chain/ smart-factory automation, or in any vertical where you think a voice-bot could solve a real workflow, or you are in R&amp;D ICT company, or if you are an academic organization and you are interested on deepening this applied research contexts, I’m available to collaborate, as researcher and as a consultant.</p>
+<p>You can contact me on <a href="http://www.linkedin.com/in/giorgiorobino">linkedin</a> or just send me an email at <a href="mailto:giorgio.robino@gmail.com">giorgio.robino@gmail.com</a>.</p>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/voice-cobots-in-industry-a-case-study-352294bd0d5a">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

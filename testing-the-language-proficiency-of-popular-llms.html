@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Testing the Language Proficiency of Popular LLMs — ConvComp.it</title>
+<meta name="description" content="A Semi-Serious LLM Self-Evaluation Experiment" />
+<link rel="canonical" href="https://convcomp.it/testing-the-language-proficiency-of-popular-llms.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Testing the Language Proficiency of Popular LLMs — ConvComp.it" />
+<meta property="og:description" content="A Semi-Serious LLM Self-Evaluation Experiment" />
+<meta property="og:url" content="https://convcomp.it/testing-the-language-proficiency-of-popular-llms.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Testing the Language Proficiency of Popular LLMs</h1>
+    <p class="post-subtitle">A Semi-Serious LLM Self-Evaluation Experiment</p>
+    <p class="post-meta"><time datetime="2024-07-16">July 16, 2024</time></p>
+  </header>
+  <div class="post-body">
+<figure><img src="images/1_YfDMvmF-AePP3v0Q-yEo8Q.jpg" loading="lazy" decoding="async" width="2688" height="1536" alt=""><figcaption>Image made with <a href="https://firefly.adobe.com/">https://firefly.adobe.com/</a></figcaption></figure>
+<p>Last weekend, just for personal fun, I conducted a non-scientific experiment to test how well the Large Language Models (LLMs) available on the market “know” a specific natural language (Italian, in my case) according to CEFR guidelines.</p>
+<p>I’ll briefly recap what the CEFR classification standard is, detail the experiment, and finally share some thoughts about it.</p>
+<h3>What’s CEFR?</h3>
+<p>CEFR (<a href="https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages">Common European Framework of Reference for Languages</a>), also known in Italy as QCER (Quadro Comune Europeo di Riferimento per le Lingue), is a standard for classifying language proficiency.</p>
+<p>The CEFR is a guideline used to describe the achievements of language learners across Europe and increasingly worldwide. In November 2001, a European Union Council Resolution recommended using the CEFR to establish systems for validating language ability.</p>
+<p>The six reference levels (A1, A2, B1, B2, C1, C2) are widely accepted as the European standard for grading an individual’s language proficiency. These levels cover several competencies: written and oral comprehension, and written and oral production.</p>
+<ul><li><strong>A1 and A2:</strong> Basic users who can understand and use simple phrases and sentences in familiar contexts. A1 indicates very basic comprehension and production, while A2 shows slightly more advanced skills.</li>
+<li><strong>B1 and B2:</strong> Independent users who can handle more complex language. B1 users understand the main points of clear standard input on familiar matters and can produce simple connected text. B2 users comprehend and interact on a wider range of topics, producing detailed and coherent text.</li>
+<li><strong>C1 and C2:</strong> Proficient users with advanced skills. C1 users understand a wide range of demanding texts, recognize implicit meaning, and express themselves fluently. C2 users easily understand virtually everything heard or read, summarizing information from various sources coherently.</li>
+</ul>
+<h3><strong>The LLM S</strong>elf-Evaluation <strong>Experiment</strong></h3>
+<p>I collected the responses of each of the nearly 50 models available on the <a href="https://chat.lmsys.org">Chatbot Arena</a> website to this question (prompt) in Italian:</p>
+<blockquote>“Qual è il tuo livello di conoscenza della lingua italiana, rispetto alla classificazione QCER? Rispondi solo con una parola indicante il tuo livello di competenza:”</blockquote>
+<p>Meaning in English: <em>“What is your level of Italian language proficiency, according to the CEFR classification? Respond with only one word indicating your level of competence”</em>.</p>
+<figure><img src="images/1_XnEcVi_jZV6UkYl78b6ZYA.png" loading="lazy" decoding="async" width="969" height="605" alt=""><figcaption>Submitting the question on the <a href="https://chat.lmsys.org">Chatbot Arena website</a></figcaption></figure>
+<p>For each model, I collected the response and had to elaborate a bit because, in some cases, the models replied with synonyms, long sentences, or nonsensical answers. I compiled all the results in a table. See the attached screenshots:</p>
+<figure><img src="images/1_K_MmMPX3Xfmc6w1OgFYFHQ.png" loading="lazy" decoding="async" width="762" height="719" alt=""><figcaption>Models Declaring CEFR C1-C2 Levels</figcaption></figure>
+<figure><img src="images/1_4qPRoHq4RCFMfGQFkK9DYA.png" loading="lazy" decoding="async" width="787" height="554" alt=""><figcaption>Models Declaring CEFR B1-B2 Levels</figcaption></figure>
+<figure><img src="images/1_2Rtq50s1juhuBOqAxNvFdA.png" loading="lazy" decoding="async" width="796" height="456" alt=""><figcaption>Models Declaring CEFR A1-A2 Levels</figcaption></figure>
+<p>The table shows three columns: MODEL-NAME, QCER_LEVEL (the resulting CEFR level as a single word), and RANK (where 1.0 means the LLM replied exactly with the expected level; between 0.0 and 1.0 means the LLM replied with a synonym or a long sentence).</p>
+<p>Almost half of the models, including small and open-parameter models, self-evaluate with good or very good proficiency.</p>
+<blockquote>Hmm… Maybe there is a bit of overestimation in these LLM self-assessments?!</blockquote>
+<h3>Automating Language Proficiency Assessments?</h3>
+<p>My experiment was clearly just a curiosity! I’m not a linguist, so a more thorough investigation should be conducted by domain experts (linguist researchers).</p>
+<p>The quick test I conducted was done via the chat (textual) web interface, so the models can’t estimate listening and speaking! I admit my simple prompt biased the LLMs to reply with a single word that we assumed valid just for reading/writing abilities. A complete evaluation would require interfacing these LLMs with a voice interface (to test listening and speaking) and the production of content with varying levels of difficulty.</p>
+<p>With a more scientific evaluation, a human language expert, typically a language teacher from a certifying body, could examine an LLM to classify proficiency using the same CEFR metrics we use for humans (reading comprehension, writing production, listening comprehension, speaking production, interaction, mediation).</p>
+<p>A further step could be to develop a comprehensive LLM-based testing application to fully automate the proficiency examination, using a top-level LLM as the examiner to test other LLMs (acting as examinees). So, perhaps, by using high-proficiency LLMs as CEFR experts, we could automate some of the real teachers’ work on CEFR examinations, evaluating the language proficiency of human students… or other LLMs.</p>
+<p>More generally, many e-learning activities (language-learning related and beyond) usually done by human teachers could be partially implemented by LLM-based conversational agents.</p>
+<p>For example, teachers could be assisted by conversational assistant applications to manage the “heavy work” of exercising students and examining them, reporting relevant milestones and events to the teacher. There is a vast range of automation in the edutech sector that is now enhanced by generative AI.</p>
+<p>What do you think?</p>
+<p>#GenerativeAI #LLMs #LargeLanguegeModels #LanguageLearning #eLearning #EduTech #CEFR #QCER</p>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/testing-the-language-proficiency-of-popular-llms-64b2bd7ddb75">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

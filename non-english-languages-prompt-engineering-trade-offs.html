@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Non-English Languages Prompt Engineering Trade-offs — ConvComp.it</title>
+<meta name="description" content="To employ or not to employ the language of English, this is the question." />
+<link rel="canonical" href="https://convcomp.it/non-english-languages-prompt-engineering-trade-offs.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Non-English Languages Prompt Engineering Trade-offs — ConvComp.it" />
+<meta property="og:description" content="To employ or not to employ the language of English, this is the question." />
+<meta property="og:url" content="https://convcomp.it/non-english-languages-prompt-engineering-trade-offs.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Non-English Languages Prompt Engineering Trade-offs</h1>
+    <p class="post-subtitle">To employ or not to employ the language of English, this is the question.</p>
+    <p class="post-meta"><time datetime="2023-09-05">September 5, 2023</time></p>
+  </header>
+  <div class="post-body">
+<figure><img src="images/1_qCYPhxaLWCM2S6-PEPVeRQ.jpg" loading="lazy" decoding="async" width="1024" height="576" alt=""><figcaption>Synthetic image I made: <a href="https://creator.nightcafe.studio/studio?open=creation&amp;panelContext=%28jobId%3ACPpndBWWGWRBNGfthD8r%29">https://creator.nightcafe.studio/studio?open=creation&amp;panelContext=%28jobId%3ACPpndBWWGWRBNGfthD8r%29</a></figcaption></figure>
+<p>English stands as the most widely utilized language on the internet, particularly in Western countries. It unquestionably serves as the lingua franca within the fields of computer science and scientific communities across the globe. The detailed breakdown of languages and their respective proportions in the training data for models like GPT-3.5 remains undisclosed by OpenAI and other providers.</p>
+<p>Most contemporary large language models, including GPT-3.5, are likely trained on an extensive and diverse corpus of internet text, encompassing content from a multitude of languages. It is a rough assumption that the percentage of training data follows the language prominence on the internet. Please refer to the table below for approximate reference.</p>
+<figure><img src="images/1_ZuciQibcX3zspA4iucb25Q.png" loading="lazy" decoding="async" width="748" height="503" alt=""><figcaption><strong>Rough Estimates of Language Prominence on the Internet (from a reluctant ChatGPT)</strong></figcaption></figure>
+<p>If we limit the languages to Western countries, we would probably see a higher percentage of English, possibly exceeding 50%. Do you concur?</p>
+<p>What astonishes me, however, is the near flawless proficiency of state-of-the-art LLMs (Large Language Models) in minor languages, including my own: Italian. Rarely do I encounter syntax and “semantic understanding” errors, even in conversations conducted in highly proficient Italian.</p>
+<p>This is undeniably remarkable!</p>
+<p>So, when it comes to constructing complex LLM-based applications in a non-English language, one might assume that employing prompts exclusively in the non-English language is the straightforward and convenient approach. Nonetheless, I’m not entirely certain that it consistently produces the best results.</p>
+<p>At first glance, there doesn’t appear to be a significant qualitative difference when comparing applications generated using prompts in Italian versus English.</p>
+<p>However, let’s take a moment to consider some important factors in the equation: token usage, cost, latency, procedural understanding, language subtleties, and proficiency.</p>
+<h4>Tokens usage</h4>
+<p>Several months ago, I participated in a small Twitter thread where Hassan Hayat (<a href="https://twitter.com/TheSeaMouse">@TheSeaMouse</a>) shared a small experiment demonstrating that, when given the same text (an abstract of a famous paper in that case), GPT consumes fewer tokens when processing English compared to other languages:</p>
+<p class="embed embed--tweet"><span class="embed-label">Twitter</span> <a href="https://twitter.com/solyarisoftware/status/1610979278870532107?s=20">https://twitter.com/solyarisoftware/status/1610979278870532107?s=20</a></p>
+<p>Well, token usage significantly increases for languages with non-Latin character sets. That’s partially expected, but what surprised me was that the original text, when translated into Italian and tokenized, required almost double the number of tokens compared to English.</p>
+<p>In other words, a prompt written in Italian costs twice as many tokens as one written in English. Quite interesting!</p>
+<h3>Money Cost and Latency</h3>
+<p>These variables are closely tied to token length. If you’re using a cloud-based LLM with a pay-per-usage pricing model (say Azure Openai deployment), the more tokens you employ, the more you pay. However, even if you’re running an on-prem model at home, such as a LLAMA 70B or similar, the number of tokens you process represents an indirect cost.</p>
+<p>More tokens processed translate to increased computation, which, in simplified terms, results in longer latency. This latter point is crucial, particularly when your application involves a conversational interactive system like a chatbot or, even more, a voice-interfaced assistant, where the latency is a crucial factor.</p>
+<p>By the way, I don’t have any benchmarks or comparisons regarding the relationship between context window token size and latency. Please do let me know if you come across any relevant research or discussions on this topic.</p>
+<h3>Efficiency in ‘Procedural Understanding’</h3>
+<p>I’ve been experimenting with LLM prompts that implement conversational agent goal-oriented workflows, such as the common customer care use case where a chatbot guides the user to open a ticket, among other tasks.</p>
+<p>In such scenarios, your goal is to instruct an LLM to follow a procedural workflow. This workflow may involve conditional statements, a sequence of actions such as slot filling, API requests, and even the generation of events in structured formats like JSON. For an academic example, refer to:</p>
+<pre><span>TOPIC: Opening a Support Ticket<br>STEP-BY-STEP WORFLOW:<br>1. Begin the process of opening a support ticket for the user&#39;s issue.<br>2. Initiate a conversation to gather all the necessary details.<br>3. Collect the following attributes one at a time:<br>   a. Issue Description: Ask the user to provide a detailed description of the problem they are encountering.<br>   b. Product or System: Inquire about the name or model of the product or system they are using.<br>   c. Contact Information:<br>      i. Choose a preferred method of contact:<br>         - If &quot;email&quot; is selected:<br>           - Request the user&#39;s email address.<br>           - Confirm the provided email address.<br>         - If &quot;phone&quot; is selected:<br>           - Request the user&#39;s phone number.<br>           - Confirm the provided phone number.<br>4. Display a summary of the gathered information and request confirmation from the user before proceeding.<br>5. Finally, submit the support ticket with the provided information. Generate the following JSON code without comments:<br>   {&quot;api&quot;: &quot;open_ticket&quot;, &quot;email&quot;: email, &quot;phone&quot;: phone, &quot;description&quot;: description, &quot;product&quot;: product}</span></pre>
+<p>It has come to my attention that these pseudo-code prompts are better understood when written in English. This may be because recent LLMs are also trained in programming languages, where the most commonly used programming terms are in English.</p>
+<p>I’m not entirely certain about this observation, and I lack quantitative data for a definitive comparison. It’s more of a personal impression, and I would appreciate it if you could share any research studies on this topic.</p>
+<h4>Temporary Conclusions</h4>
+<p>My current approach is to write prompts in English, even for Italian language LLM-based applications, whether they are conversational systems or involve more complex tasks in the Italian natural language application verticals (such as meeting transcript summarizations or spoken dialogue conversational analysis).</p>
+<p>By the way, to prompt the LLM to reply in Italian, I simply use a straightforward instruction like this:</p>
+<pre><span>LANGUAGE: Conduct the conversation in informal, fluent Italian.</span></pre>
+<p>This approach apparently offers several advantages:</p>
+<ul><li>It minimizes token length, thereby reducing costs and latency.</li>
+<li>It maximizes procedural comprehension when it comes to workflow instruction prompts. Debatable.</li>
+<li>It allows for the creation of multilingual applications by design; you write your prompts once in English and can deploy your system in any language with a single word substitution!</li>
+</ul>
+<p>However, I acknowledge that all of my considerations thus far have been quite qualitative and are based on my empirical experiments. I invite you to share your experiences and any relevant scientific evidence on the discussed topics.</p>
+<p>Thank you for taking the time to read this article. Your feedback is highly valuable to me, so please feel free to leave a like and a comment below to share your thoughts and insights.</p>
+<p>Giorgio</p>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/non-english-languages-prompt-engineering-trade-offs-7e529866faba">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

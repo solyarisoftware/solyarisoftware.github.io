@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About PayChat: in-chat payment flow — ConvComp.it</title>
+<meta name="description" content="Thanks Alessio for your notes!" />
+<link rel="canonical" href="https://convcomp.it/about-paychat-in-chat-payment-flow.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="About PayChat: in-chat payment flow — ConvComp.it" />
+<meta property="og:description" content="Thanks Alessio for your notes!" />
+<meta property="og:url" content="https://convcomp.it/about-paychat-in-chat-payment-flow.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">About PayChat: in-chat payment flow</h1>
+    <p class="post-subtitle"></p>
+    <p class="post-meta"><time datetime="2017-01-03">January 3, 2017</time></p>
+  </header>
+  <div class="post-body">
+<p>Thanks Alessio for your notes!</p>
+<p>I was unaware of <a href="https://www.w3.org/TR/payment-request/">https://www.w3.org/TR/payment-request/</a> and I’ll read this w3c proposal; thanks again.</p>
+<ol><li><strong>Payment Workflow: User — Merchant — Bank</strong></li>
+</ol>
+<blockquote>What’s the reason behind having the merchant forwarding the request instead?</blockquote>
+<p>I know, this three actors handshake seems unusual, but in my opinion is fast and secure:</p>
+<ul><li>User, during an online shopping checkout with the merchant chatbot, do not care about successive payments transaction details, but simply say:</li>
+</ul>
+<blockquote><strong>pay smartbank</strong></blockquote>
+<p>BTW, smartbank is a bank where user own an account (user@smartbank) and user associated one ore more chat apps account in the home banking settings.</p>
+<ul><li>Merchant does the payment request , asking to the user bank with a backend protocol (https instant-payments API or in a future … a chatbot to chatbot transaction),</li>
+<li>Bank, after some verification (the user is really a customer of the bank, etc.) forward a confirmation back to the user and the user eventually confirm the payment.</li>
+</ul>
+<blockquote>This opens up to possibilities of a merchant showing a payment request to the customer and then submitting a different one to the payment provider imho</blockquote>
+<p>I see. I designed PayChat also for micro-payments (let say under 5$… and this is a possible killer application use case), and with an optional absence of confirmation (steps 4 and 5 in PayChat dotted lines in sequence diagram). <br>In this scenario (no confirmation) a merchant fraud is possible, I admit, but with the explicit confirmation instead, the fraud is a long shot, because is the user that accept the incoming request (from the bank)<br> <br>In my opinion is very important to reduce the friction in the online chat payment flow. Some backend strategies have to be set-up to limit possible frauds (e.g. user could define thresholds values in the home banking, or maybe a list of trusted merchants, or user could claim an error in payment with an end-of -the day procedure, etc. etc., TBD).</p>
+<p><strong>2. User identifier</strong></p>
+<blockquote>IBAN. Most of the world does not have IBAN. The proposal should be reworked to work with a generic set of payment credentials…</blockquote>
+<p>Yes, mentioning IBAN in sequence diagram is measliding, because that’s the bank account ID used in Italy (Europe), and of course any other unique user bank account ID fit well, but please note this ID is not really involved in sketched flow: in my view, merchant payment transaction refer to the user identifier inside the chat app, by example, in my case, my username in Telegram Messenger is <a href="https://medium.com/u/452c0445f9d5"><em>@</em></a><em>solyarisoftware</em>, the identifier that user, as bank customer, stored in his home banking profile.</p>
+<p><strong>3. final price</strong></p>
+<blockquote>There must be a mechanism for the user to feedback on the first PaymentRequest so that — if necessary — the total amount can be recalculated (e.g. import taxes, shipment fees, conversion rates if the customer decides to pay in a different currency, …). You can look at the PaymentRequest proposal for inspiration.</blockquote>
+<p>You are right. I assumed that the payment flow start when the final price is defined. <br>BTW, I think paypal is perfect for both</p>
+<ul><li>standard physical goods online shopping from a remote merchant (involving shipment, taxes, currency calculations)</li>
+<li>but is perfect for “local trades” / proximity commerce, where, by example, users buy products and services from retailers / offline / in-stores.</li>
+</ul>
+<p>See also a PayChat simplified sequence diagram at slide 36 here:</p>
+<figure><img src="images/1_3sFzhOpYEGCOnYui9xWh1w.png" loading="lazy" decoding="async" width="1600" height="900" alt=""></figure>
+<p class="embed embed--card"><a class="embed-card" href="https://medium.com/convcomp2016/naif-ruby-micro-framework-to-build-dumb-chat-machines-5c552a8c8f7e"><span class="embed-card-title">Naif — Ruby micro framework to build dumb chat machines</span><span class="embed-card-desc">talk, 15 December 2016 @ #MilanoChatbot Meetup</span><span class="embed-card-domain">medium.com</span></a></p>
+<p>Please feel free to contact me also via email: <a href="mailto:giorgio.robino@gmail.com">giorgio.robino@gmail.com</a></p>
+<p>Happy new year to you!<br>regards<br>Giorgio</p>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/thanks-alessio-for-your-notes-3a913d4a11a7">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

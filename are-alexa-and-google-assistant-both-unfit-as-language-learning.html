@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Are Alexa and Google Assistant both unfit as language learning assistant, inside/outside the… — ConvComp.it</title>
+<meta name="description" content="Some reasons why I’m developing a Telegram chatbot, giving up on Alexa or Google Assistant application development." />
+<link rel="canonical" href="https://convcomp.it/are-alexa-and-google-assistant-both-unfit-as-language-learning.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Are Alexa and Google Assistant both unfit as language learning assistant, inside/outside the… — ConvComp.it" />
+<meta property="og:description" content="Some reasons why I’m developing a Telegram chatbot, giving up on Alexa or Google Assistant application development." />
+<meta property="og:url" content="https://convcomp.it/are-alexa-and-google-assistant-both-unfit-as-language-learning.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Are Alexa and Google Assistant both unfit as language learning assistant, inside/outside the…</h1>
+    <p class="post-subtitle">Some reasons why I’m developing a Telegram chatbot, giving up on Alexa or Google Assistant application development.</p>
+    <p class="post-meta"><time datetime="2019-12-15">December 15, 2019</time></p>
+  </header>
+  <div class="post-body">
+<figure><img src="images/1_QI-StFH5nwFJzfMnplopBA.jpg" loading="lazy" decoding="async" width="617" height="412" alt=""><figcaption>Students of Italian language at CPIA courses (Italian public adult schools). <a href="https://www.gildavenezia.it/educazione-adulti-oltre-100mila-iscritti-ai-cpia-in-aumento-gli-stranieri/">source</a></figcaption></figure>
+<blockquote>This article is a remake of my original answer to <a href="https://medium.com/u/77381b34c63f">Julie Daniel Davis</a> article <a href="https://medium.com/voiceedu/google-assistant-versus-amazon-alexa-which-could-be-queen-of-the-classroom-540314d8f981">Google Assistant versus Amazon Alexa: Which Could be Queen of the Classroom?</a><br> I mitigated the original title “Are Alexa and Google Assistant both looser in edutech space?”, too extreme and generic, I admit. <br>The reviewed article is above all a way of reflecting about my experience with CPIAbot, a chatbot I’m developing to assist no-native italian language L2/PreA1 (almost illiterate) students of some Italian public schools, as part of a <a href="https://www.itd.cnr.it/Progetti_Rispo1.php?PROGETTO=1193">ITD-CNR research project</a>. <br>More broadly, my thoughts are about some limits of today Amazon and Google voice assistant and smartspeakers technology.</blockquote>
+<p>Almost one year ago I started to develop CPIAbot, a <em>language-first</em>, voice-first multimodal chatbot, running on <a href="http://www.telegram.org">Telegram</a>, to assist foreigners, students of <a href="http://www.retecpialiguria.it/">CPIA</a>, Italian public adult schools courses, to learn Italian language basics.</p>
+<figure><img src="images/1_2Q2Ah8CU0aLV0wqtTxQ4oA.png" loading="lazy" decoding="async" width="1686" height="942" alt=""><figcaption>CPIAbot <a href="https://www.slideshare.net/slideshow/embed_code/key/vRtX3MSrkrCW2M">slides</a>, presented at italian event <a href="https://twitter.com/solyarisoftware/status/1194644685601546241?s=20">www.c1a0.ai</a></figcaption></figure>
+<p>Let me tell the story. In fall 2018, our initial research goal, at <a href="https://www.itd.cnr.it/Progetti_Rispo1.php?PROGETTO=1193">ITD-CNR</a>, was to realize a smartspeaker application (on Alexa or on GoogleAssistant) but we faced many issues. I detailed a long list of points in an academic paper I’ve just submitted (soon available), entitled “<em>Un assistente conversazionale a supporto dell’apprendimento dell’italiano L2 per migranti: CPIAbot”</em> (more details at the end of this article).</p>
+<p>Long story, short, about using smartspeakers in our ongoing experiment:</p>
+<blockquote>From the linguistics/educational perspective, a voiceonly application is too demanding in term of learner’s cognitive effort, especially in the case of no native/illiterate learner (QCER level L2/Pre A1) .</blockquote>
+<h4>Unique User identification</h4>
+<p>There are also many related tech issues, but for me, in educational realms (in classroom or outside the classroom),</p>
+<blockquote>the big issue that both systems have is the lack of a real <strong>Unique User Identification</strong>.</blockquote>
+<p>That means a way to identify uniquely the user (any student, any teacher) of the (conversational/voice) application. Having an user ID requirement is for me essential for any chat or voice application made with the goal of follow the student learning.</p>
+<p>The related big point is related to the impossibility to process voice recordings of students. In short:</p>
+<blockquote>an Alexa Skill or a Google Assistant Conversational Action can not access user voices. Full stop.</blockquote>
+<p>Here below I deepen the voice/text flow that happens when a user interact with a third party app on Alexa or Google Assistant (through a smartspeaker).</p>
+<h4><strong>Personal Voice Identification</strong></h4>
+<p>Voice signature identification is just a subtopic of users (students) identification need. Probably we could renounce to identify a student by his/her voice, but at the end of the day we need to identify the student (especially for personalized exercises, part of our application/research goal). If we want to track and improve the specific student learning progress, we need to identify him/her.</p>
+<blockquote>So far, both Alexa and Google Assistant do not provide a convincing/final solution to identify speaking user in front of a smartspeaker (a far-field device).</blockquote>
+<p class="embed embed--tweet"><span class="embed-label">Twitter</span> <a href="https://twitter.com/solyarisoftware/status/1197248086390784000?s=20">https://twitter.com/solyarisoftware/status/1197248086390784000?s=20</a></p>
+<p>Both big players allow to identify a small set of voiceprints (Google call these <a href="https://support.google.com/googlenest/answer/7342711?hl=en"><em>voice matches</em></a>, whereas Amazon call these <a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=202199440"><em>voice profiles</em></a>). Google Assitant recognize a max of six different voices, whereas is not clear if there is a limit of recognized voices in Amazon Alexa. The good news is that both systems pass info to third party skills. See <a href="https://actions-on-google.github.io/actions-on-google-nodejs/classes/conversation.user.html">here</a> and <a href="https://developer.amazon.com/blogs/alexa/post/1ad16e9b-4f52-4e68-9187-ec2e93faae55/recognize-voices-and-personalize-your-skills">here</a>.</p>
+<p>But the proposed solutions are unpractical or even impossible in classroom scenarios, where there could be a lot of students in front to a single smartspeaker. All in all, the present voice recognition is not a suitable solution to identify a student.</p>
+<h4>Users Speech (voice recordings)</h4>
+<p>Voice recognition a part, there are other basic limits about voice recordings in general. The biggest issue involves privacy topics, but let take a part that thin ice for now; just let’s talk about some flat technical points:</p>
+<blockquote>both Alexa and Google Assistant “by design” do not forward the users (students in our case) <strong>voice recordings</strong> to third party skills/actions.</blockquote>
+<p>Generally speaking, this is quite understandable because big players do not want any possible malicious use of people voices by third party applications. But this inhibit a lot of smart elaborations the application could do with voice analysis. I already point out the need to use voice print recognition to identify speakers, and…</p>
+<blockquote>without the student audio/voice recordings, the application can’t do correct pronunciation analysis, sentence intonation recognition, emotional detection (“sentiment analysis”), etc. etc.</blockquote>
+<h4><strong>On Alexa, user utterances are not forwarded to the third party skills</strong></h4>
+<p>In case of Alexa, user utterances (transcripted from voice to <strong>text</strong>) are not forwarded to third party skills, “as is”. In facts it happens that:</p>
+<blockquote>An Alexa skill do not even receive the full sentence (as voice-to-text transcript) of the user speech!</blockquote>
+<p>Instead, the skill gets just a label (an <em>intent</em>, in “conversational AI” jargon) that the developer has initially planned (during the “<a href="https://developer.amazon.com/en-US/docs/alexa/custom-skills/create-the-interaction-model-for-your-skill.html">Alexa Skill nteraction model</a>” design phase) that matches with the current user sentence. Strange, but this is the way!</p>
+<blockquote>Why Alexa do this “censorship”?</blockquote>
+<p>As far as I know, it has never been officially explained by Amazon, but I do believe it was a deliberate strategic decision. My suggestion is that the Alexa “interaction model” mitigates possible malicious uses/abuses by third party skills, giving Amazon an automatable way to control 3rd Party apps, avoiding privacy issues, etc. That’s a possible “customer first” right dogma.</p>
+<p>On the other hand, the intent-based interaction inhibit third party skills to elaborate the user full utterance, limiting the NLU (natural language understanding).</p>
+<p class="embed embed--tweet"><span class="embed-label">Twitter</span> <a href="https://twitter.com/solyarisoftware/status/1190651101621768192?s=20">https://twitter.com/solyarisoftware/status/1190651101621768192?s=20</a></p>
+<p>Google Assistant, with <em>Actions SDK</em>, gives developers more freedom allowing them to use a classic intent-based classifier (the <a href="https://dialogflow.com/">Dialogflow</a> platform) as Alexa does, but Google also gives the option to use an alternative “low level” pass-trough (<em>Actions SDK API</em>), where the user utterances are passed to application, without any filtering. Thanks Google for that!</p>
+<p>Why this “pass-through” is so important for an e-learning app or any (language) assistant bot?</p>
+<blockquote>Having the complete student text and voice input is paramount to analyse utterances on a human-machine conversation, e.g. a linguistic exercise.</blockquote>
+<p>Let’s imagine a simple conversation where an assistant chatbot asks the student to describe a scene displayed on a image or a video. In the example below, the CPIAbot exercise “guess the word” asks the student to guess the word (part of a glossary) describing the people that work in the scene.</p>
+<p>Regarding the specific image, the students could answer: <em>sales girls</em>, <em>women</em>, <em>cashiers</em>, <em>shop girls</em>, <em>clerks</em> and many other definitions, that would be interesting to catch and analyze by the bot. This is feasible but pretty hard to implement with the Alexa interaction model.</p>
+<figure><img src="images/1_wIR2UOlXRIXZVG_3OBvKBA.png" loading="lazy" decoding="async" width="772" height="661" alt=""><figcaption>screenshot from CPIAbot chatbot exercise “indovina la parola”</figcaption></figure>
+<h4>Devices costs</h4>
+<p>The other point the original <a href="https://medium.com/voiceedu/google-assistant-versus-amazon-alexa-which-could-be-queen-of-the-classroom-540314d8f981">article </a>mentioned are smartspeakers devices end-user costs. The author is absolutely right when she says that an <em>Amazon Alexa Dot</em> is cheaper than a <em>Google Nest Home</em>. The same is for <a href="https://www.amazon.com/Echo-Buds/dp/B07F6VM1S3">Echobuds</a> (Amazon offers the cheapest earables devices in the market). BTW, earbuds (personal, near-field earbuds) solve the user identification problem previous mentioned.</p>
+<p>In a language learning context (and in any discipline), we want students use the (voice bot) application also outside the classroom, and</p>
+<blockquote>the “cheapest” and “easiest to own” device for people, especially refugees is a smartphone.</blockquote>
+<p>So back to our comparison, again both Google Assistant And Alexa lose in facts, because it’s true that both assistants are available as mobile app, but there are limits on voice/text interactions, by example in case of Amazon Assistant the students can’t text to Alexa. Google Assistant is a bit better, allowing users to write (or speak), but (if I well remember) there is no the way, action application side, to distinguish if user has wrote or has spoken (I could be wrong, I have to double check).</p>
+<h4>Minor notes about the devices audio quality</h4>
+<p><em>Amazon Echo</em> has a jack audio output and <em>Google Nest</em> has not. That’s true. But both the devices could be coupled via bluetooth. Problem solved.</p>
+<p>For me, as an “audiophile”, in terms of audio quality, comparing my <em>Google Home Mini</em> with an <em>Amazon Echo Dot (v3)</em>, I much prefer the Google’s device because the more natural sound, or vice-versa, I literally dislike the over-compressed audio quality of <em>Amazon Echo</em> devices. Well, that’s subjective and on the other hand, in a classroom, the Echo’s bigger audio is a plus, I admit.</p>
+<h4>Authoring tools for teachers</h4>
+<p><a href="https://blueprints.amazon.com/">Alexa Skills Blueprint</a>? Maybe they are a nice tool for an initial engagement and gaming, but you can’t develop interesting/serious educational applications with them.</p>
+<p>The most important point for me, is that both Google and Amazon do not provide so far a real simple convincing tools for non-developer and application developers in education realms, as teachers.</p>
+<p>The visual design (GUI) vs language-based (CUI) tools is an old fashioned but highly discussed debate among conversational designers/developers. My side, regarding skill/actions development, and more in general about conversational application design and development, I’m supporter, since few years ago, of <strong>not-visual</strong>, but high-level <strong>authoring tools </strong>(possibly using very simple, declarative, ~natural language) programming languages. So far, I do believe that</p>
+<blockquote>both Amazon and Google do not provide authoring tools that allow teachers, contents creators and any no-developer, to easily create serious/complex custom applications.</blockquote>
+<p>Maybe Amazon is in the right direction with the <a href="http://www.litexa.com">www.litexa.com</a> approach (I’ll deepen that topic on a future article). On the other hand, I have to say, as developer, that <em>Google Actions</em> programming paradigm is better than the Amazon skills programming proposal. There are many reasons, a bit tech/off topic here, that I often pointed out with my <a href="https://twitter.com/solyarisoftware">tweets</a>.</p>
+<p>Concluding, I confess I’m not too happy about how the two biggest players now support application development (in educational realms). We need much more! :-)</p>
+<blockquote>CPIAbot academic papers:</blockquote>
+<blockquote>1. F. Ravicchio, G. Robino, G. Trentin.<br><strong>CPIAbot: un chatbot nell’insegnamento dell’Italiano L2 per stranieri</strong>. 2019.<br>Published in Didamatica 2019 acts, Best Paper Award in section: BYOD. Mobile e Mixed Learning (ISBN 978–88–98091–50–8 <a href="https://www.aicanet.it/didamatica2019/atti-2019">https://www.aicanet.it/didamatica2019/atti-2019</a> p. 77–86).</blockquote>
+<blockquote>2. F. Ravicchio, G. Robino, S. Torsani, G. Trentin.<br><strong>Un assistente conversazionale a supporto dell’apprendimento dell’italiano L2 per migranti: CPIAbot.</strong> Nov 2019. <br>Submitted to the Italian <a href="https://ijet.itd.cnr.it/">Journal of Educational Technology (IJET)</a>.</blockquote>
+<blockquote>Related article: <a href="https://convcomp.it/stateful-alexa-skills-e9a64c10d902">Stateful Alexa Skills</a>?</blockquote>
+<h3><strong>I’m happy to read your opinion. Please let me know your experience!</strong></h3>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/are-alexa-and-google-assistant-both-unfit-as-language-learning-assistant-inside-outside-the-972bfafeddfd">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

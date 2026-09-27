@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dialoghi uomo-macchina che emozionano le orecchie? — ConvComp.it</title>
+<meta name="description" content="Il mio talk al XI Summit IA 2017 — Architettura delle Conversazioni" />
+<link rel="canonical" href="https://convcomp.it/dialoghi-uomo-macchina-che-emozionano-le-orecchie.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Dialoghi uomo-macchina che emozionano le orecchie? — ConvComp.it" />
+<meta property="og:description" content="Il mio talk al XI Summit IA 2017 — Architettura delle Conversazioni" />
+<meta property="og:url" content="https://convcomp.it/dialoghi-uomo-macchina-che-emozionano-le-orecchie.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Dialoghi uomo-macchina che emozionano le orecchie?</h1>
+    <p class="post-subtitle">Il mio talk al XI Summit IA 2017 — Architettura delle Conversazioni</p>
+    <p class="post-meta"><time datetime="2017-12-11">December 11, 2017</time></p>
+  </header>
+  <div class="post-body">
+<figure><img src="images/1_FC_cZ94-GJtgQQ80nbOlOA.jpg" loading="lazy" decoding="async" width="1199" height="523" alt=""><figcaption>XI Summit IA 2017. Conferenza, 25 Novembre, Bologna. Foto scattata prima che i relatori parlassero.</figcaption></figure>
+<p>Il 24–25 Novembre 2017 a Bologna si è tenuto <a href="http://iasummit.it/">l’undicesimo Summit italiano di architettura dell’informazione</a> , a cui ho avuto piacere di partecipare con il talk dal titolo:</p>
+<blockquote><strong>L’informazione è nella sceneggiatura? <br></strong>Progettazione di dialoghi uomo-macchina.</blockquote>
+<p>Nella preparazione del focus del talk, il mio intento inizialmente era quello di esporre alcuni design pattern conversazionali e la loro implementazione in linguaggio <a href="https://github.com/bwilcox-1234/ChatScript/">ChatScript</a>, ma alla fine, supponendo che il pubblico in gran parte non fosse composto da addetti ai lavori (rispetto la progettazione conversazionale uomo-macchina) ho optato per una trattazione più ampia su tre sezioni:</p>
+<figure><img src="images/1_LkbqKH0TwpqwHREjnVFJhQ.png" loading="lazy" decoding="async" width="960" height="540" alt=""></figure>
+<p>Ho parlato dello stato dell’arte dei chatbots ed i <em>voicebots</em>, accennando ai <em>metabots </em>che oggi paiono dominare la scena degli assistenti vocali: Google Assistant ed Amazon Alexa.</p>
+<p>Ho poi accennato agli strumenti di sviluppo tipici, dall&#39;hard-coding, all&#39;utilizzo dei linguaggi di scripting, introducendo per sommi capi il più longevo di questi ultimi: ChatScript.</p>
+<figure><img src="images/1_wYXccQP65uvpRkOvuJZBBA.png" loading="lazy" decoding="async" width="960" height="540" alt=""></figure>
+<p>Infine, non potevo non fare un piccolo approfondimento sulle nuove possibilità delle Voice User Interfaces; i problemi progettuali sono molto più ampi rispetto ai dialoghi testuali. Progettare sistemi conversazionali vocali significa infatti abbracciare nuove dimensioni: per esempio, quelle soniche relative alla produzione di voci sintetiche “human-like”.</p>
+<figure><img src="images/1_jgNSaMSwPBR9JQw-5cSSIQ.jpg" loading="lazy" decoding="async" width="675" height="900" alt=""></figure>
+<p>Sebbene i sistemi di speech recognition (ASR) e text to speech (TTS) siano in continua evoluzione e incredibile miglioramento, uno dei problemi che attualmente hanno un po tutti i bot parlanti è la monotonia emozionale della voce (sintetica). Per esempio Alexa e Google Assistant permettono un numero ristretto di differenti varianti di impronta vocale. Il tono di voce e la prosodia sono modulabili in modo molto limitato.</p>
+<h4>Come dare emozione ad un parlato sintetico?</h4>
+<p>Uno degli strumenti in mano agli sviluppatori è l’<a href="https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html">SSML</a>, un linguaggio che permette di “taggare” singole parole e frasi, permettendo di instillare un poco di prosodia in un sistema di sintesi vocale. L’SSML permette di introdurre pause e corretta pronuncia di numeri e di termini particolari in lingua straniera. <br>L’<a href="https://console.bluemix.net/docs/services/text-to-speech/SSML-expressive.html#expressive">Expressive SSML</a> è un dialetto SSML proposto da IBM, che permette di definire un’emozione contestuale ad un prompt (una intera frase, recitata dal voicebot). Per esempio è possibile dare ad una frase un tono “buona notizia” oppure di “scuse”:</p>
+<pre>&lt;express-as type=”GoodNews”&gt; I am pleased to inform you that your mortgage loan application was approved. &lt;/express-as&gt;</pre>
+<pre>&lt;express-as type=”Apology”&gt; Is there any way I can make this up to you? &lt;/express-as&gt;</pre>
+<p>Questo è un passo avanti interessante rispetto alle funzionalità di normalizzazione del testo da recitare, ma siamo ancora a livelli elementari di un parlato automatico che ha poca emozione. La mia previsione è quindi quella di una nuova tecnologia che, con una programmazione non procedurale ma dichiarativa,</p>
+<ul><li>in input: permetta agli sviluppatori di catturare il “sentiment”, a partire dal parlato umano, anche dalle sue componenti non-verbali.</li>
+<li>in output: permetta di dare emozione ad una frase che il bot recita, in funzione sia di un’impronta vocale base del bot-persona (ad esempio una<em> brand-voice</em>) e sulla base di un sistema di modulazione “emozionale” funzione del contesto. Come ho schematizzato:</li>
+</ul>
+<figure><img src="images/1_lV3sX6db57fo7eWn2CKjxQ.png" loading="lazy" decoding="async" width="960" height="540" alt=""></figure>
+<p>In conclusione del mio talk, ho presentato il mio progetto personale <em>Fairy Tales</em> (inventato con <a href="https://medium.com/u/dbd20ea8c8c">Giuditta Del Buono</a>), dove i bot possono anche trasmettere poca emozione perché questa “è da lasciare” agli umani, in una specie di “radio interattiva” reinventata, che miscela podcasts realizzati da attori umani a bot che funzionano come <em>listener assistants</em>, completando i contenuti pre-registrati.</p>
+<figure><img src="images/1_lzPaaGU4jcuuSwlX4sLF-Q.png" loading="lazy" decoding="async" width="960" height="540" alt=""></figure>
+<p>Fairy Tales nasce dall&#39;idea di un voicebot per l’ascolto di favole della buonanotte per bambini, ma l’idea è valida anche per ambiti differenti, per esempio l’e-learning, le news, etc.</p>
+<p>Le mie slides sono disponibili qui: <a href="http://bit.ly/iasummit">http://bit.ly/iasummit</a></p>
+<figure><img src="images/1_7i0hbtZy9_hwNZpShMk9Aw.jpg" loading="lazy" decoding="async" width="4160" height="3120" alt=""><figcaption>Splendide sketch notes sul mio talk, del disegnatore Paolo Masiero <a href="https://twitter.com/solyarisoftware/status/939780339597234176">https://twitter.com/solyarisoftware/status/939780339597234176</a></figcaption></figure>
+<h4>James Giangola e le massime conversazionali di Paul Grice</h4>
+<p>Alla conferenza ci sono stati interventi tutti interessanti, e tra tutti ha spiccato quello del linguista nr. 1 di Google James Giangola (Creative Lead, Conversation Design &amp; Persona)!</p>
+<figure><img src="images/1_b_dwbGz1iyxExnTOeu0ZEg.jpg" loading="lazy" decoding="async" width="1200" height="594" alt=""></figure>
+<figure><img src="images/1_Tctf0aj_-GCgwNyVcDH6eQ.jpg" loading="lazy" decoding="async" width="1200" height="524" alt=""><figcaption>James Giangola (Google) in apertura dell’evento. Foto Rossana Lorusso</figcaption></figure>
+<p>L’intervento di James è stato incentrato sull&#39;introduzione al principio di cooperazione, un argomento specifico della pragmatica linguistica. La sua relazione è stata densa ma allo stesso tempo semplice, come solo i più grandi sanno fare!<br>Consiglio la lettura del bell&#39;articolo di <a href="https://medium.com/u/736a81eaaffe">Toni Fontana</a>:</p>
+<p class="embed embed--card"><a class="embed-card" href="https://www.tonifontana.it/principio-di-cooperazione-grice/"><span class="embed-card-title">Architettura delle conversazioni. Principio di cooperazione di Grice -</span><span class="embed-card-desc">La scorsa settimana ho accennato al principio di cooperazione di Grice parlando della architettura delle conversazioni…</span><span class="embed-card-domain">www.tonifontana.it</span></a></p>
+<p>I video della conferenza:</p>
+<p class="embed embed--video"><span class="embed-label">Video</span> <a href="https://www.youtube.com/watch?v=FlLWakqK2xo">https://www.youtube.com/watch?v=FlLWakqK2xo</a></p>
+<p class="embed embed--video"><span class="embed-label">Video</span> <a href="https://www.youtube.com/watch?v=b1Yd52XfGpo">https://www.youtube.com/watch?v=b1Yd52XfGpo</a></p>
+<p>Last but not list, ringrazio <a href="https://medium.com/u/a53fc07ff3ff">marco tagliavacche</a> per avermi invitato e gli organizzatori e i volontari che hanno contribuito alla realizzazione dell’evento di <a href="https://medium.com/u/c6c2994f2326">Architecta</a>: un grandissimo lavoro!</p>
+<figure><img src="images/1_b56aP96kqaGrOUFpgGrKkw.jpg" loading="lazy" decoding="async" width="2048" height="1536" alt=""><figcaption>fonte foto: <a href="https://twitter.com/vdmdesign/status/93506850706211225">https://twitter.com/vdmdesign/status/93506850706211225</a>6</figcaption></figure>
+<p><em>☞ </em><strong><em>Please tap or click “︎</em></strong>❤” <em>to help to let Giorgio and others know that you appreciated this piece.</em></p>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/dialoghi-uomo-macchina-che-emozionano-le-orecchie-9d2896422bf8">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

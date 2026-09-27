@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Notes on Felix Petersen’s “The World OS” — ConvComp.it</title>
+<meta name="description" content="I report here my thoughts on the interesting slides by Felix Petersen (I already commented on slideshare but comments there are not easy to…" />
+<link rel="canonical" href="https://convcomp.it/notes-on-felix-petersen-s-the-world-os.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Notes on Felix Petersen’s “The World OS” — ConvComp.it" />
+<meta property="og:description" content="I report here my thoughts on the interesting slides by Felix Petersen (I already commented on slideshare but comments there are not easy to…" />
+<meta property="og:url" content="https://convcomp.it/notes-on-felix-petersen-s-the-world-os.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Notes on Felix Petersen’s “The World OS”</h1>
+    <p class="post-subtitle">I report here my thoughts on the interesting slides by Felix Petersen (I already commented on slideshare but comments there are not easy to…</p>
+    <p class="post-meta"><time datetime="2016-02-23">February 23, 2016</time></p>
+  </header>
+  <div class="post-body">
+<p><em>I report here my thoughts on the interesting </em><a href="http://www.slideshare.net/fiahless1/the-world-os"><em>slides</em></a><em> by </em><a href="https://medium.com/u/5f7a7a380fa5"><em>Felix Petersen</em></a><em> (I already commented on slideshare but comments there are not easy to read, so I wrote here a bit better some notes).</em></p>
+<p>Hi Felix! Above all: Thanks for your interesting analysis: <a href="http://www.slideshare.net/fiahless1/the-world-os">http://www.slideshare.net/fiahless1/the-world-os</a>!</p>
+<p class="embed embed--video"><span class="embed-label">Video</span> <a href="https://www.slideshare.net/slideshow/embed_code/key/x8WlbIzt3Dfo80">http://www.slideshare.net/fiahless1/the-world-os</a></p>
+<p>You touched some huge topics: taking a part the socio-economical previsions of a possibe pervasive “freelance economy” (I’m not sure about it, thinking about the European scenario), let me simply comment here on more “light” technical topics.</p>
+<p>I like specifically some of your views:</p>
+<h4><strong>The domain/players diagram (slide 24)</strong></h4>
+<p>It’s very interesting the diagram where you sketch <strong>domain specific vs General </strong>purpose in X axis and <strong>Human agents vs AI agents</strong> in Y axis. I’m thinking a lot me too about this “space”:</p>
+<figure><img src="images/1_L4B9Mexj6u42HluU_P7qow.jpg" loading="lazy" decoding="async" width="638" height="479" alt=""></figure>
+<p>In my opinion, <strong>Facebook Messenger M</strong> could be the best application example to put almost in the center (x, y) = (0, 0) in that diagram! <br>M is probably the most famous example of application where human experts “collaborate” (teaching) with a AI software(s) to solve people (usres/customers) questions… <br>BTW, <strong>a very interesting interview to Alexander Lebrun, previously </strong><a href="http://wit.ai"><strong>wit.ai</strong></a><strong> founder and now “M teacher” </strong>here linked:</p>
+<p class="embed embed--tweet"><span class="embed-label">Twitter</span> <a href="https://twitter.com/solyarisoftware/status/701411761782702081">https://twitter.com/solyarisoftware/status/701411761782702081</a></p>
+<p>So maybe the diagram could be integrated with more drawing points for similar “personal assistants” like “pioneer” Apple Siri, more recent <strong>Amazon Alexa</strong> (that I’d insert in upper-righ quadrant because these lasts are made just by software bots (in these cases there isn’t any human operator behind the scenes, as far as I know).</p>
+<h4><strong>Asyncronous vs Session-based ?</strong></h4>
+<p>A minor criticism on slide (slide 25) about your definition of <em>asyncronous</em> vs <em>session-based</em>: is not clear to me what you mean with <em>asyncronous</em> referring to conversational apps.</p>
+<blockquote>I’d instead define conversational apps as “permanent-session”-based, in the sense that (smart) bots will maintains user status (profiling, tastes, history of transactions-awareness…”memory” in human sense… :-) )</blockquote>
+<h4>The architectural stack</h4>
+<p>I almost agree on the archietcture on slide 29:</p>
+<figure><img src="images/1_BiJEWLOCbitlDqXRMyykmA.jpg" loading="lazy" decoding="async" width="638" height="479" alt=""></figure>
+<p>Especially I appreciated the “intelligent dispatch layer”! BTW, myself, as developer, I thinking about this topic: <strong>softwares that dispatch converstations/tasks among human operators and AI engines! that’s especially interesting in customer care / contact centers scenarios </strong>(#customerexperience), and I just sketched an undone project to make taht sort of “dispatecher” for theTelegram platform (see: <a href="http://www.github.com/solyaris/conversator">www.github.com/solyaris/conversator</a>).</p>
+<h3>Transactional Bots ?</h3>
+<p>I have a bit different point of view in the low level “engine/data” layer of the stack. It seems to me that you underline something I’d call <em>big-data approach</em>, where a possible centralized intelligence use third parties APIs to get data &amp; services here and there. Is that the vision of few set of big centralized AI taht everyone will use… mmhhh….</p>
+<p>Personally, generally speacking, I’m not too much for aggregators / intermediation business models (aka <em>marketplaces</em>, in e-commerce realms), I instead think that there is a great economical potential in P2P services (person-to-person and also “local business-to-local people”) and by the way, that’s maybe is in the direction of what you call “freelance economy” in a future. But this P2P perspective is almost on the opposite side of “general purpose” “strong”-AI proprietary assistants (made by big “take-all” players brands). A possible economical raise is instead in what you call “domain-specific” side.</p>
+<blockquote>Specific bots, for specific purposes made up by companies could have huge potential making their own conversational bots.</blockquote>
+<p>Lets’ think specifically to conversational commerce realms: e-commerce, booking, e-payments (e.g. any bank could supply a bot for payment transactions), really any seller (also a very <strong>micro-seller</strong>, e.g. I’m focused on proximity commerce, see my draft project: <a href="http://www.rosposhop.com">www.rosposhop.com</a>).</p>
+<p class="embed embed--video"><span class="embed-label">Video</span> <a href="https://www.youtube.com/watch?v=OsQIOo2Snuw">https://www.youtube.com/watch?v=OsQIOo2Snuw</a></p>
+<p>So almost every micro-business could benefit by custom made dedicated (conversational) bots, let me azarde a definition:</p>
+<blockquote>Transactional Bots: domain-specific bots, maintained by commercial companies or no-profit organizations, for specific transactional goals</blockquote>
+<p>No ? What do you think about it ?</p>
+<p>with modesty<br>giorgio</p>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/notes-on-felix-petersen-s-the-world-os-97731e1ffbfa">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

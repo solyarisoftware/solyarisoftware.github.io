@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dialogs modeled as finite state machines ? — ConvComp.it</title>
+<meta name="description" content="Update (October, 30th 2020): I opensourced NaifJs, the dialog manager that implement my 4 years ago idea." />
+<link rel="canonical" href="https://convcomp.it/dialogs-modeled-as-finite-state-machines.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Dialogs modeled as finite state machines ? — ConvComp.it" />
+<meta property="og:description" content="Update (October, 30th 2020): I opensourced NaifJs, the dialog manager that implement my 4 years ago idea." />
+<meta property="og:url" content="https://convcomp.it/dialogs-modeled-as-finite-state-machines.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Dialogs modeled as finite state machines ?</h1>
+    <p class="post-subtitle">Update (October, 30th 2020): I opensourced NaifJs, the dialog manager that implement my 4 years ago idea.</p>
+    <p class="post-meta"><time datetime="2016-07-14">July 14, 2016</time></p>
+  </header>
+  <div class="post-body">
+<blockquote>Update (October, 30th 2020): I opensourced NaifJs, the dialog manager that implement my 4 years ago idea.</blockquote>
+<p>I describe briefly my small study to model chatbot conversations as a finite state machines. I present here a personal project <em>((dialogs))</em>, and I also mention great <em>aBot</em> open-source project, but eventually concluding with a <em>dialog flow scripting languages</em> apologia.</p>
+<h3>((dialogs)) — an abandoned experiment</h3>
+<p><span>In</span> December 2015 I wrote <a href="https://github.com/solyaris/dialogs"><strong>((Dialogs))</strong></a> a very draft Ruby (my beloved programming language) code, with the aim to proof the concept of a conversational framework where <strong>any dialog is modeled as a </strong><a href="https://en.wikipedia.org/wiki/Finite-state_machine"><strong>finite state machine</strong></a>. A complex nested dialogs flow is modeled here as passages from a state of a machine to a state of another machine, in a graph of nested dialogs. In my approach each dialog is an instance (in terms of object oriented parlance) of a class (= a dialog template, with an associated DSL — Domain Specific Language).</p>
+<p>At first glance all that sound cool, isn’t it ?</p>
+<figure><img src="images/1_lk-9Y22cr0Oe02WwqCyl6w.png" loading="lazy" decoding="async" width="1002" height="481" alt=""><figcaption>online shopping order submission macro dialog example: conversation contains three subdialogs</figcaption></figure>
+<p>Nevertheless I abandoned soon my naif gist, and I tell you why in a moment, but it could be still interesting to read introduction/manifesto:</p>
+<p class="embed embed--card"><a class="embed-card" href="https://github.com/solyaris/dialogs"><span class="embed-card-title">solyaris/dialogs</span><span class="embed-card-desc">dialogs - A dialog system framework for conversational services.</span><span class="embed-card-domain">github.com</span></a></p>
+<h3>Abot — a promising open source bot framework</h3>
+<p><span>A</span><a href="https://github.com/itsabot/abot"><strong><em>bot</em></strong></a><strong> </strong>is an open-source beautiful project where again, a dialog is modeled as a state machine; I just recently discovered it after having sketched my own <em>((dialogs)).</em></p>
+<figure><img src="images/1_CcQuljEAh2_TDMB8jbuUUw.png" loading="lazy" decoding="async" width="350" height="96" alt=""><figcaption>Abot makes it easy and fun to build your own digital assistant, and we include everything you need to get started.</figcaption></figure>
+<p class="embed embed--card"><a class="embed-card" href="https://github.com/itsabot/abot"><span class="embed-card-title">itsabot/abot</span><span class="embed-card-desc">abot - Abot makes it easy and fun to build your own digital assistant, and we include everything you need to get…</span><span class="embed-card-domain">github.com</span></a></p>
+<p><span>A</span><em>bot</em><strong> </strong>is developed in Go language, based upon the gift of a <strong>chatbot engine/framework architecture of third-party </strong><a href="https://www.itsabot.org/plugins"><strong>plugins</strong></a><strong>, where each plugin represent a service/dialog (with a behaviour modeled as a finite state machine)</strong>. Here below an <a href="https://github.com/itsabot/abot/wiki/Getting-Started#understanding-how-abot-works">extract from the <em>aBot</em> github readme page</a>:</p>
+<blockquote>Abot’s core consists of three parts:<br>1. An API that accepts natural language inputs.<br>2. A state machine that tracks grammar and context across inputs, enabling the chaining of commands.<br>3. A router that selects the appropriate plugins to send the input based on the current command and past context.</blockquote>
+<blockquote>BTW, <strong>I love aBot plugins architecture as a great example of open-souce collaborative directory of resources</strong> (general statement), nevertheless I’m still perplex on the dialog modeling as a FSM (this is also a self-criticism to my <em>(dialogs))</em>!)</blockquote>
+<h3>Why I don’t like FSM approach</h3>
+<p>Even if I can state without doubts that <em>aBot</em> is a good piece of software, more I think about the approach to model a <em>dialog flow </em>as a chain of dialogs each one rigidly built-upon a finite state machine, more I think this as a wrong way to build complex conversational applications.</p>
+<p>There are some reasons of my skepticism and I just mention two:</p>
+<p><span>F</span>irst, whatever the implementation may be ( my modest <em>((dialogs))</em>, <em>aBot</em>, or any framework with similar approach) <strong>dialogues are anyway “hard-coded” inside source code of a specific programming language</strong>, Ruby, Go, NodeJs or any other, and I strongly believe that’s bad, because in this way the <em>dialog flow</em> is drowned in the software.</p>
+<pre>func kwGetRating(in *dt.Msg) string {<br> biz, err := getBusiness(in)<br> if err != nil {<br>  return &quot;&quot;<br> }<br> <strong>f := fmt.Sprintf(&quot;%.1f&quot;, biz.Rating)</strong><br> <strong>return &quot;They have a &quot; + f + &quot; star rating on Yelp.&quot;</strong><br>}</pre>
+<blockquote>Digression: If I can hazard a joking parallelism with web programming … immerge natural language output prints in the above mentioned way, is like times where we built web pages with CGI programming, producing HTML code with print (wrote in some programming language) in a running process spawned by a web server. Nowadays instead, HTML literals are better produced by scripting languages like PHP or Ruby on Rails, that embed programming language functions inside the HTML code… ;-)</blockquote>
+<p>Let’s now consider an example with ((dialogs)), of a dialog to collect items in a list: <a href="https://github.com/solyaris/dialogs/tree/master/dialogs/list">https://github.com/solyaris/dialogs/tree/master/dialogs/list</a></p>
+<p>My gist was to split the FSM logic code (here I report just an extract from <em>list.rb </em>file) …:</p>
+<pre>class List &lt; Dialog</pre>
+<pre>    def self.initialize_data<br>      []<br>    end</pre>
+<pre>    #<br>    # state: start<br>    #<br>    def start(text)<br>      go :add, add_o <br>    end</pre>
+<pre>    #<br>    # state: add<br>    #<br>    def add(item)<br>      case item<br>      when yes_i <br>        go :add, add_more_o</pre>
+<pre>      when no_i || exit_i <br>        if data.empty?<br>          reply aborted_o <br>          return back :finish<br>        end</pre>
+<pre>        # list items<br>        reply_list<br>        go :confirm, confirm_o</pre>
+<pre>      when help_i  <br>        help_add<br>      <br>      when list_i <br>        reply_list<br>        go :add, add_more_o</pre>
+<pre>      else<br>        #<br>        # NLP understanding<br>        #<br>        interpret item</pre>
+<pre>        # add line to data text<br>        data.push item</pre>
+<pre>        # back to the same state<br>        go :add, add_more_o <br>      end  <br>    end</pre>
+<pre>...</pre>
+<p>…from the country language literals (by example in Italian, see the <em>list_lang_it.rb</em> here below:</p>
+<pre># file: list_lang_it.rb<br>module Dialogs <br>  class List &lt; Dialog<br>    private<br><br>    # input methods<br><br>    def yes_i<br>      /<strong>\b</strong>si<strong>\b</strong>|<strong>\b</strong>ok<strong>\b</strong>|<strong>\b</strong>procedi<strong>\b</strong>|<strong>\b</strong>vai<strong>\b</strong>/i<br>    end  <br><br>    def del_i<br>      /<strong>\b</strong>del<strong>\b</strong>|<strong>\b</strong>togli<strong>\b</strong>|<strong>\b</strong>rimuovi<strong>\b</strong>/i<br>    end  <br><br>    # output methods<br><br>    def confirm_o<br>      &quot;confermi lista ?&quot;<br>    end<br><br>    def confirmed_o<br>      &quot;lista confermata!&quot;<br>    end<br><br><strong>    def del_o(max_num)<br>      [<br>        &quot;quale item vuoi cancellare (1-#{max_num}) ?&quot;, <br>        &quot;cosa vuoi togliere (1-#{max_num}) ?&quot;<br>      ].sample<br>    end</strong></pre>
+<p>Let’s consider insted “hello world” example from <em>aBot </em>project. Here below the code:</p>
+<pre>// Package hello responds to &quot;Say something&quot; with &quot;Hello World&quot;.<br>package hello<br><br>import (<br>    &quot;log&quot;<br><br>    &quot;github.com/itsabot/abot/shared/datatypes&quot;<br>    &quot;github.com/itsabot/abot/shared/nlp&quot;<br>    &quot;github.com/itsabot/abot/shared/plugin&quot;<br>)<br><br>var p *dt.Plugin<br><br>func init() {<br>    // Create the plugin, setting it up to communicate with Abot through<br>    // the functions we specified.<br>    var err error<br>    p, err = plugin.New(&quot;github.com/itsabot/plugin_hello&quot;)<br>    if err != nil {<br>        log.Fatalln(&quot;failed to build plugin.&quot;, err)<br>    }<br><br>    // When Abot receives a message, it&#39;ll route the message to the correct<br>    // package. Doing that requires a trigger, which tells Abot to send the<br>    // response to this package when Commands include &quot;say&quot; and Objects<br>    // include &quot;something&quot;, &quot;hello&quot;, etc. Case should always be lowercase,<br>    // and the words will be stemmed automatically, so there&#39;s no need to<br>    // include variations like &quot;cat&quot; and &quot;cats&quot;. plugin.AppendTrigger is<br>    // optional if you set KeywordHandlers (as described in the Building a<br>    // Plugin guide), but since we only have a state machine, we&#39;ll add<br>    // these words as triggers.<br>    plugin.AppendTrigger(p, &amp;nlp.StructuredInput{<br>        Commands: []string{&quot;say&quot;},<br>        Objects:  []string{&quot;something&quot;, &quot;hello&quot;, &quot;hi&quot;},<br>    })<br><br>    // Abot includes a state machine designed to have conversations. This<br>    // is the simplest possible example, but we&#39;ll cover more advanced<br>    // cases with branching conversations, conditional next states, memory,<br>    // jumps and more in other guides.<br>    //<br>    // For more information on state machines in general, see:<br>    // https://en.wikipedia.org/wiki/Finite-state_machine<br>    plugin.SetStates(p, [][]dt.State{[]dt.State{<br>        {<br><strong>            OnEntry: func(in *dt.Msg) string {<br>                return &quot;Hello world!&quot;<br>            },<br></strong>            OnInput: func(in *dt.Msg) {<br>            },<br>            Complete: func(in *dt.Msg) (bool, string) {<br>                return true, &quot;&quot;<br>            },<br>        },<br>    }})<br>}</pre>
+<p>A complete code example of a plugin dialog that find restaurants nearby in aBot:</p>
+<p class="embed embed--card"><a class="embed-card" href="https://github.com/itsabot/plugin_restaurants/blob/master/restaurants.go"><span class="embed-card-title">itsabot/plugin_restaurants</span><span class="embed-card-desc">plugin_restaurants — Find great restaurants nearby.</span><span class="embed-card-domain">github.com</span></a></p>
+<p>Now, my feeling is that the above code is rather hard to read, to maintain, to debug, even if “dialog volleys” are maybe high-performance in terms of CPU (but this have to be measured with metrics to be done).</p>
+<p>The basic reason I’m now pretty contrary to the FSM implementation approach is that it become too complex to program really complex (= interesting) real conversations, if any dialog is coded as a finite state machine.</p>
+<blockquote>Last but not least, a FSM-driven dialog is probably too “rigid” looking as “robotic” and eventually annoying in machine-to-humans interactions. Nevertheless… FSM-driven protocols could be suitable for machine-to-machine (chatbot-to-chatbot) conversations… but this is a topic I would deepen in a future article (stay tuned)!</blockquote>
+<h3>Decoupling dialogs scripts from logics behind!</h3>
+<p>At the end of the day I temporarily concluded that, a part very simple “transactional” applications, a better solution to manage complex chatbot conversations is to use <em>dialog flow scripting engines</em>. In this case there is a precise separation between the dialog script (front-end) and any transaction (done by back-end services). And, above all, scripting techniques allow to build up complex conversations by people that are not programmers or developers! And that’s a huge pro that I deepen in a next article, even if time ago I wrote few ideas about that in few articles:</p>
+<p class="embed embed--card"><a class="embed-card" href="https://medium.com/convcomp2016/hi-matthias-d3a3639dc4f0"><span class="embed-card-title">Decoupling business logic with dialog flow scripting</span><span class="embed-card-desc">Hi Matthias!</span><span class="embed-card-domain">medium.com</span></a></p>
+<p class="embed embed--card"><a class="embed-card" href="https://medium.com/convcomp2016/supescriptjs-as-dialog-script-knowledge-interchange-language-16039195a9d0"><span class="embed-card-title">Supescriptjs as dialog script / knowledge interchange language</span><span class="embed-card-desc">Hi Rob! I only recently discovered www.superscriptjs.com. I like your tech structured solution(s) and above all I thank…</span><span class="embed-card-domain">medium.com</span></a></p>
+<blockquote>Next month I’ll publish my analysis and comparison among some dialog flow scripting languages, on the article: “<strong>Chatbot Scripting Engines Comparison</strong>”, where I will also details some pros and cons of the rule-based bots engines.</blockquote>
+<h4>21 October 2016 update</h4>
+<blockquote>21 October update: I’m late with the “comparison” article, btw, in last months I studied better ChatScript and I wrote a very very simple introduction:</blockquote>
+<blockquote><a href="https://medium.freecodecamp.com/chatscript-for-beginners-chatbots-developers-c58bb591da8#.b9fcjpxe1">https://medium.freecodecamp.com/chatscript-for-beginners-chatbots-developers-c58bb591da8#.b9fcjpxe1</a></blockquote>
+<blockquote>Now, even if I still hardly believe in chatbot scripting and smart rule-based opensource engines,</blockquote>
+<blockquote>I’m thinking again about dialog modeling with finite state machines, with a specific interest in conversational state-full topics and machine to machine (= bots-to-bots) (automatic) (conversational).</blockquote>
+<blockquote>In that path I’m re-coding (in Ruby) my previous ugly ((dialogs)) proof of concept, with now a more practical approach, coding a micro framework, codename: <a href="https://github.com/solyaris/naif">naif</a>, maybe released in December 2016. <br>Stay tuned :)</blockquote>
+<h4>23 February 2017 update</h4>
+<p class="embed embed--card"><a class="embed-card" href="https://github.com/solyaris/naif"><span class="embed-card-title">GitHub - solyaris/naif: Ruby micro-framework to build dumb chat-machines</span><span class="embed-card-desc">naif - Ruby micro-framework to build dumb chat-machines</span><span class="embed-card-domain">github.com</span></a></p>
+<p>What do you think about it ? Please comment!</p>
+<figure><img src="images/1_de_4oEVcUU7OyozyBjuq-A.gif" loading="lazy" decoding="async" width="640" height="70" alt=""><figcaption><strong><em>Please tap or click “︎</em></strong>❤” <em>to help to promote this piece to others.</em></figcaption></figure>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/dialoghi-come-macchine-a-stati-41bb748fd5b0">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

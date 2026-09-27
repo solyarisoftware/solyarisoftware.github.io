@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to build your first chatbot using ChatScript — ConvComp.it</title>
+<meta name="description" content="10–10–2018: article updated with new github repo url." />
+<link rel="canonical" href="https://convcomp.it/how-to-build-your-first-chatbot-using-chatscript.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to build your first chatbot using ChatScript — ConvComp.it" />
+<meta property="og:description" content="10–10–2018: article updated with new github repo url." />
+<meta property="og:url" content="https://convcomp.it/how-to-build-your-first-chatbot-using-chatscript.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">How to build your first chatbot using ChatScript</h1>
+    <p class="post-subtitle">10–10–2018: article updated with new github repo url.</p>
+    <p class="post-meta"><time datetime="2016-08-02">August 2, 2016</time></p>
+  </header>
+  <div class="post-body">
+<blockquote>10–10–2018: article updated with new <a href="https://github.com/ChatScript/ChatScript">github repo url</a>.</blockquote>
+<p>Chatbots can help you get things done right inside chat tools like Facebook Messenger, Telegram Messenger, Slack, etc, etc. Just say the word and your chatbot will deploy your latest build, or order you a pizza.</p>
+<p>And there’s a special tool for building chatbots that’s been around for quite some time. It’s called ChatScript. And like Slack, it started out as just a small part of a video game.</p>
+<p>Back in 2009, <a href="http://brilligunderstanding.com/aboutus.html">Bruce Wilcox</a> was working as a game developer and artificial intelligence researcher. His wife, <a href="http://brilligunderstanding.com/aboutus.html">Sue Wilcox</a>, wanted to model virtual characters for her interactive fiction games. Together, they built what ultimately became ChatScript.</p>
+<figure><img src="images/1_tC6objBcZbzBQwS1wrSyYA.png" loading="lazy" decoding="async" width="1600" height="1410" alt=""><figcaption>Sue Wilcox (source: <a href="http://brilligunderstanding.com/aboutus.html">http://brilligunderstanding.com/aboutus.html</a>)</figcaption></figure>
+<p>This natural language processing engine + dialog flow scripting platform helped Bruce win the <a href="http://www.loebner.net/Prizef/loebner-prize.html">Loebner AI Prize</a> three times.</p>
+<figure><img src="images/1_iLgwlJ18CFWNh27cjZOwQA.jpg" loading="lazy" decoding="async" width="854" height="480" alt=""><figcaption><a href="http://www.fundacionareces.tv/watch/50a63327c31997630a020000">Watch a talk by Bruce Wilcox</a></figcaption></figure>
+<p>Bruce still develops and maintains the project today. It’s written in C and C++, and is open source. In fact, version 6.8 just came out a few weeks ago.</p>
+<p><strong>ChatScript is one of few OPENSOURCE chatbots NLProc engines!</strong></p>
+<p>Let’s dive into the basics of <a href="https://github.com/ChatScript/ChatScript">ChatScript</a> and meet a chatbot named Harry.</p>
+<h3>Installing ChatScript</h3>
+<p>Some of these steps may be a bit different depending on what operating system you’re using. <strong>I’m using Linux</strong>. You don’t actually have to go through these steps to enjoy this article if you don’t want to. Just read along.</p>
+<h4>Step 1: Install the system components on your local computer</h4>
+<p>First of all clone the ChatScript GitHub repository:</p>
+<pre>$ git clone <a href="https://github.com/ChatScript/ChatScript">https://github.com/ChatScript/ChatScript</a></pre>
+<p>This will create a ChatScript directory, which will contain these subdirectories:</p>
+<pre>$ cd ChatScript/<br>$ ls -d1 */</pre>
+<pre><strong>BINARIES/</strong><br>DICT/<br><strong>DOCUMENTATION/<br></strong>LINUX/<br>LIVEDATA/<br>LOEBNERVS2010/<br><strong>LOGS/<br></strong>MAC/<br><strong>RAWDATA/<br></strong>REGRESS/<br>SERVER BATCH FILES/<br><strong>SRC/<br></strong>SUBLIME TEXT EDITOR/<br>TMP/<br>TOPIC/<br>USERS/<br>VERIFY/<br>VS2010/<br>VS2015/<br>WEBINTERFACE/</pre>
+<ul><li>DOCUMENTATION contains <a href="https://github.com/ChatScript/ChatScript/tree/master/WIKI">wiki documentation files</a>.</li>
+</ul>
+<blockquote><strong>BTW, I personally contributed to update all the original documentation in markdown format to be read online and from command line when developing.❤</strong></blockquote>
+<ul><li>RAWDATA contains a subdirectory for each bot. By default, the platform comes with a default bot named Harry, who is located at RAWDATA/HARRY.</li>
+</ul>
+<p>BTW, please remember to set LinuxChatScript64 executable:</p>
+<pre><code>$ chmod +x ChatScript/BINARIES/LinuxChatScript64</code></pre>
+<blockquote>Note: obviously here above I’ considering the Linux OS environment. <br>More info about Linux, MacOS or Windows installation <a href="https://github.com/bwilcox-1234/ChatScript#getting-started">here</a>.</blockquote>
+<h4>Step 2: To run CS engine in standalone mode:</h4>
+<pre><code>$ BINARIES/LinuxChatScript64 local</code></pre>
+<p>Running the engine will launch Harry, with whom we can then talk:</p>
+<pre>ChatScript EVSERVER Version 6.8  64 bit LINUX compiled Aug 16 2016 17:35:43 host=local<br>Params:   dict:720895 fact:800000 text:70000kb hash:50000<br>          buffer:22x80kb cache:1x5000kb userfacts:100<br>WordNet: dict=201350  fact=85710  stext=12703744 Jul26&#39;16-21:58:46<br>Build0:  dict=67726  fact=130289  stext=1145656 Jul31&#39;16-13:45:49 0<br>Build1:  dict=167  fact=15  stext=211304 Jul31&#39;16-13:45:44 harry<br>Used 53MB: dict 269,244 (23693kb) hashdepth 18/1 fact 216,014 (8640kb) text 14183kb<br>           buffer (1760kb) cache (5000kb) POS: 918 (29kb)<br>Free 79MB: dict 451,651 hash 924 fact 583,986 text 55,816KB</pre>
+<pre>Enter user name: giorgio</pre>
+<pre><em>HARRY:  Welcome back<br>giorgio: &gt; what is your name ?<br>HARRY:  My name is Harry.<br>giorgio: &gt; who is Bruce Wilcox?<br>HARRY:  Bruce Wilcox (born 1951) is an artificial intelligence programmer.<br>giorgio: &gt; ok, I have to go<br>HARRY:  Indeed.<br>giorgio: &gt; </em>:quit<br>Exiting ChatScript via Quit<br>$</pre>
+<h4>Step 3: Code and debug your chatbot scripts</h4>
+<p>Standalone mode makes for an excellent ChatScript development environment. It allows you to run interactive conversations, then interact with them using <strong>:commands</strong>. This is a special set of interactive command tools for testing and debugging your dialogs during the development and debug phase.</p>
+<p>Here are a few example commands:</p>
+<pre># recompile the bot Harry and reset the status of conversations with user giorgio</pre>
+<pre>giorgio: &gt;<strong> </strong>:build Harry <br>giorgio: &gt;<em> </em>:reset</pre>
+<pre># request statistics about topic <strong>~</strong>pets</pre>
+<pre>giorgio: &gt; :topicstats ~pets<br>    ~pets     gambits 2 responders 2 rejoinders 5 empties 0<br>Concepts 1860 Topics 1 rules 9 empties 0<br>  gambits 2  responders 2 (?: 2 s: 0  u: 0) rejoinders 5</pre>
+<pre># conversation ...</pre>
+<pre><em>giorgio: &gt; do you like snakes?<br>HARRY:  I love pythons except ^&quot;Python&quot; (the programming language)</em></pre>
+<pre># ask the reason why a rule fired</pre>
+<pre>giorgio: &gt; :why<br>~pets.2.0.5.9.0  ?:  ( &lt;&lt; you like snake &gt;&gt; ) I love pythons except Python ( the programming language )<br> via ~control.5.9.0  u:  ( ) $$currenttopic = %topic ^if 00m( %response  0 ) 00I{ ^nofail ( TOPIC ^rejoinder ( ) ...</pre>
+<p>Note that you can run <strong>:commands</strong> to show the full list of available commands.</p>
+<p>Topics are contained in specific files. For example, the <strong><em>~</em></strong><em>pets</em> topic code is contained in <em>pets.top</em> file, which looks like this:</p>
+<pre>topic: ~pets (dog cat pet animal bird fish snake)</pre>
+<pre>?: ( &lt;&lt; you like snake &gt;&gt; )<br> I love pythons except ^&quot;Python&quot; (the programming language)</pre>
+<pre>?: ( &lt;&lt; you ~like ~animals &gt;&gt; ) <br> I love all animals.</pre>
+<pre>t: Do you have any pets?<br> #! yes<br> a: ( ~yes ) Great. You like animals.</pre>
+<pre>#! no<br> a: ( ~no ) You don’t like animals?</pre>
+<pre>#! I have two parrots<br> a: ( parrots ) Birds are nice.</pre>
+<pre>#! I have a cat<br> a: ( cat ) I prefer dogs</pre>
+<pre>#! I have a canary<br> a: ( [parrot bird canary finch swallow] ) Birds are nice.</pre>
+<pre>t: I have a dog.</pre>
+<p>ChatScript is a rule-based engine, where rules are created by humans writers in program scripts through a process called dialog flow scripting. These use a scripting metalanguage (simply called a “script”) as their source code.</p>
+<p>Here what a ChatScript script file looks like:</p>
+<pre>#<br># file: food.top<br>#</pre>
+<pre>topic: ~food []</pre>
+<pre>#! I like spinachs<br>s: ( I like spinach ) <br>   Are you a fan of the Popeye cartoons?</pre>
+<pre>a: ( ~yes ) <br>       I used to watch him as a child. Did you lust after Olive Oyl?<br>     b: ( ~no ) Me neither. She was too skinny.<br>     b: ( ~yes ) You probably like skinny models.</pre>
+<pre>a: ( ~no ) What cartoons do you watch?<br>     b: ( none ) You lead a deprived life.<br>     b: ( Mickey Mouse ) The Disney icon.</pre>
+<pre>#! I often eat chicken<br>u: ( ![ not never rarely ] I * ~ingest * ~meat ) <br>   You eat meat.</pre>
+<pre>u: ( !~negativeWords I * ~like * ~meat ) You like meat.</pre>
+<pre>?: (do you eat _ [ ham eggs bacon]) <br>   I eat ‘_0</pre>
+<pre>?: (do you like _* or _*) <br>   I don’t like ‘_0 so I guess that means I prefer ‘_1.</pre>
+<pre>s: ( ~like ~fruit ![~animal _bear] ) <br>   Vegan, you too...</pre>
+<pre>?: (do you eat _~meat) <br>   No, I hate _0.</pre>
+<pre>s: ( I eat _*1 &gt;) <br>  $food = ‘_0 <br>  I eat oysters.</pre>
+<p>You can define your bot’s dialog flows with a script stored as a normal text file. This is much simpler than methods that other chatbot tools use, which often involve browser-based user interfaces, JSON, or XML.</p>
+<p>Writing your scripts as a text files gives you full control over your dialog flows. You a can easily process and upgrade your conversational code with back-end scripts and tools.</p>
+<p>For example, you could automatically update ChatScript dialog rules based on records in your database.</p>
+<p>You could even use machine learning tools to mine conversations logs. This could reveal all kinds of opportunities for you to improve your dialog flows.</p>
+<p>But these are topics for a future ChatScript article. I’ll leave you to go play with ChatScript on your own.</p>
+<blockquote><strong>Please contribute to its open source codebase, and star it on </strong><a href="https://github.com/ChatScript/ChatScript"><strong>GitHub</strong></a><strong>!</strong>🌟🌟🌟🌟🌟</blockquote>
+<p class="embed embed--card"><a class="embed-card" href="https://github.com/ChatScript/ChatScript"><span class="embed-card-title">ChatScript/ChatScript</span><span class="embed-card-desc">Contribute to ChatScript/ChatScript development by creating an account on GitHub.</span><span class="embed-card-domain">github.com</span></a></p>
+<figure><img src="images/1_udZBUTECQaNAJvSXpZmBNQ.gif" loading="lazy" decoding="async" width="640" height="70" alt=""><figcaption><strong>Please tap or click “︎</strong>❤” to help to promote this piece to others.</figcaption></figure>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/chatscript-for-beginners-chatbots-developers-c58bb591da8">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

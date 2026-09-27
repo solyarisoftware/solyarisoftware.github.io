@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>On stateful dialogs — ConvComp.it</title>
+<meta name="description" content="Thanks Mario for you answer!" />
+<link rel="canonical" href="https://convcomp.it/on-stateful-dialogs.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="On stateful dialogs — ConvComp.it" />
+<meta property="og:description" content="Thanks Mario for you answer!" />
+<meta property="og:url" content="https://convcomp.it/on-stateful-dialogs.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">On stateful dialogs</h1>
+    <p class="post-subtitle"></p>
+    <p class="post-meta"><time datetime="2016-07-18">July 18, 2016</time></p>
+  </header>
+  <div class="post-body">
+<p>Thanks Mario for you answer!</p>
+<p>Your e-commerce example remind me something I didn’t clarify in my original article:</p>
+<h4>Service-oriented bots vs Turing test-oriented bots</h4>
+<p>When developing <em>((dialogs))</em> project<em>, </em>thinking about how to model a domain-specific dialog with as a precise finite-state machine, I was referring on chatbots for business-oriented conversations, where a conversation possibly bring to a <em>transaction</em> (e.g. just a shopping order submission).</p>
+<p>In these (interesting use cases ;-) ) a business goal conversation maybe have to drive customer/user to follow a sort of workflow/behaviour patterns where conversation move in a <em>path of states</em> (modeled as a FSM, where events are commands/semantic understanding, etc.).</p>
+<p>In <em>((dialogs))</em> project, I mentioned as example the classic workflow of an online shopping order: customer have to:</p>
+<ul><li>fulfill a cart list of items to be purcheased (= specific sub-dialog),</li>
+<li>specify a delivery address (= a specific sub-dialog),</li>
+<li>a delivery time (= a specific sub-dialog)</li>
+<li>and just after having completed all these actions, the customer can eventually submit the order to supplier (the goal “transaction”).</li>
+</ul>
+<p>The precisation is to ditinguish a conversation that have the scope to achive an “action” (in facts someone talk about <em>actionable data bots</em> and someone else talk about <em>planning rules </em>or <em>slot-filling</em> scenarios), from a general chitchat conversation without any specific trans-action to complete! I’m by example referring here to chatbots developed for Loebner prize competition, where chatbots have to “just” conversate imitating an human-to-human small talk about everthing… without a real final goal: just mimic a human conversation (the Turing test contexts).</p>
+<p>So, generally speaking, any bots built to deliver specific services or domain specific info, or (above all) learn about the user needs or intents, must follow some sort of <em>status workflow</em> and have to be modeled as a state machine in a general sense. Nevertheless, the criticism I done to my approach in my own <em>((dialogs)) </em>project, is that maybe that is not a good idea to <em>hard-code</em> the state machine strictly along with the programming code of the bot conversation.</p>
+<h4>Orbits of states</h4>
+<p>Back to your approach you mentioned, let me quoting you:</p>
+<blockquote>The programmer defines various initial states, each can be triggered by a different set of sentences (eventually with a semantic engine)<br>Thanks to buttons or semantic analysis, the users jumps from one state to the other («Do you want A or B?», choose between A and B…)</blockquote>
+<p>Yes, I feel that the defining a <em>status-path</em> (to achieve a “goal”), where the <em>status</em> is an attribute of the user <em>session</em>, defining the user <em>intent</em>, a step in a workflow in an interesting idea to deep in. I have to think more about it; is now not clear to me how to generalize a definition of that <em>status</em> (open point for me).</p>
+<blockquote>We track the «orbits» of each user. For instance we have a book store, and we see that people who buy more than 3 books always pay by credit card, so do not offer the choice of paying by bank transfer (silly example, but Ok).<br>The idea is that instead of having a complex seq2seq we consider the orbits inside a limited amount of states.</blockquote>
+<p>Yes, I see the point. Maybe you are referring about the fact that to move from state Snow to state Snext, the user have a short list of possible final states ( S in S1…Sn). <br>This is possibly a desired feature for a “business-oriented” chatbots, where in facts user can’t have to conversate about “anything”, but instead the user have to conversate with chatbot in specific domain topics (in a customer to customer service chatbot of a telco operator, the use maybe have to talk about issues related to his tariff plan, etc. and not about the weather or football match results or brexit).</p>
+<p>BTW, with an extreme simplification (I admit), the <em>orbit</em> could be just old fashioned preferences &amp; profiling, always claimed to be done (in web sites/services) but rarerly done in practice ;-)</p>
+<figure><img src="images/1_-95B4PBhdAVrcKaL-MIDgg.png" loading="lazy" decoding="async" width="1024" height="1320" alt=""></figure>
+<blockquote>BTW, Special thanks: <br>I’m happy to having meet you at <a href="http://j.mp/convcomp2016">#convcomp2016</a>, Mario !<br>Thanks for your willingness with peple in conference !</blockquote>
+<p>giorgio, 18th July, updated 19th July</p>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/on-stateful-dialogs-10daa88ba6f1">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

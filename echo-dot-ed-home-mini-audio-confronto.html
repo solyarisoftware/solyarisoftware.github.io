@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Echo Dot ed Home Mini: Audio confronto — ConvComp.it</title>
+<meta name="description" content="Un’introduzione allo sviluppo di applicazioni audio su Amazon Alexa e Google Assistant" />
+<link rel="canonical" href="https://convcomp.it/echo-dot-ed-home-mini-audio-confronto.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Echo Dot ed Home Mini: Audio confronto — ConvComp.it" />
+<meta property="og:description" content="Un’introduzione allo sviluppo di applicazioni audio su Amazon Alexa e Google Assistant" />
+<meta property="og:url" content="https://convcomp.it/echo-dot-ed-home-mini-audio-confronto.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Echo Dot ed Home Mini: Audio confronto</h1>
+    <p class="post-subtitle">Un’introduzione allo sviluppo di applicazioni audio su Amazon Alexa e Google Assistant</p>
+    <p class="post-meta"><time datetime="2018-05-13">May 13, 2018</time></p>
+  </header>
+  <div class="post-body">
+<figure><img src="images/1_gZvbfd_M3DpUvGelQmDmag.jpg" loading="lazy" decoding="async" width="1200" height="900" alt=""><figcaption>Amazon Echo Dot (generazione 2) e Google Home Mini, in test sulla mia scrivania.</figcaption></figure>
+<blockquote>01–11–2018 — Warning: questo articolo compara alcune caratteristiche audio di Google Home mini e Amazon Echo Dot di seconda generazione (vedi fotografia). Dal 30 ottobre 2018 è in vendita in Italia l’Echo Dot di terza generazione, che ha caratteristiche audio completamente rinnovate rispetto al modello di precedente generazione.</blockquote>
+<blockquote>24–10-2018 — Update: interessante articolo di comparazione tra Google Home mini e Amazon Echo Dot di terza generazione: <a href="https://www.cnet.com/news/amazon-new-echo-dot-vs-google-home-mini-which-sounds-better/">Amazon’s new Echo Dot vs. the Google Home Mini: Which sounds better?</a></blockquote>
+<p>Non vi propongo il solito articolo di comparazione all&#39;americana di un Amazon Dot e un Google Home Mini. Su Youtube trovate centinaia di video-confronti sulle feature base e sui vari tricks di domotica.</p>
+<p>Qui vorrei invece fare alcune considerazioni sui diversi approcci di Amazon e Google nello sviluppo di applicazioni vocali su smart-speakers. Accenno solo alle caratteristiche hardware/audio dei due dispositivi, spendendo qualche riflessione in più sulle diverse possibilità di sviluppo applicativo con il suono.</p>
+<p>Le due aziende che ora detengono il duopolio degli assistenti vocali hanno forse una differente concezione di cosa sarà l’esperienza utente con un’applicazione vocale, anzi, per meglio dire, “sonica”. Ne accennerò.</p>
+<h3>Sound User Experience</h3>
+<p>Con questa dizione intendo un’esperienza utente (<strong>di un’applicazione conversazionale su smartspeaker</strong>) che non sia un’applicazione VUI (Vocal User Interface) derivante dal semplice porting di un’applicazione testuale chatbot o di un odiatissimo risponditore vocale automatico IVR (Interactive Voice Responder).</p>
+<p>No. In una UX sonica i contenuti verbali (“voce” come trasposizione di una informazione testuale) sono arricchiti da informazioni di suono di svariato tipo: la voce umana nei suoni non verbali, la musica, soundtracks, i rumori di ambiente, le <a href="https://en.wikipedia.org/wiki/Earcon">earcon</a> (icone audio), <a href="https://en.wikipedia.org/wiki/Jingle">jingle</a>, audio-clips, podcasts, registrazioni audio e suoni di ogni tipo.</p>
+<blockquote>Gli smart-speaker hi-fi permettono esperienze soniche immersive, oltre il concetto archetipico di interfacce vocali.</blockquote>
+<h3>Audio-confrontiamo i dispositivi hardware</h3>
+<p>Ma ripartiamo da un hardware-confronto tra i due piccoli smartspeaker “combo”.</p>
+<p><strong>Google Home Mini<br></strong>Sul dispositivo ho già scritto in mio precedente articolo: <a href="https://convcomp.it/lumorismo-del-sasso-parlante-di-google-15b73d1f0a6c">L’umorismo del sasso parlante di Google</a>. La qualità audio del “sasso parlante” è a mio avviso più che eccellente.</p>
+<figure><img src="images/1_Iyr5dupxJyEHRN6M3I6K3w.jpg" loading="lazy" decoding="async" width="1158" height="835" alt=""><figcaption>fonte: <a href="https://www.allaboutcircuits.com/news/teardown-tuesday-google-home-mini/">https://www.allaboutcircuits.com/news/teardown-tuesday-google-home-mini/</a></figcaption></figure>
+<p>Potenza sonora abbondante e completamente soddisfacente in una stanza di dimensioni standard. Ma quello che mi piace particolarmente è l’equilibrio di equalizzazione in frequenza, con bassi generosi, insomma definirei Google Home Mini un oggetto di ascolto Hi-Fi!</p>
+<p>Lo uso per esempio per ascoltare musica in camera da letto:</p>
+<pre>Hei Google, suona la playlist spotify: Jazz for Sleep </pre>
+<p>Quella della “ninna nanna musicale” in audio-diffusione, è un’esperienza che non conoscevo prima, e devo dire che è molto piacevole! <br>E se si desidera una potenza di suono maggiore, è possibile bluetooth-accoppiare il sasso con <a href="https://www.youtube.com/watch?v=hj8j5DvaCRU">bluetooth</a> speaker esterno.</p>
+<p><strong>Amazon Echo Dot</strong><br>A confronto con il Mini, Il Dot risulta perdente rispetto alle capacità audio, sia in termini di potenza sonora, sia in termini di equalizzazione audio, di “pasta del suono”. L’esperienza qui è paragonabile a quella dell’ascolto di una radiolina da tavolo.</p>
+<p>Per contro è disponibile un mini-jack audio (stereo) per cui è possibile ridirigere l’audio via cavo su delle casse amplificate. Ottima opzione oltre a quella via <a href="https://www.youtube.com/watch?v=PKmzrQsSAlU">bluetooth</a>.</p>
+<p class="embed embed--video"><span class="embed-label">Video</span> <a href="https://www.youtube.com/watch?v=TW37zykX-Oo">https://www.youtube.com/watch?v=TW37zykX-Oo</a></p>
+<p>Evito qui un confronto sulla “pasta” della voce sintetica (in lingua italiana) di default di Alexa e Google Assistant, perché il Google Home Mini, acquistato su Google Store, è quello in lingua italiana, mentre L’Amazon Echo Dot , regalatomi da Amazon, è configurato sulla lingua Inglese. Non è possibile quindi fare un confronto alla pari. Per impressioni sul tono di voce di Google Home, ho già scritto <a href="https://convcomp.it/lumorismo-del-sasso-parlante-di-google-15b73d1f0a6c">qui</a> e <a href="https://medium.com/u/dbd20ea8c8c">Giuditta Del Buono</a> ha scritto <a href="https://convcomp.it/oggi-piove-senza-pioggia-non-ci-saranno-arcobaleni-9e958249911f">qui</a>.</p>
+<blockquote>Come possiamo indovinare facilmente dalle comunicazioni ufficiali e voci di corridoio,<strong> Amazon Alexa verrà probabilmente rilasciato in lingua italiana, tra non molti mesi.</strong> Questa è la mia personale previsione e non c’è una specifica comunicazione ufficiale da parte di Amazon, ma … credetemi!</blockquote>
+<h3>Smartspeaker non é solo Voice User Interface</h3>
+<p>Uno dei probabili successi delle applicazioni vocali per smartspeaker è relativo alle possibilità soniche a completamento di un’interfaccia bot vocale (speech-to-text e text-to-speech).</p>
+<blockquote>Un settore innovativo è quello delle applicazioni soniche che integrano software vocali dialoganti con contenuti audio pre-registrati.</blockquote>
+<p>Ma proviamo subito ad elencare qualche tipologia di nuove applicazioni possibili con gli smartspeaker.</p>
+<h4><strong>Giochi ed intrattenimento</strong></h4>
+<p>Certamente un settore in rapidissima espansione sugli <em>Alexa skills </em>è quello dell‘entertainment, in particolare i giochi sociali, per i bambini e la famiglia.</p>
+<p>Ci sono esempi di giochi per bambini davvero fantastici come <a href="https://www.youtube.com/watch?v=z0S8v4aXaV8"><em>Kids Court</em></a>, di <a href="https://www.playkidscourt.com/">Adva Lev</a>in. In questo gioco i bambini sottopongono un “reato” ad un giudice virtuale che ascoltati i pareri del bimbo accusato ed il suo accusatore, assolve o condanna, infliggendo pene giocose ed insegnando alcuni principi legislativi ai bambini.</p>
+<p>Giustamente <em>Kids Court</em> ha guadagnato il primo premio della Amazon’s kids competition!</p>
+<figure><img src="images/1_y1SNU8tT9M4L9wq0u8Muww.png" loading="lazy" decoding="async" width="1920" height="1080" alt=""><figcaption>Kids Court demo: <a href="https://www.youtube.com/watch?v=z0S8v4aXaV8">https://www.youtube.com/watch?v=z0S8v4aXaV8</a></figcaption></figure>
+<p>Non è quindi un caso che Amazon abbia lanciato parecchie iniziative nell’ambito dell’intrattenimento per bambini, come <a href="https://www.amazon.com/Amazon-FreeTime-Unlimited-Monthly-Subscription/dp/B01I499BNA">Echo Dot Kids Edition</a> e l’iniziativa <a href="https://www.amazon.com/Amazon-FreeTime-Unlimited-Monthly-Subscription/dp/B01I499BNA">FreeTime Unlimited</a>.</p>
+<h4>Musica, podcast, news, la radio, l’audio streaming</h4>
+<p>Attualmente, l’attività più frequente per gli utilizzatori di Amazon Alexa, sembra essere quella dell’ascolto della musica.</p>
+<p>Sia in Alexa che Google Home, l’ascolto di un brano musicale specifico è possibile se l’utente ha attivato una sottoscrizione a pagamento con un aggregatore di contenuti terzo come Spotify, TuneIn, e rispettivamente Amazon Music su Alexa e Google Play Music su Google Home.</p>
+<p>Quindi se per esempio ho configurato Google Home associandolo al mio account a pagamento su Spotify, posso richiedere la riproduzione di “Amarsi un po” di Lucio Battisti, su Spotify.</p>
+<pre>Hei Google, riproduci su Spotify “Amarsi un po” di Lucio Battisti</pre>
+<p>Inoltre sia in Alexa che Google Home, è possibile ascoltare il live streaming di una radio FM, attraverso collegamento a TuneIn.</p>
+<p>La cosa che mi ha lasciato perplesso però, è che attraverso la funzionalità di ascolto di musica o radio, attraverso i colossi aggregatori di contenuti (terze parti) sopracitati, non è possibile avere un’esperienza interattiva / conversazionale sui contenuti (musicali) che si stanno ascoltando.</p>
+<h4>Verso la radio interattiva?</h4>
+<p>Immaginate questo scenario: mentre sto ascoltando “Amarsi un po” di Lucio Battisti (attraverso una radio via TuneIn, per esempio), vorrei potere interrompere l’ascolto chiedendo per esempio:</p>
+<pre>Hei Google, in che anno è stato fatto l&#39;album?<br> <br>Ok Google, chi c’è alla batteria?</pre>
+<pre>Ok Google, alle chitarre c’è Ivan Graziani?</pre>
+<p>No, al momento tutto questo, che io chiamo “radio interattiva” (ne ho parlato in mio talk<a href="http://www.bit.ly/iasummit,">,</a> a partire da <a href="http://www.bit.ly/iasummit">pagina 44 delle slides</a>) non è possibile su Alexa e GoogleHome.</p>
+<h3>Audio-Skills ed Audio-Actions</h3>
+<p>Se i metabot non realizzano (ancora) la radio interattiva come funzionalità integrata, è però possibile per gli sviluppatori creare esperienze soniche con uno <em>skill</em> (Alexa) o <em>action</em> (GoogleHome), applicazioni software terze parti.</p>
+<p>E’ possibile per esempio realizzare applicazione che riproduca contenuti pre-registrati (audio on-demand ovvero file) e live streaming audio, potendo contemporaneamente gestire delle conversazioni sui contenuti audio in riproduzione in quell’istante. Questo è un nuovo paradigma nella fruizione interattiva di informazioni, contenuti di ogni tipo, ora sì davvero “conversazionale”!</p>
+<blockquote><strong>Radio Interattiva? E’ interrompere</strong> l’ascolto di un notiziario ins streaming e chiedere ulteriori info ad un “listening assistant” su argomenti/persone citate nel notiziario.</blockquote>
+<p>Per realizzare la radio interattiva è necessario poter riprodurre dei file audio, ed anche uno streaming audio. Servono dei metadati associati, un sistema di sincronizzazione e un’intelligenza conversazionale vocale (che io chiamo <em>listening assistant</em>) per la gestione delle <em>queries</em> dell’utente.</p>
+<blockquote>La realizzazione di un bot conversazionale che permetta dialoghi sui contenuti dei metadati associati ad uno streaming audio … è fuori dallo scope di questo articolo!</blockquote>
+<p>Google si sta muovendo proprio in questa direzione, con una nuova <a href="https://medium.com/pacific-content/googlepodcasts/home">strategia</a> sui podcast, di cui vi parlo nel prossimo paragrafo, ma proviamo prima ad elencare quali sono le armi in possesso ai programmatori che vogliano creare contenuti complessi comprensivi di audio sulle due piattaforme in esame.</p>
+<h4>Riproduzione di brevi audio clips via SSML</h4>
+<p><a href="https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language">SSML</a> è lo standard usato da Amazon e Google per il controllo della prosodia dello speech sintetico. Ma il linguaggio è anche usato per la riproduzione di brevi contenuti audio (appunto con il tag <em>&lt;audio&gt;</em>).</p>
+<p>Nell’esempio qui sotto è visualizzato un messaggio di testo preceduto da un breve earcon, ovvero una clip audio di breve durata:</p>
+<pre>// This is the initial welcome message<br>var welcomeMessage = &quot;&lt;audio src=’<a href="https://s3.amazonaws.com/ask-soundlibrary/musical/amzn_sfx_trumpet_bugle_03.mp3%27/">https://s3.amazonaws.com/ask-soundlibrary/musical/amzn_sfx_trumpet_bugle_03.mp3&#39;/</a>&gt;Welcome to the Easter Bunny Egg Hiding Game. I will ask you multiple questions that you should answer yes or no. Based on your choices, I will make a recommendation on where to hide an egg. Are you ready to begin?&quot;;</pre>
+<pre>this.emit(&#39;:ask&#39;, welcomeMessage, repeatWelcomeMessage);</pre>
+<blockquote>L’SSML va bene per la riproduzione di segmenti audio brevi.<br>Nel caso di Alexa c’è infatti una limitazione della lunghezza della clip a <a href="https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html#audio">90 secondi</a>, mentre nel caso di Google Home la limitazione è di <a href="https://developers.google.com/actions/reference/ssml">120 secondi</a>.</blockquote>
+<p>Qui sotto alcuni articoli su SSML, secondo Google ed Amazon.</p>
+<p><strong>GoogleHome<br></strong>Invito alla lettura dei due articolo introduttivi: <a href="https://medium.com/google-developers/ssml-for-actions-on-google-946117f97fd1">SSML for Actions on Google</a> e <a href="https://medium.com/google-developers/advanced-ssml-for-actions-on-google-5cea45d868c9">Advanced SSML for Actions on Google</a> di <a href="https://medium.com/u/ac58d779e34d">Leon Nicholls</a> e <a href="https://medium.com/@silvano.luciani/more-ssml-for-actions-on-google-e365af89e56d">More SSML for Actions on Google!</a> dell’italiano <a href="https://medium.com/u/5eb7685c4bf7">Silvano Luciani</a>.</p>
+<p>Il “dialetto” SSML di Google permette alcune feature molto interessanti come il “Sound Layering” di segmenti audio che possono essere in parallelo od in sequenza come nell’esempio della figura qui sotto, dove la traccia <em>Distant Thunder</em> viene eseguita in parallelo (tag: <em>&lt;par&gt;</em>) con la traccia <em>Ringing Ambient Background</em>:</p>
+<figure><img src="images/1_hfYmfBAzLYN49ymlwwn6Og.png" loading="lazy" decoding="async" width="1920" height="1080" alt=""><figcaption>12 tips for building better Actions (Google I/O ’18): <a href="https://t.co/pgqjrllf24">https://t.co/pgqjrllf24</a></figcaption></figure>
+<p><strong>Alexa<br></strong>Le direttive SSML sono molto simili a quelle Google (in verità un sottoinsieme). Rimando al documento <a href="https://developer.amazon.com/docs/custom-skills/speech-synthesis-markup-language-ssml-reference.html">Speech Synthesis Markup Language (SSML) Reference</a> per i dettagli. Vedi anche l’articolo introduttivo:</p>
+<p class="embed embed--card"><a class="embed-card" href="https://medium.freecodecamp.org/amazon-has-made-it-easier-to-add-sounds-to-custom-alexa-skills-513b865d7528"><span class="embed-card-title">Amazon has made it easier to add sounds to custom Alexa Skills</span><span class="embed-card-desc">I’m recognized as an Amazon Alexa Champion and have published more than twenty custom skills on the platform. I…</span><span class="embed-card-domain">medium.freecodecamp.org</span></a></p>
+<h4>Librerie di effetti sonori</h4>
+<p>Entrambe le piattaforme mettono a disposizione librerie di “sound effect” adatti a giochi:</p>
+<ul><li>GoogleHome: <a href="https://developers.google.com/actions/tools/sound-library/">Sound Library</a>.</li>
+<li>Alexa: <a href="https://developer.amazon.com/docs/custom-skills/ask-soundlibrary.html">Alexa Skills Kit Sound Library</a>.</li>
+</ul>
+<p>Le librerie sopra sono solo la punta di un iceberg di un mercato che potrebbe essere molto promettente: la produzione di clip audio, musica per giochi e l’audio produzione!</p>
+<h4>Play di file audio e live-streaming</h4>
+<p>Su Alexa: L’ASK permette una discreta libertà di programmazione con l’audio, attraverso le funzionalità AudioPlayer. Si veda l’articolo introduttivo di <a href="https://medium.com/u/56f4af0378c1">Dave Isbitski</a>: <a href="https://developer.amazon.com/post/Tx1DSINBM8LUNHY/New-Alexa-Skills-Kit-ASK-Feature-Audio-Streaming-in-Alexa-Skills">New Alexa Skills Kit (ASK) Feature: Audio Streaming in Alexa Skills</a>.</p>
+<p>Con l’<em>AudioPlayer</em> è possibile fare il play, in uno skill, sia di file audio MP3, sia di streaming HTTP. Su github sono disponibili due progetti che dimostrano l’uso di Alexa Audio Player per la realizzazione degli skills:</p>
+<ul><li>Il folder <a href="https://github.com/alexa/skill-sample-nodejs-audio-player/tree/mainline/multiple-streams">Multiple-streams</a> contiene un esempio di skill per riprodurre un insieme di<strong> </strong>streams audio preregistrati (<strong>podcasts)</strong>.</li>
+<li>Il folder <a href="https://github.com/alexa/skill-sample-nodejs-audio-player/tree/mainline/single-stream">Single-stream</a> contiene un esempio di skill per la riproduzione di un singolo stream, come per esempio una <strong>live radio</strong>.</li>
+</ul>
+<p>Per maggiori info: <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/custom-audioplayer-interface-reference">AudioPlayer interface</a> e <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/custom-playbackcontroller-interface-reference">PlaybackController interface</a>.</p>
+<blockquote>Quello che mi piace dell’approccio Alexa è che vengono gestiti allo stesso modo file audio e lo streaming audio.</blockquote>
+<p>Su GoogleHome: <a href="https://medium.com/u/8d3b9474fa95">Claudio Cherubino</a> (un altro Googler Italiano!) mi fa notare che il play di contenuti audio di lunghezza superiore ai 120 secondi (con l’SSML) è possibile attraverso le <a href="https://developers.google.com/actions/assistant/responses#media_responses">Media Responses</a>!</p>
+<blockquote>Al momento non mi risulta che sia possibile fare, all’interno di una action,il play di audio streaming su GoogleHome. Cosa invece possibile su Alexa.</blockquote>
+<h3>Google Search per i contenuti podcast</h3>
+<p>Google definisce <a href="https://developers.google.com/search/docs/data-types/podcast">podcast</a> un programma audio consistente in uno o più episodi.</p>
+<p>Affinché un podcast appaia nei risultati di una query Google Search, con una descrizione di ogni episodio ed un player embedded, è necessario esporre un feed RSS valido con almeno un episodio, una home page dedicata al podcast, contenente un link al feed RSS. Tutti i dettagli <a href="https://developers.google.com/search/docs/data-types/podcast">qui</a>.</p>
+<p>Google può creare Action automatiche per l’interazione con i contenuti di un podcast publisher, con una corrispondente pagina auto-generata nella directory di Assistant. Dettagli <a href="https://developers.google.com/actions/content-actions/">qui</a>.</p>
+<figure><img src="images/1_q8i5GMLxUZRsBueKSPYu5Q.png" loading="lazy" decoding="async" width="1920" height="1080" alt=""></figure>
+<h4>Interoperabilità tra dispositivi (nello spettro multimodale) ?</h4>
+<p>E’ ora possibile ascoltare podcasts con Google Assistant. Dicendo:</p>
+<pre>OK Google, play the Modern Love podcast. </pre>
+<p>Questo funziona sia con Google Home che con i dispositivi Android.</p>
+<figure><img src="images/1_lkenJq7oW8s9sbamqPMUJQ.png" loading="lazy" decoding="async" width="1826" height="777" alt=""><figcaption>Un utente ascolta un podcast su Google Assistant su telefono mentre cammina, poi interrompe, e riprende l’ascolto a casa su Google Home. O viceversa.</figcaption></figure>
+<h4>Ricerca di informazioni all’interno di un podcast!</h4>
+<p><a href="https://medium.com/u/d9daa2bf22f6">Zack Reneau-Wedeen</a>, Google Podcasts Product Manager, afferma che in futuro i podcast metadata permetteranno a singoli episodi podcast di apparire nei risultai di una ricerca con Google search. Un podcast si attiverà non solo quando una persona lo cerca in modo specifico (funzionalità già disponibile su Android), ma anche quando una persona cerca argomenti o persone inclusi nel podcast stesso.</p>
+<p>La strategia di Google sul podcasting e l’integrazione con Google Search è spiegata in dettaglio negli articoli:</p>
+<blockquote><a href="https://medium.com/pacific-content/googlepodcasts/home"><strong>Inside The New Google Podcasts Strategy</strong></a></blockquote>
+<h3>Conclusioni</h3>
+<p>Il confronto sull&#39;hardware, perlomeno rispetto ai due dispositivi utilizzati vede vincitore Google Home Mini; come speaker, questo “suona” meglio dell’Amazon Echo Dot. Non ce n’è. Con scherzosa equazione “trad” direi che:</p>
+<blockquote><a href="https://convcomp.it/perch%C3%A9-la-silicon-valley-sbaglia-riguardo-ad-amazon-echo-8958058a6db9">Echo (Dot) : PC = Google Home (Mini) : Apple Macintosh</a></blockquote>
+<p>Ma sulle possibilità di sviluppo applicativo, vedo al momento l’approccio Alexa come più aperto, per il fatto che, malgrado alcuni limiti degli strumenti di sviluppo software che Amazon propone (di cui magari parlerò in successivo articolo), le funzionalità dell’Amazon Skill Kit permettono di realizzare applicazioni audio che possono comprendere sia live-streaming audio sia audio on-demand (segmenti audio di lunghezza qualsivoglia), ovvero podcast.</p>
+<blockquote>Alexa Skill Kit vince nel supporto alla sperimentazione!</blockquote>
+<p>Le primitive di programmazione audio di ASK sono relativamente semplici e danno allo sviluppatore potenzialità creative senza vincolare a paradigmi predeterminati. Questo spiega il recente emergere delle applicazioni vocali nell’ambito dei giochi e dell’intrattenimento.</p>
+<h4>Tante superfici per una stessa applicazione?</h4>
+<p>Estendendo il discorso non solo all’audio, dal punto di vista della strategia e della visione di cosa sarà nei prossimi anni un’applicazione conversazionale, ci sono due approcci forse differenti tra Amazon e Google. E non è facile fare previsioni.</p>
+<p>La visione di Google mi appare piuttosto chiara dopo aver ascoltato un po’ di talk all’evento #io18 appena concluso. Tale visione è forse riassunta nel diagrammino della slide qui sotto riportata.</p>
+<p>Un’applicazione Google Assistant deve funzionare nell’intero “spettro multimodale” dei dispositivi possibili, le “superfici” (così Google chiama la UI su una determinata tipologia di dispositivo):</p>
+<ul><li><strong><em>Voice only</em></strong>, ovvero su un dispositivo smartspeaker Google Home.</li>
+<li><strong><em>Voice forward, </em></strong>ovvero quello che <a href="https://medium.com/u/7236cb540a10">Brian Roemmele</a> chiamerebbe <em>voicefirst</em> (sembra che quest’estate Google rilascerà un dispositivo smartspeaker con interfaccia visuale/forse touchscreen, qualcosa di paragonabile ad un Amazon Echo Show).</li>
+<li><strong>I<em>ntermodal —</em></strong> immagino che si intenda la app mobile Google Assistant, in cui l’interazione può avvenire con controllo vocale oppure attraverso interfaccia visuale/touch, standard di una app Android.</li>
+<li><strong><em>Visual only — </em></strong>si intende la app Google Assistant (e le <a href="https://twitter.com/solyarisoftware/status/994679954318221312"><em>App Actions</em></a> per qualsiasi altra mobile app compliant al nuovo standard), dove non c’è interfaccia vocale, ma solo quella visuale di una app mobile consueta.</li>
+</ul>
+<figure><img src="images/1_0tM25NHEpNs40yscPKjfmQ.jpg" loading="lazy" decoding="async" width="1200" height="675" alt=""><figcaption><a href="https://twitter.com/solyarisoftware/status/994171079903019008">https://twitter.com/solyarisoftware/status/994171079903019008</a></figcaption></figure>
+<figure><img src="images/1_M0HawuFttC-rSc6X1V1p3g.jpg" loading="lazy" decoding="async" width="1200" height="675" alt=""></figure>
+<p>In tutto questo, in relazione alle applicazioni audio, un ruolo importante lo gioca il progetto di <a href="https://medium.com/u/d9daa2bf22f6">Zack Reneau-Wedeen</a> sui podcast, esempio perfetto di ambito applicativo (sonico) cross-superficie.</p>
+<h4><strong>E Amazon?</strong></h4>
+<p>Alexa al momento sta puntando tutto sul cosiddetto <em>voicefirst</em> (o <em>voice only</em> in riferimento al diagramma sopra): l’esperienza utente avviene anzitutto attraverso un’interazione vocale, con i dispositivi smartspeaker <em>Amazon Echo ed Echo Dot</em>, che possono, secondariamente, avere un’interfaccia visuale opzionale con i dispositivi <em>Echo Show</em> ed <em>Echo Spot</em> (ed altri che sicuramente ci verranno presto proposti).</p>
+<p>Amazon non ha Android, cioè il sistema operativo di Google contenuto nel ~70% dei telefoni mobili della popolazione mondiale. Amazon non ha nemmeno su smartphone una app equivalente a Google Assistant, anche se Alexa sarà presto disponibile come <a href="https://www.digitaltrends.com/mobile/how-to-use-alexa-on-your-android-phone/">app con un funzionamento analogo a Google Assistant</a>.</p>
+<p>Last but not least, a qualche giorno di distanza dal mega evento #io18, c’è stato il non trascurabile evento #MSBuild di Microsoft, dove è stata annunciata tra tante altre news, l’integrazione di Cortana e Alexa.</p>
+<p>Questo annuncio è importante perché introduce un settore applicativo nuovo per le applicazioni conversazionali ed audio, cioè quello delle applicazioni interaziendali <em>voicefirst</em>. Un settore importantissimo è quello dell’office automation (si pensi alle funzionalità di <strong><em>Alexa for Business</em></strong>, arricchite dalla integrazione con <em>Office365). </em>Ne parlerò prossimamente.</p>
+<p class="embed embed--video"><span class="embed-label">Video</span> <a href="https://www.youtube.com/watch?v=KxwjnuhNVIY">All’evento #MSBuild, Megan Saunders (Microsoft) e Tom Taylor (Amazon) dimostrano integrazione tra Cortana ed Alexa.</a></p>
+<p>Insomma nel Duopolio Google/Amazon, Microsoft si allea con il secondo e la sfida diventa più bilanciata forse. Ne vedremo delle belle! Stay tuned.</p>
+<figure><img src="images/1_QW4IH-GoD1g8toJSjrSwgg.jpg" loading="lazy" decoding="async" width="1400" height="988" alt=""><figcaption><strong>Google Home Mini</strong> (in alto) / <strong>Amazon Echo Dot, 2nd gen </strong>(in basso). Fonte: <a href="https://medium.com/@justlv/google-home-mini-teardown-comparison-to-echo-dot-and-giving-technology-a-voice-c59a23724a26">https://medium.com/@justlv/google-home-mini-teardown-comparison-to-echo-dot-and-giving-technology-a-voice-c59a23724a26</a></figcaption></figure>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/echo-dot-ed-home-mini-audio-confronto-ab5016bf2d8f">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

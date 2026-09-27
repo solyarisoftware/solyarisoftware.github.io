@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SWARMing Conversational AI — ConvComp.it</title>
+<meta name="description" content="Integrating No-Code and Code in Agent-Based Workflows" />
+<link rel="canonical" href="https://convcomp.it/swarming-conversational-ai.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="SWARMing Conversational AI — ConvComp.it" />
+<meta property="og:description" content="Integrating No-Code and Code in Agent-Based Workflows" />
+<meta property="og:url" content="https://convcomp.it/swarming-conversational-ai.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">SWARMing Conversational AI</h1>
+    <p class="post-subtitle">Integrating No-Code and Code in Agent-Based Workflows</p>
+    <p class="post-meta"><time datetime="2024-10-17">October 17, 2024</time></p>
+  </header>
+  <div class="post-body">
+<figure><img src="images/1_3h2frseAhLXqbgjc-EZlLQ.png" loading="lazy" decoding="async" width="854" height="480" alt=""><figcaption>source: <a href="https://cookbook.openai.com/examples/orchestrating_agents">https://cookbook.openai.com/examples/orchestrating_agents</a></figcaption></figure>
+<p>A few days ago, the just released <a href="https://github.com/openai/swarm">SWARM</a> open-source project [<a href="https://github.com/openai/swarm">1</a>] from OpenAI sparked quite a bit of discussion within the agent-based Generative AI community, particularly among those focused on conversational AI. It’s a small, simple project (so far) that the company defines as:</p>
+<p>An educational framework for exploring ergonomic, lightweight multi-agent orchestration. It is managed by the OpenAI Solutions team.</p>
+<p>When comparing SWARM to well-known multi-agent frameworks such as LangGraph, CrewAI, AutoGen, and others, many argue that there is nothing groundbreaking about this small framework, which appears more like a demo than a production-ready platform. Indeed, OpenAI itself tends to characterize its project as a simple cookbook [<a href="https://cookbook.openai.com/examples/orchestrating_agents">2</a>].</p>
+<p>In a certain sense, I strongly agree; however, several key concepts in SWARM’s proof-of-concept align with my perspective on constructing LLM-based conversational agents. It is important to clarify that the term (conversational) agent, as I use it, has a very specific meaning, which only partially overlaps with the concept of AI agents as understood in the LLM-based community recently. For a more detailed discussion, please refer to my previous article: Conversational Agent with a Single Prompt [<a href="https://www.linkedin.com/pulse/conversational-agent-single-prompt-giorgio-robino-vrppf/">3</a>].</p>
+<h3>Agents = Routines + Handoffs</h3>
+<p>The accompanying insightful OpenAI github cookbook [<a href="https://github.com/openai/openai-cookbook/blob/main/examples/Orchestrating_agents.ipynb">4</a>] highlights several key points. The framework introduces the concept of routines that embed conversational workflow logic in a no-code manner (as I previously referred to in my article, referring to this as Directive Instructions on Conducting the Dialog).</p>
+<p>The fundamental premise of SWARM is to decompose a complex conversational workflow (macro-task) into multiple smaller tasks managed by agents, which can be viewed as LLM-based experts in specific domains and policies. These agents collaborate through straightforward yet effective handoff mechanisms based on function-calling design patterns. So far, nothing new — I agree [<a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/design-patterns/handoffs.html">5</a>][<a href="https://platform.openai.com/docs/guides/prompt-engineering/strategy-split-complex-tasks-into-simpler-subtasks">6</a>].</p>
+<h3>Instructions (on Conducting the Dialog)</h3>
+<p>With SWARM, it is possible to define complex workflows where conversational designers (prompt engineers) articulate the business logic of the workflow in natural language. The related backend business logic components, referred to as tools within the context of LLM programming, remain separate and can reside in custom Python code (or any programming language of choice).</p>
+<p>This allows applications — whether conversational or otherwise — to be constructed from distinct components: LLM-based workflows, developed by prompt engineers (or coders), and hard-coded programs, handled by traditional software developers.</p>
+<blockquote>To me, this is the most crucial aspect when building an AI team in practice: bringing together developers (sw coders) and conversational designers (~no-coders) to work collaboratively!</blockquote>
+<p>Let us now examine a simple explanatory code snippet extracted from the blog example:</p>
+<figure><img src="images/1_gI3Pa7A3yU6p2eudW-huTA.png" loading="lazy" decoding="async" width="854" height="854" alt=""><figcaption>source: <a href="https://cookbook.openai.com/examples/orchestrating_agents">https://cookbook.openai.com/examples/orchestrating_agents</a></figcaption></figure>
+<p>Notably, in the example provided in the blog, the LLM-based routine may include fixed (deterministic) steps, such as mandatory dichotomous questions (yes/no), implemented as Python functions. In the snippet here above, two routines (agents), are defined: triage_agent and sales_agent, each possessing its own workflow as specified in the instructions prompt, along with a set of associated functions, commonly known as tools, which implement the relevant business logic on the backend.</p>
+<h3>No-code Instructions</h3>
+<p>The instructions consist of simple sequences of conversational step directives, written in natural language or pseudo-code (such as bullet points or any structure expressible in natural language), which may include conditionals and/or loops.</p>
+<blockquote>This is significant as it demonstrates a method for conceptualizing chatbot interactions that are not reliant on hard-coded scripts (in a specific programming language or dedicated conversation workflow tool) but instead are based on high-level directives for conducting dialogue, articulated in natural language within system prompts.</blockquote>
+<h3>Deterministic Workflow Checkpoints</h3>
+<p>In revisiting the snippet analysis, the most significant feature is the execute_order() function outlined earlier within the sales_agent tool. The notable aspect of this function is that when the sales agent determines an order should be executed, it invokes the execute_order() function, which can prompt a yes/no confirmation request from the user.</p>
+<blockquote>SWARM thus enables a synthesis of no-code programming (implemented as instructions in prompts) with workflows that include hard-coded dialog turns (implemented as programming code in invoked functions). I refer to these functions as workflow checkpoints.</blockquote>
+<p>This approach is particularly noteworthy as it allows for the design of complex conversational applications where hard-coded workflows are seamlessly integrated with LLM-based workflows.</p>
+<figure><img src="images/1_ORebUDtFDoi2HSYckpirrw.png" loading="lazy" decoding="async" width="1399" height="818" alt=""></figure>
+<h3>Context Variables and Task-Oriented State Machines</h3>
+<p>The framework introduces context variables — a simple yet effective mechanism for retrieving and storing contextual data shared across routines. While the implementation may appear basic, its straightforwardness is part of its strength.</p>
+<p>Interestingly, opinions differ on how SWARM handles state management: some consider context variables as part of a potential state-machine-based approach, while others argue that the framework remains fundamentally stateless, given its dependence on stateless calls to the LLM models driving the agents.</p>
+<p>From my perspective, particularly in conversational design, SWARM effectively implements a task-oriented state machine, albeit at a high level of abstraction. In this framework, conversational states are naturally encoded within the logic of routines, enabling both input and output data to be stored in shared context variables. This allows conversation designers to focus on agent-driven tasks without the need to explicitly conceptualize a full state network, as in the Langraph approach.</p>
+<p>Additionally, the framework adopts a minimal yet effective testing method through evals. Once again, I appreciate this clear and practical methodology for validating routine behaviors.</p>
+<h3>Conclusion</h3>
+<p>While SWARM may not yet rival more established multi-agent platforms like <a href="https://www.langchain.com/langgraph">LangGraph</a>, <a href="https://www.crewai.com/">CrewAI</a>, and <a href="https://microsoft.github.io/autogen/">AutoGen</a> (to mention the most prominent) in terms of sophistication, it introduces a promising approach to orchestrating LLM-based conversational agents. Its ability to decompose workflows into smaller, specialized tasks managed by individual agents demonstrates a practical framework for agent-based orchestration.</p>
+<p>What may differentiate this approach from other frameworks is its emphasis on workflow development through the seamless integration of no-code and hard-coded processes. This allows conversational designers to define overarching logic using natural language prompts, while developers handle more complex backend functions through traditional coding methods.</p>
+<p>This hybrid design creates a fluid workflow where the roles of both no-code and coded components are clearly delineated, allowing for flexible, collaborative development of conversational applications.</p>
+<p>Moreover, SWARM’s minimalistic reliance on context variables and simple testing methodologies strikes a balance between simplicity and functionality, making it a pragmatic choice for developing medium-complexity agentic systems. Whether SWARM will evolve into a robust, production-ready framework remains to be seen. However, its approach represents an important step toward bridging the gap between conversational designers and software developers, fostering a more collaborative environment for building next-generation conversational AI systems.</p>
+<p>As the community further explores its potential, SWARM may prove to be more than just an educational tool, but rather a viable option in the growing landscape of LLM-based multi-agent frameworks.</p>
+<h3>Update (2024–11–03): Insights from Initial Experiments</h3>
+<p>Following several hands-on tests with SWARM, I would like to provide further insights into my experience with this framework. The key advantage of adopting an agentic approach (exemplified by SWARM, along with other LLM-based agentic frameworks) lies in a principle reminiscent of the <em>structured programming</em> paradigm of the 1960s: break down the main problem (or workflow in this context) into smaller, manageable sub-problems.</p>
+<blockquote><em>Each sub-problem is assigned to a specialized agent, which operates based on instructions crafted by a conversation designer and utilizes tools or backend functions implemented in Python by a developer.</em></blockquote>
+<p>This approach represents a substantial advancement over the monolithic, LLM-based methods that were our primary focus just a year ago. For example, consider a<em> Retrieval-Augmented Generation </em>(RAG) application. In tests, I implemented a search workflow using cooperating agents aligned with SWARM’s design. In this setup, a <em>master orchestrator agent</em> delegates tasks to <em>specialized agents</em>, each tasked with retrieval from sources such as relational databases or vector stores. The results demonstrated minimal hallucinations and an effective response strategy for unmet requests. Overall, this multi-agent approach outperformed the single-LLM model.</p>
+<p>Beyond the design pattern best practices mentioned above, I have reassessed my previously favorable view of what I termed “Deterministic Workflow Checkpoints.” Specifically, the example OpenAI Python function <code>execute_order()</code>, which directly reads user input (via <code>input()</code>) and writes output (using <code>print()</code>), illustrates a suboptimal design pattern. The hard-coded backend logic in this function bypasses both instructional flows and user interface design, leading to several limitations.</p>
+<p>For example, in scenarios where user confirmation is required (such as verifying a purchase or payment), it is valid to include a <em>checkpoint function</em> that prompts a yes/no confirmation. However, it is not ideal for such functions to embed workflow interaction logic directly. Instead, it would be more effective to delegate interaction logic to a specialized <em>user interface agent</em> — this could be the main orchestrator agent or, even better, a dedicated agent attuned to specific user interface modalities (whether chat, voice interface, or email), the bot-persona design and so on.</p>
+<p>While the principle of using functions as checkpoints is sound, the original OpenAI example relying on direct input() and print() calls could be considered an anti-pattern, as it does not conform to the separation of concerns in agent-based design.</p>
+<p>Regarding LLM models, some have argued that SWARM is specific to OpenAI’s models, but this is not accurate. OpenAI API calls have become a de facto standard, and many non-OpenAI vendors provide compatible interfaces. In my tests, I used Azure OpenAI deployments, and the framework operated effectively with only few lines of additional initialization code I wrote, as shown below:</p>
+<figure><img src="images/1_RvJt9a2t6zyYv6jSlAeJBw.png" loading="lazy" decoding="async" width="759" height="794" alt=""><figcaption>SWARM initialization using a Azure OpenAI Deployment</figcaption></figure>
+<p>Lastly, you can utilize SWARM as-is on-premises (either locally on your hardware or in a private cloud) with the outstanding <a href="https://ollama.com/">ollama</a> engine, which supports lightweight open models, as demonstrated by Cole Medin in his YouTube video [<a href="https://www.youtube.com/watch?v=8jpVeUTNExI">7</a>].</p>
+<p>Last but not least, It is unfortunate that OpenAI appears reluctant to further develop the SWARM project on GitHub. Specifically, they have disabled the ability for users to open issues, which is an unusual practice for a prominent organization that incorporates the term “Open” in its branding.</p>
+<p>Nonetheless, I remain appreciative of OpenAI’s contributions. I would like to express my gratitude for underscoring a principle in which I firmly believe: that LLMs serve as effective conversationalists and that the multi-agent approach supports the no-code aspirations of many chatbot conversation designers, enabling machines to facilitate dialogues on their behalf.</p>
+<figure><img src="images/0_rC8Qa0OkzJ0DOq3_.png" loading="lazy" decoding="async" width="680" height="550" alt=""><figcaption>my tweet: <a href="https://x.com/solyarisoftware/status/1849398923980402926">https://x.com/solyarisoftware/status/1849398923980402926</a></figcaption></figure>
+<p>What do you think?</p>
+<h3>References</h3>
+<p>[1] OpenAI SWARM GitHub Repository: <a href="https://github.com/openai/swarm">https://github.com/openai/swarm</a></p>
+<p>[2] OpenAI SWARM GitHub Cookbook Blog Article: <em>Orchestrating Agents: Routines and Handoffs</em> <a href="https://cookbook.openai.com/examples/orchestrating_agents">https://cookbook.openai.com/examples/orchestrating_agents</a></p>
+<p>[3] Concept of Conversational Agents: <em>Conversational Agent with a Single Prompt?</em> <a href="https://www.linkedin.com/pulse/conversational-agent-single-prompt-giorgio-robino-vrppf/">https://www.linkedin.com/pulse/conversational-agent-single-prompt-giorgio-robino-vrppf/</a></p>
+<p>[4] OpenAI SWARM Cookbook Jupyter Notebook: <a href="https://github.com/openai/openai-cookbook/blob/main/examples/Orchestrating_agents.ipynb">https://github.com/openai/openai-cookbook/blob/main/examples/Orchestrating_agents.ipynb</a></p>
+<p>[5] Microsoft Autogen Handoffs: <a href="https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/design-patterns/handoffs.html">https://microsoft.github.io/autogen/dev/user-guide/core-user-guide/design-patterns/handoffs.html</a></p>
+<p>[6] Old OpenAI Prompt Engineering Tutorial: <a href="https://platform.openai.com/docs/guides/prompt-engineering/strategy-split-complex-tasks-into-simpler-subtasks">https://platform.openai.com/docs/guides/prompt-engineering/strategy-split-complex-tasks-into-simpler-subtasks</a></p>
+<p>[7] Ollama + OpenAI’s Swarm — EASILY Run AI Agents Locally, by Cole medin: <br><a href="https://www.youtube.com/watch?v=8jpVeUTNExI">https://www.youtube.com/watch?v=8jpVeUTNExI</a></p>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/swarming-conversational-ai-e6e0dfd0dc02">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

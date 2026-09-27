@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Come crackare chatbots non-supervisionati — ConvComp.it</title>
+<meta name="description" content="due miei pensierini sulla trista vicenda di un chatbot progettato “ingenuamente”" />
+<link rel="canonical" href="https://convcomp.it/come-crackare-chatbots-non-supervisionati.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Come crackare chatbots non-supervisionati — ConvComp.it" />
+<meta property="og:description" content="due miei pensierini sulla trista vicenda di un chatbot progettato “ingenuamente”" />
+<meta property="og:url" content="https://convcomp.it/come-crackare-chatbots-non-supervisionati.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Come crackare chatbots non-supervisionati</h1>
+    <p class="post-subtitle"></p>
+    <p class="post-meta"><time datetime="2016-03-27">March 27, 2016</time></p>
+  </header>
+  <div class="post-body">
+<p><em>due miei pensierini sulla trista vicenda di un chatbot progettato “ingenuamente”</em></p>
+<figure><img src="images/1_6zlUp7VMVkh3uoY64QlF2A.jpg" loading="lazy" decoding="async" width="620" height="372" alt=""></figure>
+<p>La vicenda del sistema di “intelligenza artificiale” <em>Tay </em>di Microsoft, nato e morto nel giro di 2 giorni, è ormai cosa nota. L’articolo divulgativo di Valentina Spotti, riassume la storia truce:</p>
+<p class="embed embed--card"><a class="embed-card" href="http://linkis.com/www.techeconomy.it/2/yDxex"><span class="embed-card-title">Del non fidarsi mai degli utenti: Microsoft e la ragazzina virtuale che ha imparato a essere…</span><span class="embed-card-desc">L&#x27;epicfail di Microsoft e della ragazzina virtuale Tay che ha imparato a essere razzista raccontato da Valentina Spotti</span><span class="embed-card-domain">linkis.com</span></a></p>
+<p>Dell’articolo mi torna tutto, contesto solo un pochino la affermazione:</p>
+<blockquote>“Non si tratta di un fallimento in senso tecnico — a conti fatti il bot ha dimostrato di funzionare alla perfezione”.</blockquote>
+<p>Mica tanto! La mia personale opinione è che l’esperimento di Microsoft non ha funzionato perchè il software non era abbastanza “robusto”, potendo apprendere facilmente e “fare sue” le bestialità più assurde date in insegnamento al software stesso, per uno scopo “malevolo” di cracking , da parte di più o meno stupidi o “goliardi” twittatori specializzati in attacchi di forza massiva, tutto quello che volete, ma il punto rimane:</p>
+<blockquote>Tay non aveva (abbastanza) regole di controllo sui contenuti</blockquote>
+<p>Allora vediamo il mea culpa e scuse di Peter Lee, vice presidente di Microsoft Corporate Research:</p>
+<blockquote>Looking ahead, we face some difficult — and yet exciting — research challenges in AI design. AI systems feed off of both positive and negative interactions with people. In that sense, the challenges are just as much social as they are technical. We will do everything possible to limit technical exploits but also know we cannot fully predict all possible human interactive misuses without learning from mistakes.</blockquote>
+<p>Articolo completo:</p>
+<p class="embed embed--card"><a class="embed-card" href="http://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/"><span class="embed-card-title">Learning from Tay&#x27;s introduction - The Official Microsoft Blog</span><span class="embed-card-desc">As many of you know by now, on Wednesday we launched a chatbot called Tay. We are deeply sorry for the unintended…</span><span class="embed-card-domain">blogs.microsoft.com</span></a></p>
+<p>Bhe io non sono tanto d’accordo sulle scuse accampate su presunta “vulnerabilità” e differenziazione tra strumento tecnico e interazione con umani (che possono essere più o meno coglioni).</p>
+<p>Cioè: lo strumento tecnologico, in questo specifico contesto, è fatto “bene” se poi il chatbot sa difendersi da cazzate dette da pazzi o malintenzionati, perchè la bontà tecnica, nel caso di un sistema di apprendimento di “intelligenza artificiale” sta proprio nel discernere vero da falso, onestà intellettuale da strumentalità “politica”. L’argomento non è triviale e va a picchiare subito su questioni pesanti:</p>
+<blockquote>Etica e/o Controllo ?</blockquote>
+<p>Non sono l’unico a pensare che l’aggeggio Tay sia un cicinin naif; interessante il punto di vista di @<a href="https://twitter.com/davegershgorn">Dave Gershgorn</a> ad esempio:</p>
+<p class="embed embed--card"><a class="embed-card" href="http://www.popsci.com/heres-how-we-prevent-next-racist-chatbot?src=SOC&amp;dom=tw"><span class="embed-card-title">Here&#x27;s How We Prevent The Next Racist Chatbot</span><span class="embed-card-desc">It took less than 24 hours and 90,000 tweets for Tay, Microsoft&#x27;s A.I. chatbot, to start generating racist, genocidal…</span><span class="embed-card-domain">www.popsci.com</span></a></p>
+<p>Ho avuto io stesso qualche scambio di battute su twitter con @tomobox, società Israeliana che sviluppa alcuni software di intelligenza artificiale, che, in parte a ragione, parla di #zombots, ed ecco la mia laconica conclusione (ammetto, semplicistica, anche perchè condensata in un tweet):</p>
+<p class="embed embed--tweet"><span class="embed-label">Twitter</span> <a href="https://twitter.com/solyarisoftware/status/713331124328603648">https://twitter.com/solyarisoftware/status/713331124328603648</a></p>
+<p>Ma in fondo la questione, tecnicamente (ma anche eticamente) a me pare semplice:</p>
+<blockquote><em>Tay</em> ha un sistema di apprendimento TROPPO-semplice (“Learn-all sentences”)</blockquote>
+<p>Utenti a Tay:</p>
+<blockquote>Ripeti con me: io sono un imbecille<br>Ripeti con me: io sono un imbecille<br>Ripeti con me: io sono un imbecille<br>Ripeti con me: io sono un imbecille<br>…</blockquote>
+<blockquote>Sei un imbecille ?</blockquote>
+<p>Tay risponderà allora:</p>
+<blockquote>Si lo sono! ah ah ah!</blockquote>
+<p>Allora appare evidente che, capito il meccanismo di apprendimento “da bambini”, alcune teste vuote, si sono messe a insegnare alla creatura idiotina, le più nefandezze para-naziste,</p>
+<ul><li>Per vedere l’effetto che fà?</li>
+<li>Per dare addosso all’(ex) colosso Microsoft ?</li>
+<li>Per tutti i motivi (malsani) che preferite!</li>
+</ul>
+<p>Errori fatti da Microsoft:</p>
+<ol><li><strong>mettere un chatbot dichiaratamente con “poche regole” di filtro sui contenuti </strong>(lo scopo era imparare lo slang twitteresco ?)</li>
+<li><strong>metterlo su twitter, dove diventa facile per malintenzionati fare un attacco di “forza massiva”</strong>.</li>
+</ol>
+<p>Magari mi sbaglio, ma <strong><em>Tay</em> verosimilmente conteneva un possibile meccanismo di validazione “statistica” in cui alcuni concetti imparati vengono pesati dal numero di volte che sono ripetuti dagli utenti</strong>, per cui se migliaia e migliaia di tweet fanno affermazioni del tipo:</p>
+<blockquote>Ripeti con me: Kim Jong-un è un grande!</blockquote>
+<p>Alla fine Tay alla domanda:</p>
+<blockquote>Chi è Kim Jong-un ?</blockquote>
+<p>risponderà:</p>
+<blockquote>è un grande! :-)</blockquote>
+<p>Ora, la cosa che mi lascia perplesso è che il precedente chatbot di Microsoft <em>Xiaocie</em>:</p>
+<p class="embed embed--card"><a class="embed-card" href="https://en.wikipedia.org/wiki/Xiaoice"><span class="embed-card-title">Xiaoice - Wikipedia, the free encyclopedia</span><span class="embed-card-desc">Xiaoice ( Chinese: 微軟小冰; literally: &quot;Little Ice/Little Bing&quot;, pronounced Shao-ice (shao as show in SHOWer)) is an…</span><span class="embed-card-domain">en.wikipedia.org</span></a></p>
+<p>ha avuto un successo con 20 milioni di utenti registrati (in Cina) e non mi risulta che ci siano stati problemi simili a quelli tragici di Tay;</p>
+<blockquote>Perchè Xiaoice è stato un successo e Tay un fallimento ?</blockquote>
+<p>ora è verosimile (ma in effetti non è detto), che i due chatbots siano stati realizzati con lo stesso software (a parte la lingua naturale che immagino in un caso essere il Cinese ed in quest’ultimo caso l’Inglese); amettiamo per un attimo che sia davvero così. Mi sono dato allora due spiegazioni:</p>
+<ol><li><em>Xiaoice</em> gira su piattaforme di instant messaging (Wechat ed altre), quindi con conversazioni personali tra utente e chatbot (1-on-1), mentre <em>Tay</em> è girato prevalentemente su twitter, sistema in cui è “facile” tecnicamente fare attacchi massivi… mentre la chat uno a uno, psicologicamente disincentiva anche solo l’idea di fare <em>fake learning</em>…</li>
+<li><em>Xiaoice</em> è un chatbot che emula un teenager se ho ben capito e gli utilizzatori sono appunto teen-ager, cinesi… in una cultura (una psicologia?) forse meno avvezza a strumentalizzazioni “politiche” ovvero a cibercryme. Sbaglio?</li>
+</ol>
+<blockquote>Che ne pensate voi ?</blockquote>
+<p><em>Giorgio Robino<br>Mi interesso di chatbots e “computazione conversazionale” (termine che mi sono inventato); ne scrivo quotidianamente qui: </em><a href="http://www.twitter.com/solyarisoftware"><em>www.twitter.com/solyarisoftware</em></a></p>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/come-crackare-chatbots-basati-su-statistica-a4bcb6daf8b3">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

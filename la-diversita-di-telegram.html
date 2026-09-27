@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>La “diversità” di Telegram — ConvComp.it</title>
+<meta name="description" content="Aggiorno qui mio articolo già pubblicato il 5 Dicembre 2015 con titolo Telegram vs Whatsapp ? , che ripropongo aggiungendo qualche novità." />
+<link rel="canonical" href="https://convcomp.it/la-diversita-di-telegram.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="La “diversità” di Telegram — ConvComp.it" />
+<meta property="og:description" content="Aggiorno qui mio articolo già pubblicato il 5 Dicembre 2015 con titolo Telegram vs Whatsapp ? , che ripropongo aggiungendo qualche novità." />
+<meta property="og:url" content="https://convcomp.it/la-diversita-di-telegram.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">La “diversità” di Telegram</h1>
+    <p class="post-subtitle"></p>
+    <p class="post-meta"><time datetime="2016-02-14">February 14, 2016</time></p>
+  </header>
+  <div class="post-body">
+<p><em>Aggiorno qui mio articolo già pubblicato il 5 Dicembre 2015 con titolo </em><a href="https://gist.github.com/solyaris/a37ddc3d23b870550d66"><em>Telegram vs Whatsapp ?</em></a><em>, che ripropongo aggiungendo qualche novità.</em></p>
+<p>Faccio riferimento ad uno dei tanti articoli che qualche tempo addietro paragonava Telegram a Whatsapp: <a href="http://www.optimaitalia.com/blog/2015/12/02/ecco-i-5-motivi-per-cui-telegram-e-meglio-di-whatsapp/234772#comment-93669">Ecco i 5 motivi per cui Telegram è meglio di WhatsApp</a>. L’articolo di Nadia Napolitano è un riassunto divulgativo e sono certamente d’accordo con i 5 motivi per cui, dal punto di vista dell’utilizzatore finale, Telegram “è meglio” di WhatsApp.</p>
+<p>Qui di seguito rielenco i punti, facendo alcune aggiunte/precisazioni e nei paragrafi successivi aggiungo mie riflessioni generali, tecniche, etiche e sociali.</p>
+<p>Partiamo dai 5 punti:</p>
+<ul><li>Aggiunta contatti</li>
+<li>Multipiattaforma Pongo l’accento sulla <em>sincronizzazione</em> tra i devices: tutti i client dell’utente (<a href="https://telegram.org/">applicazioni native</a> su personal computer, o dispositivo mobile, o <a href="https://web.telegram.org/">interfaccia browser</a> ) sono istantaneamente sincronizzate!</li>
+<li>Condivisioni a 360°</li>
+<li>Si dice nell’articolo:</li>
+</ul>
+<blockquote>WhatsApp ha un limite di appena 16 MB, Telegram di 1,5 GB: questo significa che potrete condividere di tutto con i vostri contatti, anche un film volendo.</blockquote>
+<ul><li>Vero. Già solo questa caratteristica è di per sè di enormi ripercussioni su possibili servizi di scambio files e contenuti multimediali, che assume maggior interesse (sello scambio di contenuti P2P) rispetto a possibili <strong>servizi</strong> realizzati dalle features Telegram: <em>chatbot</em> e <em>canali</em> (vedi dopo).</li>
+<li>Sicurezza</li>
+<li>Servizio gratuito</li>
+</ul>
+<p>OK, ma ci sono molti altri punti di cui non si parla granchè e che pongono il sistema Telegram al di sopra di altri sistemi di instant messaging, quantomeno nella visione a lungo termine. Nei prossimi paragrafi spiego le ragioni.</p>
+<h3>Telegram Bot REVOLUTION!</h3>
+<p><strong>La possibilità di integrare servizi realizzati con applicazioni terze parti di back-end di tipo chat bot (in gergo: <em>bot</em>)</strong>. vedi <a href="https://telegram.org/blog/bot-revolution">introduzione ufficiale</a>.</p>
+<blockquote><em>I Bot, realizzati da “terze parti”, cioè da chiunque, (e la loro integrazione a gruppi e canali, spiegata qui di seguito) sono la vera rivoluzione attuata da Telegram, attualmente utilizzata in modo infantile (/commands) ma che presto diventeranno conversational apps.</em></blockquote>
+<h4>E Tiscali Indoona Open Platform ?</h4>
+<p>Non esiste al momento (Febbraio 2016) qualcosa di simile ai bots negli altri sistemi di instant messaging chat “P2P”, ad eccezione della Italiana Tiscali, che ha nel 2015 ha fornito una interfaccia per gli sviluppatori di bots: la <a href="https://developer.indoona.com/">Indoona Open Platform</a>, riprendendo alcuni concept partoriti forse precedentemente da Telegram (credo io, ma il concetto di bot non è certo stato inventato da Telegram, quindi non è importante “chi è arrivato prima?”).</p>
+<h4>E Slack (EmployeeExperience e team-working) ?</h4>
+<p>Non posso non citare <a href="http://www.slack.com">slack.com</a>, che propone una applicazione di teamwork chatbots molto trendy in ambito aziendale. Slack comprende nativamente un chatbot (slackbot) e una integrazione a servizi terze parti con <a href="https://api.slack.com/">API</a> curate estremamente bene e che sta godendo di un vasto ecosistema di terze parti che sviluppano bots di ogni genere e sorta (nell’ambito di servizi interaziendali).</p>
+<p class="embed embed--tweet"><span class="embed-label">Twitter</span> <a href="https://twitter.com/solyarisoftware/status/696946591761068032">https://twitter.com/solyarisoftware/status/696946591761068032</a></p>
+<p>C’è un problema però con Slack: il sistema è a pagamento e l’utilizzo di un sistema id messagistica in cui l’azienda effettua store di tutte le conversazioni nno eccita positivamente noi hackers, protettori di uno straccio di privacy (rumors annunciano versione Pro per cui Slack permetterà ad azienda di gestirsi il database delle conversazioni tra dipendenti).</p>
+<h4>E Facebook Messenger &amp; Whatsapp ? Google Chat ?</h4>
+<p>Negli ultimi mesi ci sono rumors a riguardo della possibile implementazione di #AI bots in misteriosa applicazione di messaggistica <em>Google Chat</em> di immanente rilascio, e <em>Facebook Messenger</em> pare abbia rilasciato ad alcuni partners “beta-tester” l’SDK (System Developement Kit) per l’integrazione di applicazioni terze parti (i <em>bots</em> appunto, che Facebook chiama <em>threads</em>, se non sbaglio), ma <strong>non è chiaro se e quando l’integrazione verrà aperta a qaulunque terza parte (oppure rimarrà ristretta ad aziende scelte da facebook) e quale sarà il business model con le terze parti</strong>.</p>
+<figure><img src="images/1_IgzUVAaiRouHrQYMwzYYRg.gif" loading="lazy" decoding="async" width="600" height="500" alt=""><figcaption><a href="https://twitter.com/solyarisoftware/status/699548873862311936">https://twitter.com/solyarisoftware/status/699548873862311936</a></figcaption></figure>
+<h4>Ma WeChat spopola in Cina!</h4>
+<p>Ed è vero: <a href="http://www.wechat.com/it/">WeChat</a>, piattaforma made in Cina di instant messaging, ha qualcosa di simile ai Telegram bot (che vengono chiamati in wechat <em>official accounts</em> ed in verità sono web-microsite embedded nella applicazione),</p>
+<p class="embed embed--tweet"><span class="embed-label">Twitter</span> <a href="https://twitter.com/solyarisoftware/status/693131006224777234">https://twitter.com/solyarisoftware/status/693131006224777234</a></p>
+<p>ma WeChat ha modello di profitto azienda-centrico (WeChat fa accordi con grandi aziende terze parti che forniscono funzionalità corollarie, vedi sistemi di payment) mentre Telegram, ha creato una infrastuttura di networking internet performante, sicura e soprattutto <strong>libera</strong> da accordi B2B con grandi aziende partner (perlomeno negli intenti pubblicamente espressi fin’ora).</p>
+<blockquote><strong><em>Telegram offre Bot API semplici per servizi qualsiasi, fatti da chiunque: è il concetto di </em>LIBERTA’<em> che è vincente, in Telegram!</em></strong></blockquote>
+<p>La diversità di Telegram è il fatto di fornire strumenti di piattaforma che abilitano servizi (<a href="https://medium.com/u/431feb9708fc">Pavel Durov</a> le chiama <em>utilities</em>) fatti da terze parti indipendenti e scorrelati dall’azienda. Non ci sono copyright o soluzioni app proprietarie di Telegram, non ci sono servizi generalisti (calcio, porno, meteo, vattelapesca) gestiti direttamente (top-down) da Telegram. E’ questo secondo me il punto di forza vincente:</p>
+<blockquote><strong><em>lasciare alla gente la libertà di trovare i servizi/applicazioni, le famose “killer applications”, e NON imporle con servizi proprietari profit.</em></strong></blockquote>
+<p>L’errore che invece hanno fatto fin’ora, quasi sempre, gli operatori Telco mobile di mezzo mondo, è stato quello di visione: l’accentramento di ogni profitto all’azienda privata (il modello <a href="http://p2pfoundation.net/Netarchical_Capitalism">net-harchical</a> per dirla alla Michael Bauwens).</p>
+<p>Per esempio, ho lavorato nella fase di start-up, e ne sono orgoglioso, nel mobile network operator Italiano, <a href="http://www.tre.it"><em>la 3</em></a>, bellissima esperienza lavorativa di “startup”, che purtroppo non ha poi rivoluzionato il mondo con i servizi applicativi basati sull’UMTS (vedi videochiamata, videomessaggi per applicazioni “generaliste” come i videogoal, la messagistica di incontri, etc.), così come avevamo ipotizzato allora (il lancio commerciale fu nel 2003).</p>
+<blockquote>Con Telegram, disrupting services emergeranno invece in modo bottom-up. “Emergenza cognitiva”...</blockquote>
+<h3>Telegram Bot Payment API ?</h3>
+<p>Di Bot presto si parlerà molto, se e quando verranno rilasciate le Telegram Payment Bot API. Le API di pagamento sono state annunciate in Settembre 2015 da parte di <a href="https://medium.com/u/431feb9708fc">Pavel Durov</a>, fondatore di Telegram, intervistato durante evento TechCrunch. Consiglio al lettore di ascoltare attentamente le affermazioni di Pavel Durov nella intervista disponibile in questo video:</p>
+<p class="embed embed--video"><span class="embed-label">Video</span> <a href="https://www.youtube.com/watch?v=kVZN9QbtFgs">https://youtu.be/kVZN9QbtFgs?t=5m</a></p>
+<p>Quindi Telegram proporrà la possibilità di fare pagamenti via chat, terreno in cui i big player (<em>Paypal</em>, <em>Apple</em>, <em>Google</em>, <em>Amazon</em>) si combattono da anni ormai. E va detto che <strong>i pagamenti mobile sono la grande sfida dei prossimi anni</strong>, più che tutto il nostro parlare sulla criptazione.</p>
+<p class="embed embed--tweet"><span class="embed-label">Twitter</span> <a href="https://twitter.com/solyarisoftware/status/691335603938549763">https://twitter.com/solyarisoftware/status/691335603938549763</a></p>
+<p>La criptazione dei messaggi è il presupposto tecnico per una piattaforma solida di pagamento, ed anche una questione di “privacy” dell’utente, ma non sono nemmeno convinto che qualsiasi sistema di pagamento debba essere basato su invincibili meccanismi di crittografia della comunicazione, per esempio in contesti di ecommerce di prossimità, vedi mio progetto draft basato semplicemente sul <a href="http://www.pagosaldo.com">tracciamento del cash</a>, ma qui il discorso, tra concetto di privacy, segretezza, ficalità ed evasione fiscale, economia locale e di prossimità, mi porta off-topic e mi fermo.</p>
+<h3>Telegram è davvero totalmente gratuito ?</h3>
+<p>Ad oggi è così, ma un domani alcune features, per esempio commisssioni su possibili servizi di pagamento, potrebbero non esserlo gratuite, ma ci stà. Oppure potrebbe essere fatta pagare banda nel caso di canali o bots che inviano elevato traffico (attualmente un bot <a href="https://core.telegram.org/bots/faq#my-bot-is-hitting-limits-how-do-i-avoid-this">non pò inviare più di 30 messaggi al secondo</a>).</p>
+<p>A lungo termine, nell’eventualità di diffusione mondiale del networking, le donazioni personali od un crowdfounding agli utenti non sosterranno i costi dell’infrastruttura. O forse mi sbaglio; <a href="https://medium.com/u/431feb9708fc"><strong>Pavel Durov</strong></a><strong> ha più volte affermato la sua volontà di gratuità delle funzionalità base di Telegram, cioè quelle ad oggi disponibili</strong>. Lui sostiene che ha un suo budget personale tale per cui non sono nemmeno necessarie campagne di crowdfunding e/o di donazione.</p>
+<h3>Applicazioni commerciali indipendenti ?</h3>
+<p class="embed embed--tweet"><span class="embed-label">Twitter</span> <a href="https://twitter.com/solyarisoftware/status/654724056936116224">https://twitter.com/solyarisoftware/status/654724056936116224</a></p>
+<p><strong>Al momento i Telegram bot non hanno nessuna limitazione d’uso</strong> e permettono di realizzare app anche con spefiche esigenze commerciali / profit. Ho personalmente chiesto e verificato i Terms Of Services (TOS) a riguardo e la risposta (rigorosamente via chat :) di Telegram, che ho pubblicato su home page del mio <a href="http://www.twitter.com/solyarisoftware">twitter microblog</a>, dice testualmente:</p>
+<blockquote><em>“We don’t have any limits about how you use the API”</em></blockquote>
+<p>Screenshot del mio telefono, che riporta conversazione con <a href="https://web.telegram.org/#/im?p=@BotSupport">Telegram bot support</a>:</p>
+<figure><img src="images/1_PAZvjU9hOPN4ZHEofs4PtA.jpg" loading="lazy" decoding="async" width="600" height="495" alt=""><figcaption><a href="https://twitter.com/solyarisoftware/status/654724056936116224">https://twitter.com/solyarisoftware/status/654724056936116224</a></figcaption></figure>
+<h3>Messagistica transazionale ?</h3>
+<p>Con i Telegram bots è possibile realizzare messagistica istantanea <em>transazionale</em>: messaggi che arrivano all’utente in tempo reale ed hanno handshake da utente in tempo reale (“ricevuta di ritorno digitale”).</p>
+<p>In tal senso specifiche applicazioni di messaggistica, abilitate dai bots, possono sostituire gli SMS e le mail. D’altro canto, il mercato della messagistica transazionale su mobile/IP è sempre in fermento. Qualche mio <a href="https://twitter.com/search?q=from%3Asolyarisoftware%20%23push&amp;src=typd">tweet sui sistemi “push”</a>.</p>
+<h4>E Catapush ?</h4>
+<p>Non posso non citare l’azienda Italiana <a href="http://www.catapush.com/">Catapush</a>! Eccellente impostazione del problema (tecnico). Catapush si rivolge in particolare come service provider a terze parti di tipo aziende, grandi aziende (B2B/B2C). Probabilmente è un modello di business che hanno studiato bene, ma io devo ragionarci ancora sulla fattività e pervasività. Comuqnue benvengano start-up Italiane come questa, che fa seguito alla gran bella piattaforma <a href="http://www.skebby.it">Skebby</a> di gestione SMS.<br>Respect.</p>
+<h3>Applicazioni di Messagistica Conversazionale ?</h3>
+<h4>Bots di <em>generazione I</em></h4>
+<p>Gli odierni chatbos<em>, </em>che chiamo di <em>generazione I</em>, sono poco più che giochini, d’accordo. Al momento non si vedono applicazioni davvero smart con i bots. Al di là di bots utilizzati per le solite applicazioni <em>mainstream</em>, il calcio, il porno, certo social-networking giocoso ma futilino, con stickers ed iconcine, la maggior parte dei bots che si vedono ora rispondono comuqnue a semplici comandi dell’utente; spesso non hanno quasi mai gestione della <em>sessione</em> (nel senso di gestione del contesto conversazionale e storage del profiling utente), soprattutto non mi pare ci siano sistemi di apprendimento incrementale dei gusti, scelte, azioni tipiche, incomma: conoscenza dell’utente.</p>
+<blockquote>Cookies for Chatbots ? Smart user personalization with some AI learning of user habits &amp; flavors !</blockquote>
+<h4>Bots di generazione II</h4>
+<p>Non c’è ancora l’attenzione a servizi con cui interfacciarsi con linguaggio davvero naturale, ma arriveranno presto. Molte grandissime aziende (<em>Google</em>, <em>Facebook</em>, <em>Apple</em>, <em>Microsoft</em>, <em>IBM</em>, etc.) stanno lavorando all’integrazione di sistemi di intelligenza artificiale in grado di dialogare in linguaggio naturale. Si tratta di software definiti artificial <em>assistant</em>, <em>virtual agent</em>, o <em>smart chatbots.</em></p>
+<p class="embed embed--tweet"><span class="embed-label">Twitter</span> <a href="https://twitter.com/solyarisoftware/status/695280020323987456">https://twitter.com/solyarisoftware/status/695280020323987456</a></p>
+<p>La chiamerei bots della <em>generazione II</em>, e comunque li si voglia chiamare, si tratta di software con i quali chattare, come se fossero persone, per eseguire i compiti pià svariati, tra i quali senz’altro quelli commerciali; <a href="https://medium.com/u/2229dec1a44f">Chris Messina </a>(Uber) ha scritto un articolo un mese fà che è considerato il manifesto: <a href="https://medium.com/chris-messina/2016-will-be-the-year-of-conversational-commerce-1586e85e3991?source=featured---------1">2016 will be the year of conversational commerce:</a></p>
+<p class="embed embed--tweet"><span class="embed-label">Twitter</span> <a href="https://twitter.com/chrismessina/status/689550359757389824">https://twitter.com/chrismessina/status/689550359757389824</a></p>
+<p>Io sono dell’idea, che vorremo usare in futuro sempre di più servizi con interfaccia text e/o voice based, con Telegram o altro instant messenger, e che in un passo ancor più avanti, si arriverà ad interfaccie vocali in tempo reale.</p>
+<p>E qui allora sì, tornerà in ballo il VOIP, ovvero poter fare chiamate voce e video con bots; ma non è un caso che <a href="https://medium.com/u/431feb9708fc">Pavel Durov</a> abbia volutamente messo a priorità bassa la possibilità di fare chiamate/videochiamate. Un problema tecnologico ? Non credo. Problema devops di risorse di macchine sulle countries ? Può darsi.</p>
+<p>Ma a mio avviso c’è una ben chiara visione strategica/business di come muoversi: PRIMA fare bene l’instant messaging su text chat, e POI, affrontare la big issue del VOIP.</p>
+<p>Nel frattempo, in questi giorni è stata migliorata l’interfaccia dei messaggi vocali, quindi Telegram pare evitare l’approccio di integrare chiamate audio e video ma insiste sulla centralità della messaggistica, di testo e voce.</p>
+<figure><img src="images/1_mdog3PxvGXa7zgh0_5v9yw.jpg" loading="lazy" decoding="async" width="375" height="667" alt=""><figcaption><a href="https://telegram.org/blog/voice-2-secret-3">https://telegram.org/blog/voice-2-secret-3</a></figcaption></figure>
+<h3>Telegram Grups &amp; SuperGroups</h3>
+<p>In Novembre 2015 Telegram rilascia la funzionalità <a href="https://telegram.org/blog/supergroups">Supergruppo</a> che permette di estendere un normale gruppo personale fino al numero di 1000 utenti collegati al gruppo. Utilizzi seri di questa funzionalità ? Si pensi all’ambito lavorativo aziendale (comunicazione tra tutti i dipendenti, ma qui la soluzione multicanale di #slack è a crescente diffusione), oppure si pensi a contesti di e-learning per la condivisione di contenuti in ambito scolastico (prenotazione esami, esami on-line! esercitazioni, etc. etc. ); ci sono innumerevoli possibili servizi innovativi possibili!</p>
+<figure><img src="images/1_hzeYCzApST9VtBENLIeZHw.jpg" loading="lazy" decoding="async" width="320" height="568" alt=""><figcaption><a href="https://telegram.org/faq#groups-supergroups-and-channels">https://telegram.org/faq#groups-supergroups-and-channels</a></figcaption></figure>
+<h3>Telegram Channels</h3>
+<p>I canali sono la possibilità di inviare messaggi unidirezionali uno-a-molti ad un numero teoricamente illimitato di utenti (questa funzionalità fu chiamata inizialmente <em>broadcast</em> e poi rinominata <em>channel</em>).</p>
+<p>Attenzione: i canali non sono gruppi: <strong>i sottoscrittori di un canale non possono rispondere al mittente del messaggio</strong>. Ma ci sono rumors sul fatto che una delle imminenti release (Febbraio/Marzo 2016 ?) permetterà, ai sottoscrittori di un canale, di commentare i post (notizia da fonti non ufficiali).</p>
+<h4>I canali sono soluzione per l’advertising aziendale ?</h4>
+<p>Non credo. Sono perplesso sull’uso di tipo advertising/pubblicità dei canali, anzi,<em> </em><strong>credo sia un errore, per le aziende, fare pubblicità “virale” a costo zero, utilizzando i canali Telegram</strong><em>.</em> Lascio agli esperti di marketing web ed aziendale, valutare il perchè i canali Telegram non vanno usati per spammare pubblicità generalista.</p>
+<h4>I canali come alerting per emergenze pubbliche ?</h4>
+<p>Non proprio. Sono critico rispetto ad alcune iniziative di alcuni digitalchampions Italia che hanno proposto l’utilizzo dei canali per segnalazione di allerta meteo/protezione civile. Molti giornalisti ed intellettuali hanno fatto notare l’inconsistenza (per lo meno l’incompletezza) di queste proposte, e non è mio interesse mettere alla berlina questo o quello, anche se personalmente fono molto critico su certa retorica digitalchampion in Italia. Non ci vuole molto a capire perchè non vada bene, per esempio, un servizio di allerta emergenza/calamità basato (SOLO) su comunicazione IP. Digital divide vs open services? :( Su internet si trovano molti articoli e riflessioni a riguardo della diatriba (più di bassa politica e di vicende provinciali italiche, invero, no more comments).</p>
+<h4>Un esempio d’eccellenza di utilizzo ludico di un canale ?</h4>
+<p>Il canale <a href="https://web.telegram.org/#/im?p=@vecchiasignoracom">vecchiasignoracom</a> (<em>“Notizie esclusive e in tempo reale sulla Juventus dalla community bianconera più grande e importante del mondo”</em>) è un eccellente esempio di utilizzo giornalistico del mezzo: ottimo il mix multimediale di contenuti fotografici, di notizie testuali, video ed audio!</p>
+<figure><img src="images/1_ervgk2pHDP_9yXCvJN0pNg.jpg" loading="lazy" decoding="async" width="431" height="574" alt=""><figcaption>https://web.telegram.org/#/im?p=<a href="http://twitter.com/vecchiasignoracom" title="Twitter profile for @vecchiasignoracom">@vecchiasignoracom</a></figcaption></figure>
+<h3>Integrazione i Bots dentro Canali e Gruppi</h3>
+<p>E’ possibile inserire <strong>bots all’interno di gruppi di umani come amministratori di canali</strong>. Questo significa la possibilità di servizi innovativi dove alcuni compiti sono svolti da software bots che “mediano” parlando con gli umani in linguaggio naturale, rispondendo a domande degli utenti attraverso gli online bots (dettaglio dopo).</p>
+<p>Questa feature, sebbene presente da alcuni mesi, non mi pare sia ancora usata con successo, eppure questa è una chiave di volta (<em>generazione III</em>):</p>
+<blockquote>I Telegram bots dentro canali/gruppi realizzano servizi al pubblico realizzati congiuntamente da bots (“intelligenti”) ed umani!</blockquote>
+<p>Qui sotto esempio di gruppo per applicazione e-commerce (lato merchant); l’acquirente acquista su chat (online) da un negozio fisico (in-store), ordinando con colloquio con un bot, che comunica ordine in negozio ed a fattorino per eventuale consegna a domicilio:</p>
+<figure><img src="images/1_w84yWxt_-HP43Nr-VYFPxQ.png" loading="lazy" decoding="async" width="723" height="361" alt=""><figcaption><a href="https://github.com/solyaris/BOTServer/blob/master/wiki/services.md#4-group-chat-with-one-bot">https://github.com/solyaris/BOTServer/blob/master/wiki/services.md#4-group-chat-with-one-bot</a></figcaption></figure>
+<p>Oppure, si pensi ad esempio ad un canale telegram che trasmette news di un qualche tipo, che sò, riprendendo l’esempio sopra, notizie relative ad una squadra di calcio. Potrebbe essere che alcune notizie sono inserite sul canale da giornalisti in carne ed ossa (quelli del canale #vecchiasignoracom fanno un lavoro eccellente di giornalismo multimediale), ma a fianco del lavoro umano, potrebbe essere che alcune notizie potrebbero essere inserite, invece che “a mano”, da uno (o più!) bot che per esempio vanno a fare scraping di news sul web epropongono una selezione (magari scelta da coordinatori umani).</p>
+<p>Proprio oggi l’amministratore del canale @vecchiasignoracom, Michel le Roi, mi conferma che viene utilizzato, all’interno del canale, <a href="https://twitter.com/Michel_le_Roi/status/698809229629595648">un bot che pubblica le prime pagine</a>.</p>
+<p>Nel caso di un canale dedicato ad una squadra di calcio, inline bots ( vedi mio articoletto: <a href="https://medium.com/@solyarisoftware/about-telegram-bot-api-inline-mode-fa58d980ae89#.mhnzsya09">About Telegram Bot API Inline mode</a> ) potrebbero rispondere a richieste specifiche degli utenti, per esempio: che goal ha fatto oggi il tal giocatore ? qual’è la classifica della squadra ? etc.</p>
+<p>Tempo addietro avevo schematizzato alcune idee sulla possibilità di servizi via chat svolti da bots, in ambito aziendale, profit/no profit, ecommerce, healthcare, payments, helpdesk, delivery&amp;tracking, etc. :</p>
+<figure><img src="images/1_kBOydvbTJ-UhR-HbqT-q4g.png" loading="lazy" decoding="async" width="683" height="320" alt=""><figcaption><a href="https://github.com/solyaris/BOTServer/blob/master/wiki/services.md#6-channel-with-bots-as-administrators">https://github.com/solyaris/BOTServer/blob/master/wiki/services.md#6-channel-with-bots-as-administrators</a></figcaption></figure>
+<p>Altri esempi applicativi qui:</p>
+<ul><li><a href="https://github.com/solyaris/BOTServer/blob/master/wiki/services.md#5-complex-group-chat-multiple-humans-multiple-bots">Complex Group Chat: multiple Humans, multiple Bots</a></li>
+<li><a href="https://github.com/solyaris/BOTServer/blob/master/wiki/services.md#6-channel-with-bots-as-administrators">Channel with bot(s) as administrator(s)</a></li>
+</ul>
+<h3>Sull’etica (privacy e “users’ control”)</h3>
+<p><a href="https://medium.com/u/431feb9708fc">Pavel Durov</a> ha più volte dichiarato i suoi intenti di mantenere la criptazione dei dati, argomentando, con tesi che potrebbero piacere ai liberisti “cyberpunk” (statunitensi) degli anni ‘70 &amp; ’80 (?!). Sono piuttosto d’accordo e mi piace anche il compromesso etico che ha attuato in relazione alla attuale polemica (estremamente strumentale) da parte di chi dice che i sistemi criptati (con chiaro riferimento a Telegram), sono usati dai terroristi (islamici). Io penso che si tratti di un attacco strumentale a Telegram, forse promosso da aziende “concorrenti”, ma invece Telegram ha fatto chiudere, nelle ultime settimane, centinaia di canali di apologia terroristica.</p>
+<p>Invece, Whatsapp, da Dicembre 2015, ha inibito la possibilità di cliccare il link a <a href="http://telegram.me">http://telegram.me</a> nelle chat di alcuni paesi (non ho idea per l’Italia… io whatsapp l’ho rimosso dal mio telefono). Ma questo fatto, cioè avere “bannato” il contenuto dei messaggi degli utenti (per uno scopo di paura di una migrazione di massa degli utemti a Telegram), è una cosa molto grave, in generale, dal punto di vista etico (e della privacy…), da parte di Whatsapp/Facebook. O no ? Lascio al lettore il ragionare su possibili consegenze di sistemi che censurano i contenuti testuali o quant’altro. Vi par bello ?</p>
+<figure><img src="images/0_QwaoBGEG1oyIlk6b.jpg" loading="lazy" decoding="async" width="322" height="572" alt=""><figcaption><a href="https://telegram.org/blog/voice-2-secret-3#secret-chats-3-0">https://telegram.org/blog/voice-2-secret-3#secret-chats-3–0</a></figcaption></figure>
+<h4>Approfondimenti</h4>
+<p>[1] Cosa sono i chatbot ? <a href="https://en.wikipedia.org/wiki/Chatterbot">https://en.wikipedia.org/wiki/Chatterbot</a> <br>[2] Cosa sono i telegram bot ?<a href="https://telegram.org/blog/bot-revolution"> https://telegram.org/blog/bot-revolution </a><br>[3] Qualche mia idea su architetture e servizi con telegram. draft doc: <a href="https://github.com/solyaris/BOTServer/blob/master/wiki/services.md">Telegram Bots Man-Machine Services</a>: <br>[4] Telegram webhooks server, mio progetto open source in linguaggio Ruby: <a href="http://www.github.com/solyaris/BOTServer">BOTServer</a><br>[5] Mio articolo su inline bots: <a href="https://medium.com/@solyarisoftware/about-telegram-bot-api-inline-mode-fa58d980ae89#.mhnzsya09">About Telegram Bot API Inline mode</a><br>[6] Progetto open source DRAFT per utilizzare Telegram chatbot in customer center, con operatori umani e/o bots: <a href="https://github.com/solyaris/conversator/">Conversator</a></p>
+<h4>About me</h4>
+<p>blog: <a href="http://www.twitter.com/solyarisoftware">www.twitter.com/solyarisoftware</a><br>mail: <a href="mailto:giorgio.robino@gmail.com">giorgio.robino@gmail.com</a></p>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/la-vision-di-telegram-a11ad6713b83">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

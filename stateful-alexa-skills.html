@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stateful Alexa Skills? — ConvComp.it</title>
+<meta name="description" content="My change requests to enhance Alexa programming model with dialog state management support" />
+<link rel="canonical" href="https://convcomp.it/stateful-alexa-skills.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Stateful Alexa Skills? — ConvComp.it" />
+<meta property="og:description" content="My change requests to enhance Alexa programming model with dialog state management support" />
+<meta property="og:url" content="https://convcomp.it/stateful-alexa-skills.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Stateful Alexa Skills?</h1>
+    <p class="post-subtitle">My change requests to enhance Alexa programming model with dialog state management support</p>
+    <p class="post-meta"><time datetime="2019-07-08">July 8, 2019</time></p>
+  </header>
+  <div class="post-body">
+<figure><img src="images/1_iCM9B0csTjXTeggWEtnVAA.jpg" loading="lazy" decoding="async" width="2528" height="1422" alt=""></figure>
+<p>In this article I want to deepen a typical problem when developing a not trivial Alexa skill, as a complex task-completion workflow or a well-structured voicefirst game:<strong> </strong>the need of <em>a state management</em> framework supporting developers to manage multi-turn conversations contexts.</p>
+<p>The need of a dialog “state management” is a topic very well explained in the <a href="https://medium.com/u/b7784f97324f">Chas Sweeting</a>’s beautiful article “<strong><em>Lessons learned moving from web to voice development</em></strong>”:</p>
+<p class="embed embed--card"><a class="embed-card" href="https://hackernoon.com/lessons-learned-moving-from-web-to-voice-development-35daa1d301db"><span class="embed-card-title">Lessons learned moving from web to voice development.</span><span class="embed-card-desc">NLU (natural language understanding) isn’t necessarily the main challenge in moving from web to voice development —…</span><span class="embed-card-domain">hackernoon.com</span></a></p>
+<p>My article now is a follow-up and it introduces some change request proposals for Alexa Skill Kit team about how to integrate skill state management in the Alexa Developer Portal.</p>
+<p>The Chas article shows the problems faced in building an Alexa Skill with the goal to collect some info (getting the weight of a person and others user data). In general the author perfectly hits the spot when he says:</p>
+<blockquote><strong>Bottom-line, if you’re developing for Alexa, it’s totally up to you to manage all context and the routing which comes with it</strong>.</blockquote>
+<blockquote>Enter the state management!</blockquote>
+<blockquote><strong>…this also represents how conversational engines like </strong><a href="http://www.dialogflow.com"><strong>Dialogflow</strong></a><strong> work: by mapping utterances to intents whilst considering input contexts (ie. incoming states) based on the data already known.</strong></blockquote>
+<p>I like the graphical diagrams that the author used to proof the concept, blending visualization of internal <em>states </em>with the corresponding utterances/prompts flow. See his beautiful example:</p>
+<figure><img src="images/1_W1A2YD7rdjWTxgiPb1HYLw.png" loading="lazy" decoding="async" width="2000" height="1363" alt=""><figcaption>source: @Chas Sweeting sketch in splendid article “<a href="https://hackernoon.com/lessons-learned-moving-from-web-to-voice-development-35daa1d301db"><em>Lessons learned moving from web to voice development</em></a>”</figcaption></figure>
+<p>Such state machine represents a <strong><em>conversation unit</em></strong> (in my parlance) and shows at the same time user interface and logic: Internal <strong><em>conversational states</em></strong> graph (<em>contexts</em>, in the Dialogflow parlance), Utterances &amp; Prompts (answers to user), Logic Functions (<em>fulfillment</em>), <em>Utterance State Transitions </em>(user-triggered), <em>Logic State Transitions</em> (an initial state calls a final state).</p>
+<p>Love it! <br>The concept I want to deepen now is that:</p>
+<blockquote>A complex conversational workflow can be designed as a graph of inner states transitions, where each state represents a dialog step and each unit is as stand-alone state machine.</blockquote>
+<p>By example, see the diagram here below, again from Chas’s article, where a conversation workflow is made by two state machines (two <strong><em>dialog units</em></strong>) to get weight and age data from user. On the diagram you can see the <em>getWeight</em> dialog unit (on the left), connected to the <em>getAge</em> unit (on the right):</p>
+<figure><img src="images/1_sfjDTb7qXSNeEbllLp-6pw.png" loading="lazy" decoding="async" width="2000" height="853" alt=""><figcaption>source: @Chas Sweeting sketch in splendid article “<a href="https://hackernoon.com/lessons-learned-moving-from-web-to-voice-development-35daa1d301db"><em>Lessons learned moving from web to voice development</em></a>”</figcaption></figure>
+<p>Please note that each <strong>dialog <em>unit</em> is composed by multiple <em>states</em></strong>. By example the <em>getWeight </em>unit contains four different states: LOG _EIGHT, RECEIVED QNTY_NEED_UNITS, ASK_TO_CONFIRM.</p>
+<blockquote>Sounds a cool design! But how is all that related to Alexa skill practical coding?🤔</blockquote>
+<p>Be patient and please let me recap in broad terms what is so far the skill programming process with the Alexa developer console.</p>
+<h4>The Alexa Skill Programming Model</h4>
+<p>Alexa Skill programming is based on two phases: 1. definition of the <em>Interaction Model </em>and upload to Alexa server to build the model. 2 the run-time intents classification and logic fulfillment. Let see them in more detail:</p>
+<ul><li><strong>Phase 1. Design-time. One-off Interaction Model definition.<br></strong>Above all, the designer defines all <em>intents</em> and <em>slots</em>; he defines all <em>sentences</em> examples to achieve a short number of labeled <em>intents</em>. The designer can define the <em>Skill Interaction Model</em> through the <a href="https://developer.amazon.com/alexa/console/ask">web Alexa Developer Console</a>, producing at the end a static JSON data structure.</li>
+</ul>
+<figure><img src="images/1_1u_qirF2rC7KbKT_Ozd2dg.png" loading="lazy" decoding="async" width="1427" height="836" alt=""><figcaption>Alexa portal: Intent definition page (it’s on one of my skills).</figcaption></figure>
+<ul><li>Instead of using the web portal wizard (also called Alexa Console), an expert Alexa developer can create the <em>Interaction Model</em> editing the JSON file from scratch and uploading the file via the <a href="https://developer.amazon.com/docs/smapi/ask-cli-intro.html">ASK CLI</a> (I usually prefer this approach) to let Alexa machine learning servers to process one-off the intents classification model (to be used afterward in run-time).</li>
+<li>The intents/slots classification learning is an <strong>Alexa server cloud one-off batch processing</strong> getting in input your JSON Interaction Model and producing some internal model that Alexa server will use in run time to classify user utterances in intents/slots. See below an Interaction Model JSON file chunk:</li>
+</ul>
+<pre>{<br>  &quot;interactionModel&quot;: {<br>    &quot;languageModel&quot;: {<br>      &quot;<strong>intents</strong>&quot;: [<br>        {<br>          &quot;<strong>name</strong>&quot;: &quot;<strong>MyIntent</strong>&quot;,<br>          &quot;<strong>slots</strong>&quot;: [<br>          ...<br>          ],<br>          <strong>samples</strong>: [                                                                                                                                                <br>            {words},                   <br>            {words} {voice},                                                                                                                                      <br>            {voice} {words},                                                                                                                                      <br>                                                                                                                                                                              <br>            {intro} {voice} {words},                                                                                                                              <br>            {intro} {words} {voice}                                                                                                                               <br>          ]<br>        },<br>        ...<br>      ]<br>    }<br>  }<br>}</pre>
+<ul><li><strong>Phase 2. Run-time: Developer Logic Fulfillment <br></strong>Developer have to code all the conversational flow (and the logic behind) with a standard programming language; I’m a javascript developer and from now on I’ll refer to the <a href="https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs">Alexa Skill Kit SDK for NodeJs</a>.</li>
+</ul>
+<figure><img src="images/1_n4o4hOIvRnGlZDXYGKSTGA.jpg" loading="lazy" decoding="async" width="638" height="359" alt=""><figcaption>source: <a href="https://www.slideshare.net/AmazonWebServices/wks403-build-an-alexa-skill-using-aws-lambda-78928075">Build an Alexa Skill using AWS Lambda</a> slides by Jeff Blankenburg</figcaption></figure>
+<p>At run-time, for each user utterance, Alexa cloud server choose the most likely intent and send a <a href="https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html#request-body-parameters"><em>Request JSON</em> <em>payload</em></a> to the skill run-time server (an HTTPS web server or an AWS Lambda function).</p>
+<pre>{<br>  &quot;session&quot;: {<br>    ...<br>  },<br>  &quot;context&quot;: {<br>    <br>  &quot;request&quot;: {<br>    &quot;type&quot;: &quot;IntentRequest&quot;,<br>    &quot;requestId&quot;: &quot;amzn1.echo-api.request...&quot;,<br>    &quot;timestamp&quot;: &quot;2019-02-07T09:09:47Z&quot;,<br>    &quot;locale&quot;: &quot;it-IT&quot;,<br>    &quot;<strong>intent</strong>&quot;: {<br>     <strong> &quot;name&quot;: &quot;MyIntent&quot;</strong>,<br>      &quot;confirmationStatus&quot;: &quot;NONE&quot;,<br>      &quot;<strong>slots</strong>&quot;: {<br>        &quot;voice&quot;: {<br>          &quot;name&quot;: &quot;voice&quot;,<br>          &quot;confirmationStatus&quot;: &quot;NONE&quot;<br>        },<br>        &quot;words&quot;: {<br>          &quot;name&quot;: &quot;words&quot;,<br>          &quot;value&quot;: &quot;<em>la vita è bella</em>&quot;,<br>          ...</pre>
+<p>The user skill program elaborates the request and reply a <a href="https://developer.amazon.com/docs/custom-skills/request-and-response-json-reference.html#response-format">response JSON format</a>. Using the NodeJS SDK, the developer has to fulfill handlers objects for each intent to be handled. That means writing two functions for each intent: <em>canHandle()</em> and <em>handle()</em>, as sketched in the pseudo code here below:</p>
+<pre>const Alexa = require(&quot;ask-sdk&quot;)<br>...</pre>
+<pre>//<br>// intent handlers<br>//</pre>
+<pre>const <strong>MyIntentHandler</strong> = { </pre>
+<pre> <strong>canHandle</strong>(input) {<br>   // specify conditions that trigger an intent handler <br>   return input.requestEnvelope.<strong>request.type</strong> === &#39;IntentRequest&#39;&amp;&amp; <br>   input.requestEnvelope.request.<strong>intent.name</strong> === &#39;MyIntentName&#39; <br>  },</pre>
+<pre><strong> handle</strong>(input) { <br>   // intent handler logic processing    <br>   ...<br>   ...<br> }<br>}</pre>
+<p>Nothing new so far!</p>
+<p>The problem I see is that developer has to create for each skill just a <strong>flat list of intents</strong> (and slots). This list is unaware of any specific application state, as described in previous paragraphs. In other words, we can see the list as the big sum of all the intents involved in all states the skill must handle. That’s confusing and error-prone if the skill become more and more complex.</p>
+<p>Finally, I think that it should be a simple state management support in the Alexa Console!</p>
+<h4>Change Request 1 — Add (session data) proprieties to support state management in the Interaction model</h4>
+<p>Let’s assign a <strong><em>state name</em> </strong>propriety (and a <strong><em>unit name</em></strong><em> </em>propriety too) to the intents model. In this way the model is no more a flat list of intents, but instead:</p>
+<blockquote><strong>the skill is now conceived explicitly as a state machine where each dialog unit is made by a finite number of intents related to that specific dialog unit/state</strong>.</blockquote>
+<p>How to do that in the Alexa Console Intent page? <br>We need to add <em>state </em>and <em>unit </em>attribute for each intent. That’s it! <br>The example here below shows how the interaction model would become:</p>
+<pre>{<br>  &quot;interactionModel&quot;: {<br>    &quot;languageModel&quot;: {<br>      &quot;intents&quot;: [<br>        {<br>          &quot;<strong>name</strong>&quot;: &quot;LogWeight&quot;,  // dialog intent name<br>          <strong>&quot;state&quot;:</strong> &quot;LOGWEIGHT&quot;, // dialog state name<br>          <strong>&quot;unit&quot;: </strong>&quot;getweigth&quot;,  // dialog unit name</pre>
+<pre>          &quot;slots&quot;: [<br>          ...<br>          ],<br>          samples: [                                                                                                                                                <br>            &quot;I weigh {WeightNumber} kilos&quot;,                                                                                                                                                                                                                                                                                                    <br>            ...                                                                                                                   <br>          ]<br>        },<br>        ...<br>      ]<br>    }<br>  }<br>}</pre>
+<p>At run time the skill will receive the new unit/state info in the session data proprieties to be processed like in the example here below:</p>
+<pre><strong>canHandle</strong>(input) {<br>   // specify conditions that trigger an intent handler <br>   return input.requestEnvelope.request.type === &#39;IntentRequest&#39;&amp;&amp; <br>   input.requestEnvelope.request.<strong>intent.name</strong> === &#39;LogWeight&#39; &amp;&amp;<br>   input.requestEnvelope.request.<strong>unit.state </strong>=== &#39;LOGWEIGHT&#39; &amp;&amp;   <br>   input.requestEnvelope.request.<strong>state.unit</strong> === &#39;getweigth&#39; <br>  },</pre>
+<blockquote>Note: the proposed change request of new proprieties point out just the developer experience (client-side). On the Alexa server backend the CR imply a modified intents machine learning algorithm; in the proposed approach, Alexa server must split the previous flat list of intents in a multiple sub-list of intents (one sub-list per unit/state). All in all the previous task is just splitted in sub-tasks. This also would produce a better classification at run-time, isn’t it?</blockquote>
+<h4>Change Request 2 — A Skill Boilerplate Code Generator</h4>
+<p>With a complex Interaction Model (due a complex state machine) it could be difficult for a developer to manage a large number of <em>canHandle()</em> and <em>handle()</em> functions.</p>
+<p>So it could be very useful to integrate the Alexa Portal with a wizard tool to generate a template/boilerplate code. I mean something that could extend what Alexa evangelist <a href="https://medium.com/u/6fe2a060fc58">robmccauley</a> did with the The <a href="https://developer.amazon.com/blogs/alexa/post/a4b865ec-e7ac-4d92-a2db-7cb2326c08c2/developer-tools-to-help-you-build-alexa-skills">Alexa Code Generator</a>!</p>
+<p>The state-management code generator would be available for all ASK foreseen programming languages: nodejs, python, java, etc. BTW. The code generation could be perfect sub command for ask CLI.</p>
+<p><span>L</span>ast but not least, the proposed 1-click code generator could be a web (or CLI) wizard to guide skill developer to start with the state management design phase and <strong>it could auto magically generate code to map <em>situations </em>in<em> states</em>, following the </strong><a href="https://developer.amazon.com/it/blogs/alexa/post/ee0e00c9-37cd-46ac-8695-06552e0885b0/new-alexa-design-guide-create-engaging-alexa-skills-using-situational-design"><strong>situational design</strong></a><strong> approach</strong>, see the nice webinar:</p>
+<p class="embed embed--tweet"><span class="embed-label">Twitter</span> <a href="https://twitter.com/solyarisoftware/status/1124341787177439232">https://twitter.com/solyarisoftware/status/1124341787177439232</a></p>
+<h4>Recap</h4>
+<p><span>T</span>he lack of an Alexa-native state management support is one of big minus when developing an Alexa skill. In the article I suggest how to re-think the Alexa skill programming (and in general any conversational application development) with a state management approach.</p>
+<p>I proposed two possible change requests for the Alexa Developer Console in order to support state management and integrate a code generator wizard to speed-up skill coding with an initial skeleton.</p>
+<p>Some developers claim with me the lack of an Alexa state management support, as by example the expert <a href="https://medium.com/u/86de321b1cdf">Mark Tucker</a> did in the article: <a href="https://voicebot.ai/2018/12/30/guest-developer-post-alexa-needs-intent-context-in-2019/">Alexa Needs Intent Context in 2019</a> (he talked specifically about “intent context” lack).</p>
+<p>Besides Alexa, conversational context management is a debated and controversial topic among conversational AI researcher. But that’s a long story.</p>
+<p>In a future article I’ll show you some third-party solutions (for Alexa) and I’ll present my own simple deterministic stateful dialog manager NaifJS, that I used to develop CPIABot, a telegram bot for language learning:</p>
+<p class="embed embed--tweet"><span class="embed-label">Twitter</span> <a href="https://twitter.com/solyarisoftware/status/1128300142828847105">https://twitter.com/solyarisoftware/status/1128300142828847105</a></p>
+<p>Stay tuned! 😃</p>
+<h4>Related articles</h4>
+<ul><li><a href="https://developer.amazon.com/blogs/alexa/post/648c46a1-b491-49bc-902d-d05ecf5c65b4/tips-on-state-management-at-three-different-levels">Tips on State Management at Three Different Levels</a></li>
+<li><a href="https://developer.amazon.com/blogs/alexa/post/dbceb5dd-3c4d-40f1-be22-172f4050fbcb/building-conversational-alexa-skills-how-to-dynamically-elicit-slots-based-on-a-previous-answer-using-dialog-management">Building Conversational Alexa Skills: How to Dynamically Elicit Slots Based on a Previous Answer Using Dialog Management</a></li>
+<li><a href="https://developer.amazon.com/blogs/alexa/post/08edaa00-59e2-46b7-aace-4080f2a87450/using-session-attributes-in-your-alexa-skill-to-enhance-the-voice-experience">How to Use Session Attributes in Your Alexa Skill to Enhance the Voice Experience</a></li>
+<li><a href="https://alexa.uservoice.com/forums/906892-alexa-skills-developer-voice-and-vote/suggestions/35379859-allow-skill-to-anticipate-disallow-specific-intent">Allow skill to anticipate/disallow specific intents during conversation</a> (see also: <a href="https://voicebot.ai/2018/12/30/guest-developer-post-alexa-needs-intent-context-in-2019/">Alexa Needs Intent Context in 2019</a> ).</li>
+<li><a href="https://developer.amazon.com/blogs/alexa/post/a4b865ec-e7ac-4d92-a2db-7cb2326c08c2/developer-tools-to-help-you-build-alexa-skills">Alexa Code Generator</a></li>
+<li><a href="https://developer.amazon.com/blogs/alexa/post/ee0e00c9-37cd-46ac-8695-06552e0885b0/new-alexa-design-guide-create-engaging-alexa-skills-using-situational-design">Create Engaging Alexa Skills Using Situational Design</a></li>
+</ul>
+<blockquote>I’m very happy to read your comments!</blockquote>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/stateful-alexa-skills-e9a64c10d902">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

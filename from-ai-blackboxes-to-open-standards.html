@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>From AI-blackboxes to open standards — ConvComp.it</title>
+<meta name="description" content="Answering Marc Canter’s Facebook post" />
+<link rel="canonical" href="https://convcomp.it/from-ai-blackboxes-to-open-standards.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="From AI-blackboxes to open standards — ConvComp.it" />
+<meta property="og:description" content="Answering Marc Canter’s Facebook post" />
+<meta property="og:url" content="https://convcomp.it/from-ai-blackboxes-to-open-standards.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">From AI-blackboxes to open standards</h1>
+    <p class="post-subtitle">Answering Marc Canter’s Facebook post</p>
+    <p class="post-meta"><time datetime="2017-01-08">January 8, 2017</time></p>
+  </header>
+  <div class="post-body">
+<figure><img src="images/1_yj9mXiSpuFWzjNSwtQFVug.png" loading="lazy" decoding="async" width="640" height="640" alt=""><figcaption>blackbox (<a href="http://infinityaerospace.com/wp-content/uploads/2014/12/cube-250082_6402.png">source</a>)</figcaption></figure>
+<p>Hi Marc, I share some thoughts about your questions/doubts in your <a href="https://www.facebook.com/groups/chatbot/permalink/417419548590090/">Facebook post</a>. I wish to say that’s a pretext to point out my general criticism about what I call <em>AI-blackboxes</em> (in general and not referring specifically to API.ai).</p>
+<p>I copied here your points:</p>
+<blockquote>Is anybody here using API.ai?<br>Somebody just told me that Google changed the price to Zero?<br>But my friend is concerned they’ll eventually shut it down?<br>Thoughts? Beliefs? Experience?<br>…<br>I always felt that API.ai was a Google hedge — to get them into the market quickly.<br>But hearing that API.ai is free — is encouraging. They apparently have interfaces to Alexa, Slack, Facebook et al</blockquote>
+<p>Beforehand, let me state that:</p>
+<blockquote>I really like <a href="https://www.linkedin.com/in/gelfenbeyn">Ilya Gelfenbeyn</a>’s <a href="https://api.ai/">API.ai</a> NLP approach</blockquote>
+<p><em>API.ai</em> have been one of first platforms (few years ago) working in that approach: machine learning <em>actions/entities</em> extractions from (<em>croudsourced</em>) <em>intents</em>.</p>
+<figure><img src="images/1_UG3DzcNbtH6eiDMzYyTzIA.jpg" loading="lazy" decoding="async" width="1440" height="960" alt=""><figcaption>Ilya Gelfenbeyn is the product manager for API.AI at Google. Ilya co-founded API.AI in 2010.-(<a href="https://wolfpaulus.com/technology/ai-world-conference/">source</a>)</figcaption></figure>
+<p>Afterward a plenty of startups followed very similar NLP (Natural Language Processing) approach to build “machine learning” chatbots engines. <br>Just to mentions big players products/services very similar: many “AI” startups and big players as: Microsoft (with LUIS), Facebook (with acquired <em>WIT.ai</em>, very very similar to API.ai<em>)</em>, Amazon (with <em>Alexa/Lex)</em>, IBM (with <em>Watson Conversation</em>), etc. etc. etc.</p>
+<p>Last but not least Google few months ago acquired <em>API.ai</em> that’s now a part of <a href="https://developers.google.com/actions/">Google in Actions</a> work in progress platform. BTW API.ai acquisition seems to me a workaround because probably Google <em>actions/assistant</em> strategy is still not fully defined (or simply technology is not ready to be published worldwide?), also in terms of commercial vision, whereas Alexa (by concurrent always growing Amazon) seems now winning with his #voicefirst device…</p>
+<p>Now, what all above mentioned and similar platforms have in common?</p>
+<h4><strong>1. Closed-source</strong></h4>
+<p>These are proprietary products by (a short list of) big players: the source code is non published and even internal algorithms/behaviors are almost always fully obscure (<em>Watson</em> is a archetypal example of this closure, see my previous article: <a href="https://medium.com/@solyarisoftware/a-note-on-ibmwatson-like-systems-98fd74caaa26#.3bzsmjbye">About IBM Watson-like systems</a>).</p>
+<blockquote>I call these products(&amp; services): “<em>AI-blackboxes”</em></blockquote>
+<h4><strong>2. SaaS</strong></h4>
+<p>SaaS (<em>Software As As Service</em>), the nowadays widespread cloud computing model, where your specific application <em>client</em> software call some external provider API (here for <em>Application Programming Interface</em>) to get some remote internet service from a <em>server</em> platform (in our case a NLP engine).</p>
+<h4><strong>3. Pay per call</strong></h4>
+<p>Pricing model is often something like: first N calls for free, with a successive “Let’s call” custom pricing or a old fashioned pay per usage (you pay X amount (thousandth of dollar) for each API call).</p>
+<h4><strong>4. “Serverless”</strong></h4>
+<p>Pretty all above mentioned players in new chatbots development realms, are beforehand <strong>cloud services providers companies</strong>, always looking for new customers. <em>Serverless</em> is a paradoxical buzzword here: cloud companies state to provide <strong>serverless services for mobile app (Android, iOS) developers and now for bots developers</strong>). That’s an Orwellian definition:</p>
+<blockquote>Serverless stands now for “mainframe paradigma”. Serverless instead would mean literally “distributed computing”!</blockquote>
+<p>I’m perplex regarding this trendy computing (and BUSINESS) model. I just mention two main points, without even mentioning to the huge ethics implications and concerns about privacy of data and people personal data collection &amp; exploitation; forget it… let focus now in engineering aspects:</p>
+<h4>Server-centric or server-less?</h4>
+<p>The cloud server-centric model is not at all the definitive solution of all (chatbots) applications needs. <br>There are plenty of incoming possible chatbots applications related to internet of things (let’s think to automotive, smart-home, HW embedded devices, etc.), where probably</p>
+<blockquote>distributed computing model will “be back”</blockquote>
+<p>All devices will talk to us, they talk each others (#bots2bots machine-to-machine is probably a real AI frontiers, more than the machine intelligence in the General-AI meaning) and maybe data will be eventually collected in could-based servers, but</p>
+<blockquote>I’m hoping for a man-machine peer-to-peer networking and not for pervasive server-centric client-server businesses.</blockquote>
+<h4><strong>The need of opensource and open standards (in AI)</strong></h4>
+<p>Seriously, I can’t imagine any modern scientific, technical and even humanistic evolution without open-source, let’s think about what linux has become in operating systems realms, or open standards and open source programming languages has become in software engineering last decades!</p>
+<blockquote>BTW, I have been for long time a C language (open standard and open source) developer and I am a Ruby language developer and, talking about chatbots… I’m now also modest supporter of <a href="https://github.com/bwilcox-1234/ChatScript">ChatScript</a>, one of few open source established (but underrated) projects to build NLP/conversational applications).</blockquote>
+<p>Earlier this 2017, we are in a ridiculous infancy of NLP platforms, where each one want to sell at the highest price his magic blackbox.</p>
+<p>Business is business, ok, and I also think brand new <em>lambda functions</em> will probably gain great success in the near years. <br>Nevertheless, I feel that future (of human and machine intelligence) is in huge open source collaborations projects, where I would like to see big players (Google, Amazon, Apple, Facebook, etc.) to collaborate with a (new) open business models,</p>
+<blockquote>defining open standards and sharing (AI) algorithms.</blockquote>
+<p>To be specific (to chatbots development realms), I imagine a huge open standard (&amp; open-source!) project to define a shared <strong>chatbot scripting language</strong>, possibly coupling human authoring and machine learning. Support of above mentioned (among others) companies in the direction of an open standard, will really change the games. In 2017 I will spend my little energy for that purpose.</p>
+<figure><img src="images/1_bnJuY6dutgZ-7T8bnz08FQ.jpg" loading="lazy" decoding="async" width="1600" height="1348" alt=""><figcaption><a href="http://wallpaperstone.blogspot.it/2007/09/desktop-wallpaper-2001-space-odyssey.html">source</a></figcaption></figure>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/from-ai-blackboxes-to-open-standards-a63c30b43942">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

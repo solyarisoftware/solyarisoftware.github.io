@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About Telegram Bot API Inline mode — ConvComp.it</title>
+<meta name="description" content="An object oriented developer naming “paranoias”" />
+<link rel="canonical" href="https://convcomp.it/about-telegram-bot-api-inline-mode.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="About Telegram Bot API Inline mode — ConvComp.it" />
+<meta property="og:description" content="An object oriented developer naming “paranoias”" />
+<meta property="og:url" content="https://convcomp.it/about-telegram-bot-api-inline-mode.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based AI Agents</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">About Telegram Bot API Inline mode</h1>
+    <p class="post-subtitle">An object oriented developer naming “paranoias”</p>
+    <p class="post-meta"><time datetime="2016-02-11">February 11, 2016</time></p>
+  </header>
+  <div class="post-body">
+<p>Today beloved <a href="https://telegram.org">Telegram Instant Messenger</a> released the <a href="https://telegram.org/blog/inline-bots">inline bots</a> feature, now <strong>also </strong>available for the <a href="https://telegram.org/">web interface</a>.</p>
+<figure><img src="images/1_F8pAKU40cw_Qbpi2IEV4Aw.png" loading="lazy" decoding="async" width="479" height="512" alt=""><figcaption>screeenshot from <a href="https://web.telegram.org/#/im">https://web.telegram.org/</a></figcaption></figure>
+<p>I believe it’s no more necessary to explain what Telegram bots are, and I forward reader to the official <a href="https://telegram.org/blog/bot-revolution">Telegram Bot Platform</a> page (and to <a href="https://core.telegram.org/bots">Bots: An introduction for developers</a> for more tech/dev documentation).</p>
+<p>But what <em>inline bots</em> are ? The above mentioned Telegram blog page state:</p>
+<blockquote><a href="https://core.telegram.org/bots">Bots</a> became an integral part of Telegram for many users, but communication with them wasn’t always easy. You had to send them messages in separate chats or add them to your groups. Today we are introducing a quicker way to contact bots.</blockquote>
+<blockquote><strong>With the new </strong><a href="https://core.telegram.org/bots/inline"><strong>inline mode</strong></a><strong>, bots become omnipresent and can be used as a tool in any of your chats, groups or channels</strong> — it doesn’t matter, whether the bot is a member or not. Inline bots can help you with dozens of different tasks, like quickly sending relevant GIFs, pictures from the Web, YouTube videos, Wikipedia articles, etc.</blockquote>
+<figure><img src="images/1_1cRN5aV1PNTcoBYV8RaGOg.png" loading="lazy" decoding="async" width="752" height="490" alt=""></figure>
+<p>Here I report few considerations and thoughts about a possible<em> inline mode</em> usage, already written one month ago, commenting the interesting article, as usual, by <a href="https://medium.com/u/2e3b1115231c">Nicola Malizia</a>: <a href="http://unnikked.ga/understanding-telegram-inline-bots/">Understanding Telegram inline bots</a>. I agree about Nicola’s doubts naming this feature: <em>inline mode.</em></p>
+<blockquote>in computer science, “naming” objects is difficult</blockquote>
+<p>Jokes a part, in object oriented programming parlance, I’d consider this <em>inline mode</em> bot API feature something I’d define as:</p>
+<blockquote>PUBLIC (methods) QUERIES for an existing bot.</blockquote>
+<p>Telegram web docs propose <em>inline mode</em> usage for new kind of bots that can be queried inside person-to-person or groups chats, responding for a simple, unique query goal (examples: <a href="http://twitter.com/gif" title="Twitter profile for @gif">@gif</a>, <a href="http://twitter.com/vid" title="Twitter profile for @vid">@vid</a>, etc.), and that’s great!</p>
+<p>But there is another usage for an already existent bot: <strong><em>inline mode</em> as an optional public query interface</strong>; let me explain with an ecommerce use case as example:</p>
+<p>Let’s consider an ecommerce bot (where users can chat online with a Telegram bot to purchase some products from a remote seller). Basically a buyer put some prducts on a shopping cart and finally send an order to merchant. This is a typical <strong><em>private session</em> ecommerce workflow</strong>: user must “log into” the seller bot (selecting the bot in the telegram messnger app) and start interacting with the bot, so he share personal data to submit orders, etc.</p>
+<p>Nevertheless the <em>shop product catalog</em> is by example something “almost” public (user profiling scenarios a part).</p>
+<p>Inline queries are perfect to just know if a product is available in catalog, or of the shop could deliver in a specifict time framework. In the case of an hypotetical shop bot that send orders to a pizza maker (<a href="http://twitter.com/PIZZASHOPbot" title="Twitter profile for @PIZZASHOPbot">@PIZZASHOPbot</a>), a possible inline query could be:</p>
+<pre><a href="http://twitter.com/PIZZASHOP" title="Twitter profile for @PIZZASHOP">@PIZZASHOP</a> timetable</pre>
+<p>to get the shop opening/delivery times or:</p>
+<pre><a href="http://twitter.com/PIZZASHOP" title="Twitter profile for @PIZZASHOP">@PIZZASHOP</a> pizza veg</pre>
+<p>to query the availability of product list (in this case a subquery like: give me all vegeterian pizzas list). Generally speaking:</p>
+<blockquote>inline mode is perfect for queries about public or not-personal services info</blockquote>
+<p>Then <em>inline mode</em> could be also called <em>query mode</em>, but I understand that Telegram need to communicate to users the immediacy to use bots apps inside p2p/groups chats, so all in all: <em>inline mode</em> naming is the right strategic decision.</p>
+<p>But again, my own is just a naming rant. The important fact is that Telegram bots are going a step forward in man-machines integration services!</p>
+<p>See also my visions about humans-bots mixin services:</p>
+<ul><li><a href="https://github.com/solyaris/BOTServer/blob/master/wiki/services.md">Telegram Bots Man-Machine Services</a></li>
+<li><a href="https://github.com/solyaris/conversator">Conversator</a></li>
+</ul>
+  </div>
+  
+  <p class="origin">Originally published on <a href="https://medium.com/convcomp2016/about-telegram-bot-api-inline-mode-fa58d980ae89">Medium</a>.</p>
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

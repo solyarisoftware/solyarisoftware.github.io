@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://convcomp.it/sitemap.xml

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Implementing a bot-based treasure hunt game — ConvComp.it</title>
+<meta name="description" content="On August 26th, during the course of the “Coding in your Classroom, Now!” summer school, a large treasure hunt game took place in the historical center of Urbino: 26 teams, composed of 139 participants overall, challenged each other by…" />
+<link rel="canonical" href="https://convcomp.it/implementing-a-bot-based-treasure-hunt-game.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Implementing a bot-based treasure hunt game — ConvComp.it" />
+<meta property="og:description" content="On August 26th, during the course of the “Coding in your Classroom, Now!” summer school, a large treasure hunt game took place in the historical center of Urbino: 26 teams, composed of 139 participants overall, challenged each other by…" />
+<meta property="og:url" content="https://convcomp.it/implementing-a-bot-based-treasure-hunt-game.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based Applications</span>
+    <span class="site-byline">A personal blog by Giorgio Robino</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Implementing a bot-based treasure hunt game</h1>
+    
+    <p class="post-meta"><span class="by">Lorenz Cuno Klopfenstein</span> · <time datetime="2016-09-14">September 14, 2016</time></p>
+  </header>
+  <div class="post-body">
+<figure><img src="images/1_MKeoFqhjhQIJNDGj_noKMA.jpg" loading="lazy" decoding="async" width="3045" height="1666" alt=""><figcaption><a href="https://www.flickr.com/photos/41453183@N05/20051676059/in/photolist-wxU5GK-wQ9EWW-rzMHQ-71WgsC-6kFQ5v-bxEJZG-dc5rpY-9swCR5-98bQ6-7mYeyX-3JUnF8-71Grzi-46qEr-rzMHT-difMZ8-5buNey-e4C5R5-29YLPQ-7mYbrZ-gTxcm2-6t3egt-rzMHR-hJyF8v-aMPeUZ-57f3y3-7AnWgY-6tz2fi-57aQRr-4u4YTH-24LLNA-46THwu-dCbRu4-dWX7R5-5btLG-7F4ix7-84P4V7-bvhy5K-4BAqZJ-6bs6i6-4MfdaK-9iBcEh-hDc6j-6CRodq-dstKZW-5cXDU8-6gBNHs-oXfTzP-5XvQwg-9QaaWn-cZ2xMw">Original picture</a> by James M.</figcaption></figure>
+<p>On August 26th, during the course of the “Coding in your Classroom, Now!” summer school, a large <strong>treasure hunt game</strong> took place in the historical center of Urbino: <strong>26</strong> teams, composed of <strong>139</strong> participants overall, challenged each other by chasing clues through the narrow and steep streets of the city, following the orders of a… <strong>bot</strong>.</p>
+<p>The game had been developed during the week just before the event and the whole team behind the treasure hunt spent the last minutes before the start feverishly fixing the last bugs.</p>
+<p>(Well, most of them.)</p>
+<p>The summer school, aimed at school teachers of all grades, had the main focus of bringing coding to the classroom, in a way that could be engaging for both teachers and young students. Thus, it made more than sense that the treasure hunt itself, “<a href="http://codemooc.org/urbino-code-hunting/">Urbino Code Hunting</a>” as it was called, would be based on coding puzzles as well.</p>
+<figure><img src="images/1_EoTbDjCvfQjkuPADp8sI_g.jpg" loading="lazy" decoding="async" width="1927" height="749" alt=""><figcaption>The registration conversation with the bot.</figcaption></figure>
+<p>What made the treasure hunt interesting is that the whole registration process, the actual hunting, puzzling, and other game mechanics were directly handled by a <a href="https://telegram.me/treasurehuntbot">Telegram bot</a>. Anyone with a Telegram account could very easily register during the 4 days before the game just by entering a conversation with it.</p>
+<blockquote>Registrations to the game were handled by a run of the mill conversation with the bot.</blockquote>
+<p>The bot asked registrants to solve a “preliminary” puzzle (to prepare players for what would have come later and to work as some kind of <em>captcha</em>), how many other participants would have taken part to the game together with the team leader, and the team’s name.</p>
+<h3>Gameplay</h3>
+<p>Usually a treasure hunt game requires players to find hidden objects or reach secret locations based on some — more or less vague — clues. In our case, the actual puzzling was centered around coding questions delivered by the bot, not around recognizing locations from clues, both because coding was the theme of the game and because many participants weren’t familiar with the city. Therefore, locations to reach were given out explicitly by the bot.</p>
+<p>The actual <strong>gameplay</strong> was structured as follows:</p>
+<ol><li>Each group gets a random location to reach (sent as a <a href="https://core.telegram.org/bots/api#sendlocation">precise geographical location</a> and rendered as a point on a map).</li><li>On reaching its assigned location, the group snaps a <em>selfie</em> and sends it to the bot.</li><li>The bot picks one of the coding puzzles and waits for the group’s answer. A minimum delay of 1 minute between attempts is required.</li><li>If the solution is correct, the bot gives out a new clue for the <strong>final puzzle</strong>.</li><li>Go to 1.</li></ol>
+<h3>Location, location, location</h3>
+<figure><img src="images/1_neNitXgO94n1mpD3BjqzsQ.jpg" loading="lazy" decoding="async" width="1616" height="835" alt=""><figcaption>The 30 locations around the historical center of Urbino.</figcaption></figure>
+<p>We identified <a href="https://saveriodelpriori.carto.com/viz/a259edfe-6ba0-11e6-86b1-0e233c30368f/public_map">30 well-distributed locations around the town</a>, which we marked with a description, a precise GPS location, a numeric ID, and a secret code (16 random alphanumeric characters).</p>
+<blockquote>Each location had its own secret 16-character code.</blockquote>
+<p>How did the bot ensure that a group has reached its destination? Easy. We printed 30 paper signs (on A4 sheets), one for each location, with a special QR Code linking to an URL following this scheme:<br><a href="https://telegram.me/treasurehuntbot?start=0123456789ABCDEF"><em>https://telegram.me/treasurehuntbot?start=0123456789ABCDEF</a></em></p>
+<p>This link makes use of the <a href="https://core.telegram.org/bots#deep-linking"><em>deep linking</em> feature</a> of Telegram: after opening the URL through a QR Code scanner, the user’s phone automatically starts the Telegram client and sends the “<em>/start 0123456789ABCDEF</em>” string to our bot, without actually displaying it inside the conversation screen. Since each QR Code contained the location’s secret 16-character code inside the URL, the bot would know with certainty which code the group had scanned and thus which location was reached.</p>
+<p>The bot tracked each group making its way through a sequence of 12 locations. To ensure that groups of players do not follow each other and that they don’t cluster in the same area, the sequence of locations to reach for each group was chosen at random.</p>
+<blockquote>In order to ensure fairness, sequences of locations were generated beforehand with a bounded maximum (and minimum) length.</blockquote>
+<h3>Puzzling</h3>
+<p>Puzzles — which were given out as soon as a group reached a location and sent a confirmation <em>selfie</em> of the group — were based on the <a href="http://codemooc.org/codyquiz/">CodyRoby quizzes</a> . These simple logical puzzles make use of shared conventions, like the colored pseudo-code blocks from <em>Blockly</em> used in Code.org and the <a href="http://codeweek.it/lm09-codyroby/">CodyRoby coding cards</a>.</p>
+<figure><img src="images/1_m2SSK89gJbPVh3voK2I00g.png" loading="lazy" decoding="async" width="1937" height="2093" alt=""><figcaption>A sample quiz: “Where will CodyRoby be when the program has terminated its execution?”</figcaption></figure>
+<p>All puzzles required at most a couple of minutes to be solved and the answer could be provided as a simple text message, usually with a single character or a single number. Answers would be accepted quite liberally, with whitespace, in upper or lower case, and with any formatting. Wrong answers caused a forced delay of 60 seconds before the next attempt.</p>
+<p>Correct answers not only let the group move forward, but they also rewarded the group with an important clue that would then be used to solve the last riddle: as soon as a group reached the last location (which we made sure was the same for all groups), they were given a map (like, a real, tangible, honest to goodness map made out of paper) that could be used to find out the exact place where the coveted prize was hidden.</p>
+<p>The first group that reached it would get to keep the prize and receive another wonderful QR Code. Who doesn’t love QR Codes anyway? This last code signaled that the game was over for everyone.</p>
+<blockquote>A Telegram channel was used to broadcast information, to share selfies, and to make the game more engaging.</blockquote>
+<p>The <a href="https://telegram.me/urbinocodehunting">Urbino Code Hunting Telegram channel</a> was created on the day of the game and all participants were invited to subscribe to it. Major advancements of the groups were broadcast on the channel, along with all <em>selfies</em> taken by the groups as soon as they were sent in from the various locations. The channel gave the participants and us a way to monitor the state of the game, thus making it more engaging as the groups got closer to their final destination.</p>
+<figure><img src="images/1_I_j8qIukAgEMVsfBvoqafw.jpg" loading="lazy" decoding="async" width="2400" height="1600" alt=""><figcaption>Part of all the selfies collected by the bot.</figcaption></figure>
+<p>The bot was powered by a PHP application and a MySQL database, patched together in less than a week.</p>
+<p>The source code has been <a href="https://github.com/CodeMOOC/TreasureHuntBot">published on Github</a> under the MIT license if you want to take a look. At the moment, deploying the bot for your own backyard treasure hunt might not be the easiest of tasks, but we are already planning to make it reusable at will.</p>
+<p><strong>(And we have other significant — and scary? — plans for the future…)</strong></p>
+<p>This post was first published on the <a href="http://informatica.uniurb.it/en/treasurehuntbot/">blog of the Applied Computer Science course at the University of Urbino</a>.</p>
+  </div>
+  
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

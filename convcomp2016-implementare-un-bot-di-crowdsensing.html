@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ConvComp2016: implementare un Bot di crowdsensing — ConvComp.it</title>
+<meta name="description" content="Dopo aver discusso di Bot come autentiche piattaforme, al pari di applicazioni mobili o siti web, ed aver argomentato che un Bot non necessariamente debba fungere da fornitore di informazioni — ma può benissimo essere lo strumento per…" />
+<link rel="canonical" href="https://convcomp.it/convcomp2016-implementare-un-bot-di-crowdsensing.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="ConvComp2016: implementare un Bot di crowdsensing — ConvComp.it" />
+<meta property="og:description" content="Dopo aver discusso di Bot come autentiche piattaforme, al pari di applicazioni mobili o siti web, ed aver argomentato che un Bot non necessariamente debba fungere da fornitore di informazioni — ma può benissimo essere lo strumento per…" />
+<meta property="og:url" content="https://convcomp.it/convcomp2016-implementare-un-bot-di-crowdsensing.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based Applications</span>
+    <span class="site-byline">A personal blog by Giorgio Robino</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">ConvComp2016: implementare un Bot di crowdsensing</h1>
+    
+    <p class="post-meta"><span class="by">Lorenz Cuno Klopfenstein</span> · <time datetime="2016-08-02">August 2, 2016</time></p>
+  </header>
+  <div class="post-body">
+<p>Dopo aver discusso di <em>Bot</em> come autentiche piattaforme, al pari di applicazioni mobili o siti web, ed aver argomentato che un <em>Bot</em> non necessariamente debba fungere da fornitore di informazioni — ma può benissimo essere lo strumento per raccogliere dati e quindi essere parte di un meccanismo di intelligenza collettiva — è giunto il momento di metterci all’opera per realizzarne uno.</p>
+<p>Come descritto precedentemente, per l’occasione dell’<a href="/il-conversational-computing-e-la-rivoluzione-dei-chatbot.html">evento ConvComp2016 del 24 giugno</a>, abbiamo realizzato un semplice <em>Bot</em> che permettesse di <strong>raccogliere pensieri, emozioni e stati d’animo geolocalizzati</strong>, in modo da dare un’idea del sentimento generale in un’area. Il <em>Bot</em> è <a href="https://telegram.me/wordcloud_bot">online su Telegram come <strong>@wordcloud_bot</strong></a> ed è possibile utilizzarlo da subito per vederlo in azione.</p>
+<blockquote>Strumenti semplici ed aperti per realizzare il proprio Bot.</blockquote>
+<p>La semplicità e la rapidità con cui si sono diffusi le svariate piattaforme di messaggistica ed i loro <em>Bot</em> sono, in buona parte, il frutto di anni di software e livelli di astrazione che rendono, oggigiorno, la programmazione di un’applicazione o di un sistema di comunicazione sorprendentemente facile. Alla stessa maniera, l’esistenza di immani “spalle di giganti” su cui basarsi fa sì che — almeno per quanto riguarda l’implementazione di un semplice <em>Bot</em> — <a href="http://www.hanselman.com/blog/WeAreAbstractingOnTheShouldersOfGiants.aspx">ci siano già tutti i pezzi LEGO di cui abbiamo bisogno</a> e che combinarli per raggiungere il nostro risultato spesso possa anche essere divertente.</p>
+<figure><img src="images/1_rniF_H4JGCXJygzEikNpvw.jpg" loading="lazy" decoding="async" width="2271" height="951" alt=""><figcaption><em>Foto di The.Comedian, via <a href="https://flic.kr/p/4ujWDU">Flickr</a>.</em></figcaption></figure>
+<p>In questo esempio faremo uso del software che viene utilizzato come supporto didattico nel corso di “Piattaforme Digitali per la Gestione del Territorio” del <em>Corso di Laurea in Informatica Applicata</em> dell’Università di Urbino, che viene <a href="https://platform.europeanmoocs.eu/course_piattaforme_digitali_per_la_ge">offerto anche come MOOC online sulla piattaforma EMMA</a>. Il software in questione è <a href="https://github.com/DigiPlatMOOC/TelegramBotSample">disponibile liberamente anche su Github</a>.</p>
+<blockquote>Quattro semplici pezzi LEGO per comporre un Bot.</blockquote>
+<p>La piattaforma di base per il nostro Bot è <strong>Telegram</strong>, che mette a disposizione un’<a href="http://informatica.uniurb.it/convcomp2016-3-implementare-un-bot-di-crowdsensing/core.telegram.org/bots/api#getupdates">interfaccia molto ricca per l’implementazione degli stessi</a>. Una volta collegato con Telegram, la logica interna del <em>Bot</em> è implementata con uno script PHP, che sfrutta un database MySQL per memorizzare le informazioni fornite dagli utenti, la loro posizione geografica ed altri dati accessori.</p>
+<p>Se finora le tecnologie utilizzate non mostrano particolare creatività — del resto sono le medesime su cui si basa la maggior parte dei siti web o blog degli ultimi anni — è nel rendere la <strong>conversazione</strong> del nostro <em>Bot</em> più credibile che possiamo sfruttare un ulteriore blocco “pronto all’uso”: <a href="http://www.program-o.com/">Program O</a>, un interprete basato sulle specifiche di <a href="http://www.alicebot.org/">ALICE</a> e che permette di sviluppare velocemente dei <em>Bot</em> che conversano in maniera (più o meno) naturale sulla base di codice dichiarativo (una variante di XML).</p>
+<p>La <a href="https://github.com/DigiPlatMOOC/TelegramBotSample">libreria d’esempio su Github</a> mette a disposizione diverse funzioni già implementate per l’interazione con Telegram, MySQL e Program O.</p>
+<blockquote>Le potenzialità del remix: piattaforme, dati aperti, software libero…</blockquote>
+<p>Non finisce di certo qui. Riprendiamo il motto di “<a href="http://everythingisaremix.info/">Everything is a Remix</a>” per asserire che qualsiasi idea — piccola o grande che sia — e qualsiasi pezzo di software, che è possibile realizzare anche senza conoscenze di programmazione, può essere visto come il culmine di anni di astrazioni — i blocchetti del LEGO — a noi liberamente disponibili. Il <strong>prodotto dei tre fondamentali passi</strong> delineati qui sotto.</p>
+<figure><img src="images/1_IVv4DJNhnvR0hyNIyfoNDw.jpg" loading="lazy" decoding="async" width="1127" height="526" alt=""></figure>
+<p><strong>Piattaforme, dati aperti, software libero</strong> e tanti altri blocchi a portata di mano possono essere ricombinati a piacimento per creare innovazione, opportunità e conoscenza. Le interfacce conversazionali rappresentate dai <em>Bot</em> sono una di queste piattaforme.</p>
+<p>Il codice di <a href="https://github.com/LorenzCK/WordCloudBot"><strong>@wordcloud_bot</strong> è disponibile liberamente su Github</a> sotto licenza MIT. Se vi viene in mente qualche brillante idea per un <em>Bot</em> — magari ispirato ai principi dell’intelligenza collettiva — siamo curiosi di sentirla!</p>
+<p>Negli <a href="https://medium.com/tag/convcomp2016">altri articoli dedicati al ConvComp2016</a> si parla di <em>Bot</em> come piattaforma e della loro implementazione.</p>
+<p>Questo articolo è stato pubblicato originariamente sul <a href="http://informatica.uniurb.it/convcomp2016-3-implementare-un-bot-di-crowdsensing/">blog del Corso di Laurea di Informatica Applicata presso l’Università degli Studi di Urbino</a>.</p>
+  </div>
+  
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

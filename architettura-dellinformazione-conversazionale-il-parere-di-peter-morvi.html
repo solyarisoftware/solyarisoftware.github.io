@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Architettura dell’informazione conversazionale, il parere di Peter Morville — ConvComp.it</title>
+<meta name="description" content="Peter Morville dedica un post all’ Architettura dell’informazione conversazionale e ritiene che con l’aiuto dell’ architettura dell’informazione gli assistenti vocali miglioreranno e, aggiungo io, riceveranno la giusta diffusione.…" />
+<link rel="canonical" href="https://convcomp.it/architettura-dellinformazione-conversazionale-il-parere-di-peter-morvi.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Architettura dell’informazione conversazionale, il parere di Peter Morville — ConvComp.it" />
+<meta property="og:description" content="Peter Morville dedica un post all’ Architettura dell’informazione conversazionale e ritiene che con l’aiuto dell’ architettura dell’informazione gli assistenti vocali miglioreranno e, aggiungo io, riceveranno la giusta diffusione.…" />
+<meta property="og:url" content="https://convcomp.it/architettura-dellinformazione-conversazionale-il-parere-di-peter-morvi.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based Applications</span>
+    <span class="site-byline">A personal blog by Giorgio Robino</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Architettura dell’informazione conversazionale, il parere di Peter Morville</h1>
+    
+    <p class="post-meta"><span class="by">Toni Fontana</span> · <time datetime="2016-10-24">October 24, 2016</time></p>
+  </header>
+  <div class="post-body">
+<figure><img src="images/1_eSlpwkF_bSu12L1yt0v3_w.jpg" loading="lazy" decoding="async" width="1300" height="587" alt=""></figure>
+<p><strong>Peter Morville</strong> <a href="http://semanticstudios.com/conversational-information-architectures/">dedica un post </a>all’<strong>Architettura dell’informazione conversazionale</strong> e ritiene che con l’aiuto dell’<strong>architettura dell’informazione</strong> gli <strong>assistenti vocali miglioreranno</strong> e, aggiungo io, riceveranno la giusta diffusione. Questo non significa che le interfacce vocali sostituiranno o addirittura cancelleranno le interfacce grafiche. Morville è scettico a riguardo. Io sono convinto che per alcuni contesti l’interazione vocale sarà utile e migliorerà la produttività.</p>
+<h3>Architettura dell’informazione conversazionale</h3>
+<p><strong>Peter Morville</strong>, il padre dell’<a href="http://www.tonifontana.it/architettura-dellinformazione/">architettura dell’informazione</a>, racconta di come l’<strong>assistenza vocale</strong> sia al centro dell’attenzione di un gran numero di persone e di quanto le aziende stiano investendo in questa tecnologia.</p>
+<p>Morville lo dice. E’ scettico e proprio perché scettico ha comprato, secondo me, l’assistente vocale più interessante, <a href="https://www.amazon.com/Amazon-Echo-Bluetooth-Speaker-with-WiFi-Alexa/dp/B00X4WHP5E">Amazon Echo</a>. Certo adesso dovrebbe provare <a href="http://www.tonifontana.it/google-home/">Google Home</a> e <strong>Google</strong> potrebbe ascoltare quanto dice Morville. Ma andiamo con ordine.</p>
+<h3>Sia la luce</h3>
+<p>Morville, nell’utilizzare <strong>Echo</strong>, ha apprezzato le funzioni musicali, che sono le più immediate, Spotify e Music Prime. In aggiunta ad una sveglia se dovesse addormetarsi.</p>
+<blockquote><em>Tuttavia, troppo spesso, la nostra conversazione va in questo modo:</em></blockquote>
+<blockquote><em>Peter (al buio): “Alexa, accendi la lampada.”<br> Alexa (accende la lampada): “Va bene.”<br> Susan (urla dalla cucina): “Cosa?”<br> Peter (urla di nuovo): “Niente, stavo solo parlando con Alexa.”<br> Alexa: “Non sono del tutto sicuro su come aiutarti in questo.”<br> Susan (urla dalla cucina): “Non dimenticare di ringraziare Alexa.”<br> Alexa: “Mi spiace, non so la risposta.”</em></blockquote>
+<p>In questo dialogo a tre, a me pare importante sottolineare due cose.</p>
+<ul><li>L’assistente vocale entra in un contesto di cui non fa (ancora) parte.</li><li><strong>Un assistente vocale ti ascolta alla lettera</strong>.</li></ul>
+<p>Poi scrive</p>
+<blockquote><em>Il problema più grande di Alexa è che lei mi fa sentire stupido. Alexa mi costringe ad ammettere che non riesco a ricordare il nome di una delle mie canzoni preferite di Vienna Teng.</em></blockquote>
+<blockquote><em>Su Spotify, posso cercare Vienna Teng, selezionare Warm Strangers, e avviare <a href="https://youtu.be/HLd0RrRkFbY">Harbor </a>senza interruzione. Questa è la magia del <a href="http://ui-patterns.com/patterns/Recognition-over-recall">Recognition over recall</a>. Ed è difficile da fare con un interfaccia vocale.</em></blockquote>
+<h3>Esperienza sonora? Quale esperienza?</h3>
+<p><strong>Quale esperienza ti fa vivere l’assistente vocale?</strong> Evidentemente questa esperienza non è ancora stata progettata. Gli ingegneri non sono tenuti a pensare all’esperienza dell’utente se non per le funzioni proprie di funzionamento, spinti alla soluzione di numerosi problemi. Nessuno al momento si è (ancora) chiesto quale esperienza vive l’utente. O quanto meno nessuno se lo è chiesto in termini di ricerca antropologica e culturale.</p>
+<p>Ancora, Morville</p>
+<blockquote><em>Che cosa posso chiedere? Qual è la sintassi corretta?</em></blockquote>
+<p>In teoria la macchina, l’assistente vocale, dovrebbe apprendere dal nostro linguaggio. Ma ad oggi l’<strong>assistenza vocale</strong> non comprende il <strong>contesto</strong> di quello che dice l’uomo.</p>
+<p>Un assistente vocale non può impegnarsi in una conversazione reale. Sono tante le varianti e le regole (non rispettate) che coinvolgono una conversazione. Lo vedremo, nello specifico, la prossima settimana.</p>
+<blockquote><em>Così l’onere cognitivo ricade su di noi. Lei ci fa sentire stupidi.</em></blockquote>
+<p>L’onere cognitivo ricade su di noi, sull’essere umano. L’uomo, infatti, si adatta più velocemente della macchina. La capacità di calcolo dei nostri telefonini o di dispositivi come <strong>Google Home</strong> non sono equiparabili al nostro cervello. E quindi… finisce che siamo noi a studiare lo strumento. Siamo noi che vogliamo capire come funziona, come può funzionare al meglio. Cerchiamo e ricerchiamo <strong>l’affordance</strong> dell’assistenza vocale.</p>
+<h3>Progettare un assistente vocale</h3>
+<p>Peter Morville lancia degli spunti da approfondire. Alcune linee guida che l’<a href="http://www.tonifontana.it/architettura-dell-informazione-sonora/">architettura dell’informazione sonora</a> e questo blog dovremo seguire e approfondire nel tempo.</p>
+<blockquote><em>Potrebbe essere utile se Alexa avesse una architettura dell’informazione distinguibile. Se potessimo selezionare una categoria come la musica, le notizie, o lo shopping. Potrebbe essere più facile navigare in ogni sottoinsieme di casi d’uso e comandi.</em></blockquote>
+<p>Alexa dovrebbe aiutare a capire e ricordare. Per fare questo Peter Morville invita <strong>Alexa</strong> a interfacciarsi con <strong>Siri</strong> (cosa che non è possibile perché nessuno delle due aziende, al momento, lo prevede) o imitarla per una<strong> interazione multimodale </strong>(acustico/visivo).</p>
+<p>Quando si chiede una canzone a <a href="http://www.apple.com/ios/siri/">Siri</a>, infatti, l’assistente vocale di <strong>Apple </strong>risponde proponendo <a href="http://semanticstudios.com/wp-content/uploads/2016/07/vienna.png">visivamente</a>, sullo schermo dell’iPhone, la canzone presente nell’app iTunes.</p>
+<blockquote><em>Immaginate che cosa potrebbe fare Alexa con un ampio display sulla parete del soggiorno. Mentre ha solo i vantaggi dell’audio (ad esempio, l’utilizzo multi-room, l’accessibilità per i non vedenti), Alexa, senza lo schermo, non può renderci utenti forti. Chiedere non è sufficiente. Deve anche mescolare input e output audiovisivi per consentire una migliore visualizzazione e una migliore ricerca.</em></blockquote>
+<blockquote><em>Alexa ha bisogno di una architettura delle informazioni multi-canale (cross-channel) che abbracci l’interazione multi-modale.</em></blockquote>
+<h3>Cross channel e Multi-Channel e la luce fu!</h3>
+<p>Per spiegare la differenza tra Cross channel e multi-channel è necessario riprendere <a href="http://andrearesmini.com/blog/what-is-cross-channel">un articolo di Luca Rosati e Andrea Resmini</a> autori del libro ancora attualissimo, Architettura dell’informazione pervasiva. Rosati e Resmini lavorano su questi temi dal 2007.</p>
+<p>A me pare che Morville inviti ad una <strong>pervasività dell’architettura dell’informazione</strong> sempre più spinta. Dove il sonoro e la voce sono e devono essere solo una parte del sistema.</p>
+<p>Peter Morville e la sua compagna dopo un mese hanno rinunciato ad Alexa, perché hanno ritenuto difficile l’uso e pensano che Echo debba essere ancora migliorato.</p>
+<blockquote><em>Per ora, i nostri telefoni, tablet e computer portatili offrono una migliore esperienza. Ma io credo che Alexa vedrà presto la luce con <strong>un piccolo aiuto da parte dei suoi amici dell’architettura dell’informazione</strong>.</em></blockquote>
+<h3>Ecosistemi di conversazione</h3>
+<p>E’ tutto l’anno che scrivo riguardo interfacce e nuove frontiere. E senza nessun assurdo tecno-entusiasmo mi pare che i segnali siano molto forti.</p>
+<ul><li>Perché nel futuro avremo <a href="http://www.tonifontana.it/interfacce-ibride/">INTERFACCE IBRIDE</a></li><li><a href="http://www.tonifontana.it/interfacce-del-futuro/">LE INTERFACCE DEL FUTURO</a> e il Design dell’Esperienza</li><li><a href="http://www.tonifontana.it/la-nuova-interfaccia-utente-non-e-linterfaccia-utente/">LA NUOVA INTERFACCIA UTENTE</a> non è l’interfaccia</li><li>Le nuove frontiere dell’UX sono <a href="http://www.tonifontana.it/le-nuove-frontiere-dell-ux-sono-le-nuove-sfide-dell-ux/">LE NUOVE SFIDE DELL’UX</a></li></ul>
+<h4><a href="http://www.tonifontana.it">www.tonifontana.it</a></h4>
+<h4>ChatBot</h4>
+<p>Peter Morville conferma che non si può parlare dell’interazione vocale tra uomo e macchina senza parlare dei servizi di messaggistica, già esistenti e che fanno uso di Intelligenza artificiale (chatbot).</p>
+<p>In Italia ancora non sono molto diffusi, ma esistono già assistenti intelligenti che aiutano l’utente che ha delle specifiche necessità. <a href="https://www.operator.com/">Operator </a>è un <strong>chatbot</strong> che ti connette con gli esperti per scoprire e comprare ciò che ami. <a href="https://getmagic.com/">Magic </a>è un numero di telefono a cui inviare SMS per ricevere tutto quello che vuoi, su richiesta e senza problemi.</p>
+<p>Oppure ci sono le intelligenza artificiali con supporto umano come <a href="https://www.buzzfeed.com/alexkantrowitz/time-to-meet-the-wizard-facebooks-messenger-head-pulls-back?utm_term=.sc8kGV5WDq#.bqQxo9RLME">Facebook M</a>.</p>
+<p>Morville ricorda anche <strong>i chatbot usati dai media</strong>, ma questi, già alla loro uscita, hanno creato più fastidio che consenso tra gli utenti. Aumentando, secondo me, lo scetticismo nei confronti di questa tecnologia.</p>
+<p>La questione mi pare sempre la stessa. Ossia che in tanti, anzi, in troppi, pensano, o vogliono pensare, che un chatbot, o un assistente vocale, o l’intelligenza artificiale, possano fare qualsiasi cosa. <strong>Così non è</strong>.</p>
+<blockquote><em>la chat occuperà una nicchia specializzata nell’ecosistema conversazionale più ampio.</em></blockquote>
+<h3>Le buone pratiche di bot e AI: il servizio</h3>
+<p><strong>Morville</strong> porta ad esempio il chatbot <a href="http://archive.codeforamerica.org/focus/safety-justice/courtbot/">CourtBot</a>. Si tratta di un progetto creato dalla Code for America che invia SMS alle persone che devono avere a che fare con il tribunale o la polizia. Il bot ricorda le date del processo, la scadenza per il pagamento delle multe e così via. <strong>Il ChatBot rende un servizio</strong>.</p>
+<p>Ma il <strong>bot</strong> non fa tutto e non si organizza da solo. <strong>Il bot è solo una delle tante parti dell’ecosistema</strong>. L’ecosistema è molto più ampio, in un percorso cross e multi channel che coinvolge agenti di polizia, citazioni di carta, il bot stesso, un call center, un sito web e il palazzo di giustizia.</p>
+<blockquote><em>La soddisfazione degli utenti è raggiunto quando le parti si incastrano per creare un intero ecosistema.</em></blockquote>
+<h3>Deus ex machina</h3>
+<p>E’ inevitabile che le forze della tecnologia ci spingano ad usare nuovi strumenti e a vivere diversamente. Ma non vivremo mai in un film. Non dobbiamo affrontare la tecnologia con la Tecnologia ma con la Cultura.</p>
+<blockquote><em>Mentre io credo che la consapevolezza sia tra le forze più dirompenti per plasmare il nostro futuro, non sto trattenendo il fiato per il deus ex machina della super-intelligenza. Consapevolezza e conversazione sono tra le cose più complesse, contestuali, disordinati e incorporati che possiamo conoscere.</em></blockquote>
+<h3>L’intelligenza artificiale ha bisogno dell’Architettura dell’informazione</h3>
+<p>Lo sa Morville, ma lo sa bene ciascun <strong>architetto dell’informazione</strong>, che l’Uomo crea confusione. Ma se già sappiamo che <a href="http://www.tonifontana.it/il-design-e-una-conversazione/">il Design è una conversazione</a> sappiamo pure che</p>
+<blockquote><em>Per trovare quello che ci serve o per fare le cose, un sito web è un conversatore megliore di qualsiasi bot.</em></blockquote>
+<blockquote><em>Un linguaggio naturale debole ci farà andare solo lontano. Alexa non capisce il significato o il contesto, così le nostre “conversazioni” richiedono organizzazione, progettazione dello spazio e interazione multimodale.</em></blockquote>
+<h3>Un po’ di chiarezza e di realismo</h3>
+<p>Spesso chi pone dubbi sull’<strong>assistenza vocale</strong> ne parla in relazione agli assistenti vocali che ha visto al cinema o in televisione, o peggio ancora, nei fumetti.</p>
+<p>La colonizzazione dello spazio è sempre stato un mito della cinematografia fantascientifica. Ma chi paragona le spedizioni spaziali della NASA a quei film?</p>
+<p>Paragonare Siri, Cortana, Alexa e tutti gli altri assistenti vocali a Jarvis di Iron Man (un fumetto), a Her o a Deus Ex Machina (film di fantascienza), sarebbe come paragonare la NASA alla flotta stellare di Star Wars, lo Space Shuttle all’<a href="https://it.wikipedia.org/wiki/USS_Enterprise_(NCC-1701)"> USS Enterprise (NCC-1701)</a> del capitano Kirk di Star Trek.</p>
+<p>Allora se vogliamo parlare e capire l’<strong>assistenza vocale</strong>, i risultati raggiunti, le opportunità e le potenzialità dello strumento, <strong>dobbiamo proprio toglierci dalla testa la letteratura</strong>, i film e i cartoni animati di fantascienza che fanno riferimento a questa tecnologia.</p>
+<p><strong>La realtà è che uno smartphone riesce a fare operazioni straordinarie</strong>. La realtà è che, come dice Peter Morville, i nostri telefonini, al momento, fanno quello che pensiamo ci basti. I telefonini soddisfano, oggi, i bisogni della maggior parte delle persone. Ma <strong>la realtà è anche che un dispositivo elettronico alto un palmo di mano non riuscirà a sostituire il nostro cervello</strong>. Almeno, non nel breve e medio periodo.</p>
+<p>Pensiamo che l’<strong>assistente vocale</strong> non sia utile perché la maggior parte delle persone ha imparato a chattare, inviare messaggi e telefonare anche mentre guida, (quasi) senza guardare. Il pollice di alcuni ragazzi e ragazze ha una velocità che sfida le leggi dell’ergonomia. Per chi guida sarebbe più logico <strong>guidare e basta,</strong> oppure usare un <a href="http://www.tonifontana.it/vivavoce/">vivavoce</a>. Sarebbe più sicuro e produttivo usare un <strong>assistente vocale</strong>, che seppur lontano dalla Supercar KITT, potrebbe rendere la guida sicura e aiutare comunque in molte attività. Eppure così (ancora) non avviene.</p>
+<p>La realtà è che l’esperienza dell’assistenza vocale non è ancora soddisfacente. La realtà è che gli assistenti vocali devono essere migliorati e testati ulteriormente.</p>
+<h3>E ad Oriente? WeChat</h3>
+<figure><img src="images/0_QSzrrleTASt9k7JS.jpg" loading="lazy" decoding="async" width="237" height="212" alt=""></figure>
+<p>Mentre l’occidente vive questo scetticismo diffuso, <strong>in Cina l’uso dei bot è cosa abbastanza comune</strong>. Ed è guardando a questo mercato che si investe in questo campo. Gli Stati Uniti e l’Occidente sviluppano assistenza vocale, ma non ne fanno uso.</p>
+<p><a href="http://www.inc.com/ben-parr/7-reasons-why-everyone-in-tech-is-obsessed-with-chatbots.html">I chatbot stanno influenzando le aziende</a>.</p>
+<p>Certo, a differenza dell’internet occidentale, l’Internet cinese è regolamentato e WeChat, in buona sostanza, è una piattaforma di messaggistica. I chatbots che funzionano su WeChat sono più simili ad applicazioni leggere dove è possibile prenotare un dentista o svolgere attività più complesse. Ma <a href="http://www.saporedicina.com/5-usi-insoliti-di-wechat/">gli usi insoliti</a> sono tanti.</p>
+<p><a href="https://twitter.com/juntao">Michael Yuan</a>, autore del libro <em>Chatbots: Building Intelligent Bots</em>, <a href="https://chatbotsmagazine.com/chinas-wechat-foretells-facebook-microsoft-bot-platforms-future-278c3bd4bf14#.uwismrccd">spiega </a>come i bot sono percepiti in Cina:</p>
+<blockquote><em>Se si avvia un business in Cina oggi, si creerà un wechat pubblico bot ben prima di avere un sito web.</em></blockquote>
+<blockquote><em>Sorprendentemente, vi è una nuova generazione di società di contenuti finanziati VC che operano esclusivamente in wechat — non hanno nemmeno i siti web pur essendo valutati decine di milioni di dollari.</em></blockquote>
+<p>Questo non significa che i bot avranno lo stesso successo nel nostro caos occidentale. I fallimenti di <a href="https://it.wikipedia.org/wiki/Microsoft_Kinect">Kinect </a>della Xbox o del bot <a href="http://www.inc.com/john-brandon/microsoft-and-the-rise-of-the-dumbots.html">Tay </a>della Microsoft sono notevoli e da tenere ben presenti. Quello che possiamo dire è che</p>
+<blockquote><em>I chatbots sono ancora in grado di fare un’enorme quantità di cose, da semplici conversazioni alla pianificazione e analisi dei contenuti. Il futuro è sulla buona strada!</em></blockquote>
+<p>Ma stiamo andando troppo lontano ed è bene concludere tornando a noi e all’<strong>architettura dell’informazione conversazionale</strong>.</p>
+<h3>La singolarità</h3>
+<p>Peter Morville conclude ricordando che invece della catastrofica <a href="https://en.wikipedia.org/wiki/Existential_risk_from_artificial_general_intelligence">estinzione </a>dell’uomo sostituita dall’intelligenza artificiale si potrebbe vivere una nuova era tecnologia grazie all’<strong>architettura dell’informazione sonora. </strong>Studio del contesto, progettazione dell’esperienza, progettazione cross canale e multisensoriale.</p>
+<blockquote><em>La <a href="https://en.wikipedia.org/wiki/The_Singularity_Is_Near">singolarità </a>potrebbe essere vicina. Che ne pensi Alexa?</em></blockquote>
+<p>Insomma, <strong>il nostro futuro sta tutto nella nostra umanità</strong>, nella nostra capacità singolare di mettere l’Uomo al centro, nella nostra unicità, nella nostro essere singolare, addirittura singolare-plurale.</p>
+<p><strong>Essere consapevoli</strong> di questo, certamente, aiuterà ad usare meglio gli strumenti che la tecnologia ci offrirà.</p>
+<p>www.tonifontana.it</p>
+<p><em>Originally published at <a href="http://www.tonifontana.it/architettura-dellinformazione-conversazionale/">www.tonifontana.it</a> on October 24, 2016.</em></p>
+  </div>
+  
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

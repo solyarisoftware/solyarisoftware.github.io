@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Scaling a Bot for the Europe Code Week — ConvComp.it</title>
+<meta name="description" content="A couple of days have passed since the closing of the Europe Code Week 2016 , topping the numbers of past editions with a record-breaking total of 20.000 events organized in more than 50 countries ." />
+<link rel="canonical" href="https://convcomp.it/scaling-a-bot-for-the-europe-code-week.html" />
+
+<meta property="og:site_name" content="ConvComp.it" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Scaling a Bot for the Europe Code Week — ConvComp.it" />
+<meta property="og:description" content="A couple of days have passed since the closing of the Europe Code Week 2016 , topping the numbers of past editions with a record-breaking total of 20.000 events organized in more than 50 countries ." />
+<meta property="og:url" content="https://convcomp.it/scaling-a-bot-for-the-europe-code-week.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-brand">
+    <div class="site-title"><a href="/">ConvComp.it</a></div>
+    <span class="site-tagline">Conversational Computing — Advancing LLM-Based Applications</span>
+    <span class="site-byline">A personal blog by Giorgio Robino</span>
+  </div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">Blog</a>
+    <a href="/archive.html">Archive</a>
+    <a href="/feed.xml">RSS</a>
+  </nav>
+</header>
+<main id="main" class="wrap">
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Scaling a Bot for the Europe Code Week</h1>
+    
+    <p class="post-meta"><span class="by">Lorenz Cuno Klopfenstein</span> · <time datetime="2016-11-03">November 3, 2016</time></p>
+  </header>
+  <div class="post-body">
+<p>A couple of days have passed since the closing of the <a href="http://codeweek.eu/">Europe Code Week 2016</a>, topping the numbers of past editions with a record-breaking total of <a href="http://codeweek.it/grazie-per-codeweek-2016/">20.000 events organized in more than 50 countries</a>.</p>
+<p>In the context of <a href="http://codemooc.org/mooc/">CodeMOOC</a>, a <strong>massive open online course</strong> offered by the University of Urbino about computational thinking and coding, a <strong>large-scale coding quiz</strong> was planned for <strong>20 October</strong>. Using only a Telegram client and a QR Code scanner, the participants were able to take part in the game and compete with over <strong>900 groups</strong> in Italy.</p>
+<figure><img src="images/1_lSzo9nRrWmCRQk7JrB1IjQ.png" loading="lazy" decoding="async" width="985" height="602" alt=""><figcaption>Telegram channel.</figcaption></figure>
+<p>Participants did register to a <a href="https://telegram.me/quizzle">Telegram channel</a> where they would receive instructions before the start of the game. At the start of the game, we handed out the link to a <a href="https://youtu.be/BwD2Q8DySWg">live Youtube stream</a>, where further instructions and quiz questions were given out.</p>
+<p>For each coding quiz, the Telegram bot coordinating the event wrote a <strong>special link</strong> to the channel conversation, that would redirect users to the voting conversation using <a href="https://core.telegram.org/bots#deep-linking">Telegram’s <em>deep link</em> feature</a>. Since each quiz had a unique identifier, the <em>deep link</em> would not only transfer the user to the bot, but also send out a hidden command.</p>
+<pre>/start IY4</pre>
+<p>(Where <em>IY4</em> is the hidden code for the 4th quiz question.)</p>
+<blockquote>Participants could also access the voting process by scanning a QR Code, containing the same <em>deep link</em>.</blockquote>
+<figure><img src="images/1_yHJta6mz619V2V_8efgV9Q.png" loading="lazy" decoding="async" width="819" height="356" alt=""><figcaption>Response and results of a quiz question.</figcaption></figure>
+<p>Once invoked, the bot did ask for an answer from the user.<br>As soon as the question was closed from our side (by simply providing the <em>correct</em> answer to the bot through a private chat), the bot did rank all correct answers by their timestamp and <strong>signal the results on the channel</strong>. The first 3 correct answers were publicly acknowledged with various, priceless, emoji medals. 🥇</p>
+<h3>Message processing</h3>
+<p>A total of <strong>974 participants</strong> (in terms of Telegram users) took part in the event. Since each person could register for a group of people (acting like a team leader), a total number of <strong>9689 people</strong> were involved with the game.<br><strong>14 questions</strong> were asked, collecting a total of <strong>7004 responses</strong> by participants, over approximately one hour and a half.</p>
+<blockquote>In other words: a <em>lot</em> of messages were sent to our bot over a short amount of time.</blockquote>
+<p>Telegram supports two <a href="https://core.telegram.org/bots/api#getting-updates">modes of fetching incoming messages</a>: <em>pull</em> and <em>push</em>.</p>
+<h4>Pull mode</h4>
+<p>In pull mode, your bot server periodically connects to a Telegram end-point and downloads part of the messages queued up for delivery. The delivery mechanism can be customized, for instance downloading a batch of messages in a single call and using <em>long-polling</em> to stall the request until some data can be returned.</p>
+<p>In theory, the pull method ensures higher efficiency: requests are sent out by your server, they can be controlled easily, and large batches of messages can be returned in a single HTTP data transfer.</p>
+<p>However, pull operations are <strong>synchronized</strong> by nature. The Telegram API disallows multiple parallel requests (since, of course, the pull request operates sequentially on the delivery queue).<br>While transferring one single large payload and performing one single JSON decode step may be more efficient, in pull mode you are indeed <strong>increasing the average response time</strong> of each message.<br>Moreover, after the download phase, data parallelism is entirely up to the developer. Handing off message handling to different threads can be more or less easy, depending on your development framework: in Go a <em>goroutine</em> can be dispatched for each message, while the same can be done for <em>async tasks</em> on any .NET language.</p>
+<blockquote>Pull mode synchronizes data transfer and makes parallel message processing harder for the developer.</blockquote>
+<h4>Push mode</h4>
+<p>This mode — which incidentally is the only mode of operation of many other messaging platforms — trades off the single, efficient data transfer step for <strong>multiple parallel message handling operations</strong>.</p>
+<p>Instead of waiting for your server to fetch messages, updates are pushed to your bot’s web server to an URL of your choice (Telegram requires HTTPS, a domain name, and a certificate). Instead of having to deal with parallelism, this mode <strong>exploits the inherent strong points of a web server</strong>: dealing with multiple incoming connections and handling them off efficiently to your code.</p>
+<blockquote>Your web server was born for this.</blockquote>
+<h3>Results</h3>
+<p>Based on our logs, <strong>7.414.458 messages</strong> where sent to the bot through Telegram, in little over 80 minutes of operation.</p>
+<figure><img src="images/1_AEEQXS2b6k0R-Q5aUmr8-g.png" loading="lazy" decoding="async" width="1627" height="764" alt=""><figcaption>An average of over <strong>380 messages per minute</strong> were handled, with a peak of around 1200. If you watch closely, you can get a hint of when the 14 questions were asked.</figcaption></figure>
+<p>Initially, the bot was configured to operate via pull mode and synchronous message handling, since this mode allows for far easier debugging and development. However, as soon as the event did start, we quickly discovered that the queue of messages was growing uncontrollably and <strong>the bot simply could not keep up</strong>.<br>We quickly <strong>switched over to push mode</strong>. Over the course of a couple of minutes the bot was able to catch up and performed very responsively for the rest of the event.</p>
+<p>The bot was running on a quad-core machine clocked at 2.6 GHz, with 2 GBs of RAM.</p>
+<p>In conclusion, <strong>pull mode</strong> is perfectly <strong>suited for bot development</strong>, since it allows developers to control the flow of messages and to carefully debug the code. Implementing an efficient message handling method via pull mode, however, probably isn’t worth the development effort. As <a href="http://web.neurotiko.com/bots/2015/08/03/bots-know-your-api/">suggested</a> by others, it is far <strong>easier to entrust the web server with handling parallel requests</strong> on your behalf.</p>
+<p>More generally — and this is very important in the context of the <a href="https://medium.com/chris-messina/2016-will-be-the-year-of-conversational-commerce-1586e85e3991#.uyci5eofc">recent focus on bots as a replacement of apps</a> — using a bot instead of a web site (for instance) gave us a very important advantage. The messaging platform, Telegram in this case, acts as an <em>extremely</em> scalable load balancer in front of your service. It handles message queuing, retrying, delivery, and push notifications — essentially Telegram offers an <strong>incredible amount of complex infrastructure for free</strong>. This allows you to focus on actual service development instead of having to worry about the plumbing.</p>
+<blockquote>The messaging platform is a large part of your service’s infrastructure and it does a lot of work on your behalf.</blockquote>
+<p>So, thank you, Telegram. 🙏</p>
+<p>This Europe Code Week event has been a good opportunity to appreciate the effects of an unusual load (for our scale of development) on our bot. Further similar events will be planned in the near future and we <strong>look forward to evaluating performance and scaling issues</strong> in deeper detail.</p>
+<p>The code used during the event is <a href="https://github.com/CodeMOOC/QuizzleBot">available on Github</a>.</p>
+<p>This post was first published on the <a href="http://informatica.uniurb.it/en/quizzle-scaling-a-bot-for-the-europe-code-week/">blog of the Applied Computer Science course at the University of Urbino</a>.</p>
+  </div>
+  
+</article>
+
+</main>
+<footer class="site-footer">
+  <p class="colophon">
+    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
+    All Rights Reserved.<br />
+    Posts were originally published on Medium; this is their home since 2026.
+  </p>
+</footer>
+</body>
+</html>

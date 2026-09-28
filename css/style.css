@@ -8,7 +8,7 @@
   --accent-soft: #e6f2ef;
   --rule: #e3e3dd;
   --code-bg: #f4f4f0;
-  --maxw: 44rem;
+  --maxw: 54rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -40,8 +40,21 @@ body {
      mentre il sito sta su https://, quindi il browser blocca il mixed content
      e mostra proprio questo fallback.
 
-     Corpo a 17 px. Courier e' largo: ogni carattere occupa 0.6 em, cioe' a
-     20 px stanno 58 caratteri per riga invece di 70. */
+     Corpo a 17 px. Courier e' largo: ogni carattere occupa esattamente 0.6 em,
+     cioe' 10.2 px a questa dimensione. Il conto della misura va fatto col font,
+     non a occhio. Il padding del body (1.25rem per lato) sta **fuori** dal
+     contenitore, quindi non si sottrae: contano solo i pixel di --maxw.
+
+         44rem = 704px -> 69 caratteri   (la misura fino al 28/9/2026)
+         54rem = 864px -> 84 caratteri   (quella scelta il 28/9/2026)
+         56rem = 896px -> 87 caratteri
+
+     Per centrare un numero di caratteri: larghezza = caratteri x 10.2, e
+     arrotondare al rem piu' vicino. 84 car. chiedono fra 857 e 867 px: 864px
+     (54rem) e' il multiplo di 16 piu' vicino.
+
+     (Qui c'era scritto "58 caratteri", che erano 69: la stima era sbagliata
+     due volte, prima nel numero e poi nel modo di calcolarlo.) */
   font-family: "Courier New", Courier, monospace;
   font-size: 1.0625rem;
   line-height: 1.6;
@@ -81,9 +94,19 @@ a:hover { text-decoration: underline; }
   justify-content: space-between;
 }
 
-.site-title { font-size: 1.4375rem; letter-spacing: .02em; font-weight: 700; }
+/* Il titolo del sito e' la testata, non un'etichetta: sta a 2.5rem (40px),
+   quasi il doppio dei 23px di prima. A 40px "ConvComp.it" occupa ~264px, che
+   stanno comodi accanto alla navigazione finche' la riga e' larga almeno
+   560px; sotto quella soglia (telefono) scala a 1.875rem (30px), che resta
+   grande senza andare a capo. */
+.site-title { font-size: 2.5rem; line-height: 1.1; letter-spacing: -.02em; font-weight: 700; }
 .site-title a { color: var(--fg); }
-.site-tagline { display: block; font-size: .875rem; color: var(--fg-soft); font-style: italic; }
+.site-tagline { display: block; margin-top: .35rem; font-size: .875rem; color: var(--fg-soft); font-style: italic; }
+
+/* La paternita' sta sotto la tagline, non dentro: la tagline alimenta anche
+   <title>, description e feed, e appiccicarle il nome renderebbe il titolo per
+   i motori lungo ~110 caratteri (Google lo tronca a ~60). Qui e' solo visibile. */
+.site-byline { display: block; margin-top: .15rem; font-size: .8125rem; color: var(--fg-soft); }
 
 .site-nav { display: flex; gap: 1.25rem; font-family: system-ui, sans-serif; font-size: .875rem; }
 .site-nav a { color: var(--fg-soft); }
@@ -119,8 +142,12 @@ a:hover { text-decoration: underline; }
   text-transform: uppercase;
 }
 
-.card-subtitle { margin: .6rem 0 .4rem; font-style: italic; color: var(--fg-soft); }
-.card-excerpt { margin: .4rem 0 .6rem; }
+/* Il nome dell'autore ospite, dentro la riga di data. E' piu' scuro del resto
+   della riga perche' e' l'informazione che conta: senza, un pezzo di un ospite
+   sembrerebbe scritto da chi tiene il blog. */
+.card-meta .by, .post-meta .by { color: var(--fg); font-weight: 600; }
+
+.card-subtitle { margin: .6rem 0 .4rem; font-style: italic; color: var(--fg-soft); }.card-excerpt { margin: .4rem 0 .6rem; }
 .card-more { margin: .5rem 0 0; font-family: system-ui, sans-serif; font-size: .875rem; }
 
 /* ---------- post ---------- */
@@ -191,7 +218,7 @@ a:hover { text-decoration: underline; }
 .embed-card-desc { display: block; margin-top: .25rem; color: var(--fg-soft); font-size: .875rem; }
 .embed-card-domain { display: block; margin-top: .5rem; color: var(--accent); font-size: .75rem; letter-spacing: .03em; }
 
-/* ---------- tag, archivio, origine ---------- */
+/* ---------- tag, archivio ---------- */
 
 .tags { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 1.5rem 0 0; }
 .tag {
@@ -207,9 +234,12 @@ a:hover { text-decoration: underline; }
   color: var(--fg-soft); display: inline-block; min-width: 6rem;
 }
 
-.origin {
-  margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule);
-  font-family: system-ui, sans-serif; font-size: .8125rem; color: var(--fg-soft);
-}
-
 .empty { color: var(--fg-soft); font-style: italic; }
+
+/* ---------- telefono ---------- */
+
+/* Il titolo del sito e' grande per scelta, ma 40px su un telefono non stanno:
+   li sotto torna a 30px, che resta il doppio di prima. */
+@media (max-width: 560px) {
+  .site-title { font-size: 1.875rem; }
+}

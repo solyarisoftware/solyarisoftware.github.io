@@ -12,10 +12,68 @@
 <meta property="og:title" content="About PayChat: in-chat payment flow — ConvComp.it" />
 <meta property="og:description" content="Thanks Alessio for your notes!" />
 <meta property="og:url" content="https://convcomp.it/about-paychat-in-chat-payment-flow.html" />
+<meta property="og:image" content="https://convcomp.it/images/1_3sFzhOpYEGCOnYui9xWh1w.png" />
+<meta property="og:image:width" content="1600" />
+<meta property="og:image:height" content="900" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://convcomp.it/images/1_3sFzhOpYEGCOnYui9xWh1w.png" />
+<meta name="twitter:site" content="@solyarisoftware" />
+<meta name="twitter:creator" content="@solyarisoftware" />
 
 <link rel="alternate" type="application/rss+xml" title="ConvComp.it" href="/feed.xml" />
 <link rel="stylesheet" href="/css/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://convcomp.it/about-paychat-in-chat-payment-flow.html#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://convcomp.it/about-paychat-in-chat-payment-flow.html"
+      },
+      "headline": "About PayChat: in-chat payment flow",
+      "description": "Thanks Alessio for your notes!",
+      "datePublished": "2017-01-03",
+      "dateModified": "2017-01-03",
+      "author": {
+        "@type": "Person",
+        "@id": "https://convcomp.it/#person",
+        "name": "Giorgio Robino",
+        "url": "https://convcomp.it/about.html"
+      },
+      "publisher": {
+        "@id": "https://convcomp.it/#person"
+      },
+      "image": [
+        "https://convcomp.it/images/1_3sFzhOpYEGCOnYui9xWh1w.png"
+      ],
+      "url": "https://convcomp.it/about-paychat-in-chat-payment-flow.html",
+      "isPartOf": {
+        "@id": "https://convcomp.it/#blog"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://convcomp.it/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About PayChat: in-chat payment flow",
+          "item": "https://convcomp.it/about-paychat-in-chat-payment-flow.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -23,10 +81,11 @@
   <div class="site-brand">
     <div class="site-title"><a href="/">ConvComp.it</a></div>
     <span class="site-tagline">Conversational Computing — Advancing LLM-Based Applications</span>
-    <span class="site-byline">A personal blog by Giorgio Robino</span>
+    <span class="site-byline">A personal blog by Giorgio Robino — formerly a Medium publication.</span>
   </div>
   <nav class="site-nav" aria-label="Main">
     <a href="/">Blog</a>
+    <a href="/about.html">About</a>
     <a href="/archive.html">Archive</a>
     <a href="/feed.xml">RSS</a>
   </nav>
@@ -56,7 +115,7 @@
 <p>I see. I designed PayChat also for micro-payments (let say under 5$… and this is a possible killer application use case), and with an optional absence of confirmation (steps 4 and 5 in PayChat dotted lines in sequence diagram). <br>In this scenario (no confirmation) a merchant fraud is possible, I admit, but with the explicit confirmation instead, the fraud is a long shot, because is the user that accept the incoming request (from the bank)<br> <br>In my opinion is very important to reduce the friction in the online chat payment flow. Some backend strategies have to be set-up to limit possible frauds (e.g. user could define thresholds values in the home banking, or maybe a list of trusted merchants, or user could claim an error in payment with an end-of -the day procedure, etc. etc., TBD).</p>
 <p><strong>2. User identifier</strong></p>
 <blockquote>IBAN. Most of the world does not have IBAN. The proposal should be reworked to work with a generic set of payment credentials…</blockquote>
-<p>Yes, mentioning IBAN in sequence diagram is measliding, because that’s the bank account ID used in Italy (Europe), and of course any other unique user bank account ID fit well, but please note this ID is not really involved in sketched flow: in my view, merchant payment transaction refer to the user identifier inside the chat app, by example, in my case, my username in Telegram Messenger is <a href="https://medium.com/u/452c0445f9d5"><em>@</em></a><em>solyarisoftware</em>, the identifier that user, as bank customer, stored in his home banking profile.</p>
+<p>Yes, mentioning IBAN in sequence diagram is measliding, because that’s the bank account ID used in Italy (Europe), and of course any other unique user bank account ID fit well, but please note this ID is not really involved in sketched flow: in my view, merchant payment transaction refer to the user identifier inside the chat app, by example, in my case, my username in Telegram Messenger is <a href="https://www.linkedin.com/in/giorgiorobino/"><em>@</em></a><em>solyarisoftware</em>, the identifier that user, as bank customer, stored in his home banking profile.</p>
 <p><strong>3. final price</strong></p>
 <blockquote>There must be a mechanism for the user to feedback on the first PaymentRequest so that — if necessary — the total amount can be recalculated (e.g. import taxes, shipment fees, conversion rates if the customer decides to pay in a different currency, …). You can look at the PaymentRequest proposal for inspiration.</blockquote>
 <p>You are right. I assumed that the payment flow start when the final price is defined. <br>BTW, I think paypal is perfect for both</p>
@@ -66,7 +125,7 @@
 <p>See also a PayChat simplified sequence diagram at slide 36 here:</p>
 <figure><img src="images/1_3sFzhOpYEGCOnYui9xWh1w.png" loading="lazy" decoding="async" width="1600" height="900" alt=""></figure>
 <p class="embed embed--card"><a class="embed-card" href="https://medium.com/convcomp2016/naif-ruby-micro-framework-to-build-dumb-chat-machines-5c552a8c8f7e"><span class="embed-card-title">Naif — Ruby micro framework to build dumb chat machines</span><span class="embed-card-desc">talk, 15 December 2016 @ #MilanoChatbot Meetup</span><span class="embed-card-domain">medium.com</span></a></p>
-<p>Please feel free to contact me also via email: <a href="mailto:giorgio.robino@gmail.com">giorgio.robino@gmail.com</a></p>
+<p>Please feel free to contact me also via email: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#103;&#105;&#111;&#114;&#103;&#105;&#111;&#46;&#114;&#111;&#98;&#105;&#110;&#111;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#103;&#105;&#111;&#114;&#103;&#105;&#111;&#46;&#114;&#111;&#98;&#105;&#110;&#111;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></p>
 <p>Happy new year to you!<br>regards<br>Giorgio</p>
   </div>
   
@@ -75,8 +134,6 @@
 </main>
 <footer class="site-footer">
   <p class="colophon">
-    Copyright &copy; 2016&ndash;2026 Giorgio Robino &mdash; ConvComp.it.
-    All Rights Reserved.<br />
     Posts were originally published on Medium; this is their home since 2026.
   </p>
 </footer>

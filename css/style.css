@@ -94,6 +94,27 @@ a:hover { text-decoration: underline; }
   justify-content: space-between;
 }
 
+/* La tavola della pagina About: l'incisione "Designing with Cogitators"
+   (G. Robino, Op. 54), subito sotto il titolo della pagina.
+   E' un PNG con il foglio **trasparente** e il solo inchiostro nero: cosi' il
+   fondo e' quello della pagina (--bg), in chiaro e in scuro, invece del bianco
+   della scansione. In tema scuro l'inchiostro nero sparirebbe: `invert()` lo
+   porta a bianco e lascia intatta la trasparenza. */
+.plate { margin: 1.75rem 0 2.25rem; }
+.plate img { display: block; width: 100%; height: auto; }
+.plate figcaption {
+  font-family: system-ui, sans-serif; font-size: .8125rem; color: var(--fg-soft);
+  text-align: center; margin-top: .6rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .plate img { filter: invert(1); }
+}
+
+/* L'elenco degli autori ospiti, generato dal build: sono nomi, non testo da
+   leggere di fila — la riga si spezza da sola senza spezzare i nomi. */
+.authors { font-family: system-ui, sans-serif; font-size: .9375rem; color: var(--fg-soft); }
+
 /* Il titolo del sito e' la testata, non un'etichetta: sta a 2.5rem (40px),
    quasi il doppio dei 23px di prima. A 40px "ConvComp.it" occupa ~264px, che
    stanno comodi accanto alla navigazione finche' la riga e' larga almeno
@@ -121,6 +142,27 @@ a:hover { text-decoration: underline; }
   font-size: .8125rem;
   color: var(--fg-soft);
 }
+
+/* Il cuore accanto al titolo del tributo. SVG in linea, non un'emoji e non un
+   font di icone: un'emoji la disegna il sistema (e su Windows diventa un cuore
+   rosso lucido che non c'entra niente con questa pagina), un font di icone
+   sarebbe una richiesta di rete in più. Il colore viene da `--accent`, quindi
+   segue il tema chiaro/scuro; le dimensioni da `em`, quindi scalano col titolo.
+   `aria-hidden` perché è decorativo: il testo del titolo resta «For Giuditta». */
+.heart { width: .8em; height: .8em; margin-left: .35em; vertical-align: -.06em; fill: var(--accent); }
+
+/* ---------- copertina della card in testa ---------- */
+
+/* Una sola card della home ha un'immagine: quella in cima. Non è una griglia di
+   miniature — le prime immagini dell'archivio Medium sono slide, diagrammi,
+   loghi, screenshot, e in fila diventano un collage che litiga con la pagina.
+   L'immagine è un pezzo in più del template della card (`{{IMAGE_HTML}}`), non un
+   template a parte: così la card di testa mostra sottotitolo, trafiletto, tag e
+   data come tutte le altre.
+   È l'immagine originale dell'articolo, senza ritaglio. `width`/`height` nel
+   markup evitano il salto di layout mentre arriva. */
+.card-cover { display: block; margin-bottom: 1.25rem; }
+.card-cover img { display: block; width: 100%; height: auto; }
 
 /* ---------- indice ---------- */
 
